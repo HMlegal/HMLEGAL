@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones de Servicio | Cybercrimen.cl</title>
+    
+    <meta name="robots" content="noindex, follow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#B5952F',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617; /* Slate 950 */
+            color: #e2e8f0;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+        
+        /* Animaciones */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos de contenido legal */
+        .legal-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #D4AF37;
+            margin-top: 3rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 0.75rem;
+            scroll-margin-top: 100px; /* Offset para el header fijo */
+        }
+        
+        .legal-content p, .legal-content li {
+            line-height: 1.8;
+            color: #94a3b8;
+            margin-bottom: 1.25rem;
+            text-align: justify; 
+        }
+        
+        .legal-content ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .legal-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .legal-content ul li::before {
+            content: "■";
+            color: #D4AF37;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 0.75rem;
+            line-height: 2.2;
+        }
+
+        .legal-content strong {
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        /* Estilos del índice lateral */
+        .toc-link.active {
+            color: #D4AF37;
+            border-left-color: #D4AF37;
+            background-color: rgba(30, 41, 59, 0.5); /* slate-800 */
+        }
+        
+        /* Ocultar barra de scroll en el índice */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen bg-grid selection:bg-gold-500/30 selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-900/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="https://hmlegal.cl/cybercrimen/home.html" class="flex-shrink-0 flex items-center gap-3 transition-transform hover:scale-105">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Cybercrimen Logo" class="h-10 md:h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x80/0f172a/D4AF37?text=HM+LEGAL'">
+            </a>
+            
+            <div class="flex items-center gap-4 md:gap-6">
+                <!-- Etiqueta de Documento (Desktop) -->
+                <span class="hidden lg:flex text-xs text-red-500 items-center gap-2 border border-red-900/50 bg-red-900/10 px-3 py-1.5 rounded-full font-mono tracking-wide" data-es='<i class="fa-solid fa-scale-balanced"></i> CONDICIONES DE CONTRATACIÓN' data-en='<i class="fa-solid fa-scale-balanced"></i> TERMS OF ENGAGEMENT'>
+                    <i class="fa-solid fa-scale-balanced"></i> CONDICIONES DE CONTRATACIÓN
+                </span>
+
+                <!-- Selector de Idioma -->
+                <div class="flex items-center gap-2 bg-slate-900 rounded-full px-3 py-1 border border-slate-800">
+                    <button onclick="changeLang('es')" id="btn-es" class="text-xs font-semibold text-gold-400 transition-colors">ES</button>
+                    <span class="text-slate-600 text-xs">|</span>
+                    <button onclick="changeLang('en')" id="btn-en" class="text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors">EN</button>
+                </div>
+                
+                <!-- Botón Volver (Desktop) -->
+                <a href="https://hmlegal.cl/cybercrimen/home.html" class="hidden sm:flex items-center gap-2 bg-transparent hover:bg-slate-900 border border-slate-700 hover:border-gold-500/50 text-slate-300 hover:text-gold-400 font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm" data-es='<i class="fa-solid fa-arrow-left"></i> Volver al Inicio' data-en='<i class="fa-solid fa-arrow-left"></i> Back to Home'>
+                    <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                </a>
+                
+                <!-- Botón Volver (Móvil) -->
+                <a href="https://hmlegal.cl/cybercrimen/home.html" class="sm:hidden flex items-center justify-center bg-slate-900 border border-slate-700 text-slate-400 hover:text-gold-400 w-9 h-9 rounded-lg transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-24">
+        
+        <!-- Hero Section del Documento -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 fade-in-up">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight" data-es="Términos y Condiciones de Servicio Legal" data-en="Terms and Conditions of Legal Service">Términos y Condiciones de Servicio Legal</h1>
+                <p class="text-slate-400 font-mono text-sm inline-block border-b border-slate-800 pb-2" data-es="Última actualización de protocolo: 01 de julio de 2026" data-en="Last protocol update: July 1, 2026">Última actualización de protocolo: 01 de julio de 2026</p>
+            </div>
+        </div>
+
+        <!-- Layout con Sidebar -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 relative">
+                
+                <!-- Índice Lateral (Sidebar) -->
+                <aside class="hidden lg:block lg:col-span-3 relative fade-in-up">
+                    <div class="sticky top-28 bg-slate-900/30 border border-slate-800 rounded-xl p-6 max-h-[80vh] overflow-y-auto no-scrollbar backdrop-blur-sm">
+                        <h3 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4" data-es="Índice del Documento" data-en="Table of Contents">Índice del Documento</h3>
+                        <nav id="toc">
+                            <ul class="space-y-1 text-sm">
+                                <li><a href="#sec-1" class="toc-link block py-2 px-3 border-l-2 border-transparent text-slate-400 hover:text-white transition-colors" data-es="1. Partes y Especialidad" data-en="1. Parties and Specialty">1. Partes y Especialidad</a></li>
+                                <li><a href="#sec-2" class="toc-link block py-2 px-3 border-l-2 border-transparent text-slate-400 hover:text-white transition-colors" data-es="2. Naturaleza del Servicio" data-en="2. Nature of Service">2. Naturaleza del Servicio</a></li>
+                                <li><a href="#sec-3" class="toc-link block py-2 px-3 border-l-2 border-transparent text-slate-400 hover:text-white transition-colors" data-es="3. Evaluación y Umbral" data-en="3. Evaluation and Threshold">3. Evaluación y Umbral</a></li>
+                                <li><a href="#sec-4" class="toc-link block py-2 px-3 border-l-2 border-transparent text-slate-400 hover:text-white transition-colors" data-es="4. Honorarios y Costas" data-en="4. Fees and Costs">4. Honorarios y Costas</a></li>
+                                <li><a href="#sec-5" class="toc-link block py-2 px-3 border-l-2 border-transparent text-slate-400 hover:text-white transition-colors" data-es="5. Veracidad y Colaboración" data-en="5. Truthfulness & Collaboration">5. Veracidad y Colaboración</a></li>
+                                <li><a href="#sec-6" class="toc-link block py-2 px-3 border-l-2 border-transparent text-slate-400 hover:text-white transition-colors" data-es="6. Confidencialidad" data-en="6. Confidentiality">6. Confidencialidad</a></li>
+                                <li><a href="#sec-7" class="toc-link block py-2 px-3 border-l-2 border-transparent text-slate-400 hover:text-white transition-colors" data-es="7. Propiedad Intelectual" data-en="7. Intellectual Property">7. Propiedad Intelectual</a></li>
+                                <li><a href="#sec-8" class="toc-link block py-2 px-3 border-l-2 border-transparent text-slate-400 hover:text-white transition-colors" data-es="8. Jurisdicción" data-en="8. Jurisdiction">8. Jurisdicción</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Contenido Principal -->
+                <div class="lg:col-span-9 bg-slate-900/50 border border-slate-800 p-8 md:p-12 rounded-xl shadow-2xl backdrop-blur-sm relative overflow-hidden fade-in-up">
+                    
+                    <!-- Marca de agua decorativa -->
+                    <i class="fa-solid fa-gavel absolute -right-20 -bottom-20 text-[20rem] text-slate-800/10 z-0 pointer-events-none"></i>
+                    
+                    <div class="legal-content relative z-10 text-justify">
+                        
+                        <div class="bg-gold-500/10 border border-gold-500/20 rounded-lg p-5 mb-8">
+                            <p class="text-gold-400 text-sm m-0" data-es="<strong>Aviso Importante:</strong> El uso de nuestros canales de contacto, plataforma de diagnóstico y servicios implica la aceptación íntegra de los siguientes Términos y Condiciones de Contratación." data-en="<strong>Important Notice:</strong> The use of our contact channels, diagnostic platform, and services implies full acceptance of the following Terms and Conditions of Engagement."><strong>Aviso Importante:</strong> El uso de nuestros canales de contacto, plataforma de diagnóstico y servicios implica la aceptación íntegra de los siguientes Términos y Condiciones de Contratación.</p>
+                        </div>
+
+                        <section id="sec-1" class="scroll-section">
+                            <h2 data-es="1. Identificación de las Partes y Especialidad" data-en="1. Identification of the Parties and Specialty">1. Identificación de las Partes y Especialidad</h2>
+                            <p data-es="El presente documento rige la relación contractual para la prestación de servicios legales especializados en alta tecnología, delitos informáticos y litigios complejos. Las partes son:" data-en="This document governs the contractual relationship for the provision of specialized legal services in high technology, cybercrimes, and complex litigation. The parties are:">El presente documento rige la relación contractual para la prestación de servicios legales especializados en alta tecnología, delitos informáticos y litigios complejos. Las partes son:</p>
+                            <p data-es="<strong>El Estudio Jurídico:</strong> HM Legal LTDA., RUT 77.771.384-1, representada legalmente por don Horacio Morales Nancavil, abogado. Domicilio principal en Avenida O’Higgins N° 1186, Oficina 1107, Concepción, con operaciones en su división penal Cybercrimen.cl (en adelante, 'HM Legal' o 'el Despacho')." data-en="<strong>The Law Firm:</strong> HM Legal LTDA., RUT 77.771.384-1, legally represented by Mr. Horacio Morales Nancavil, attorney. Main office at Avenida O’Higgins No. 1186, Office 1107, Concepción, operating its penal division Cybercrimen.cl (hereinafter, 'HM Legal' or 'the Firm')."><strong>El Estudio Jurídico:</strong> HM Legal LTDA., RUT 77.771.384-1, representada legalmente por don Horacio Morales Nancavil, abogado. Domicilio principal en Avenida O’Higgins N° 1186, Oficina 1107, Concepción, con operaciones en su división penal Cybercrimen.cl (en adelante, 'HM Legal' o 'el Despacho').</p>
+                            <p data-es="<strong>El Cliente:</strong> Toda persona natural o jurídica, víctima o investigado, que somete un caso a evaluación mediante la plataforma Cybercrimen.cl y posteriormente contrata nuestros servicios de defensa técnica penal." data-en="<strong>The Client:</strong> Any natural or legal person, victim or investigated, who submits a case for evaluation through the Cybercrimen.cl platform and subsequently contracts our technical criminal defense services."><strong>El Cliente:</strong> Toda persona natural o jurídica, víctima o investigado, que somete un caso a evaluación mediante la plataforma Cybercrimen.cl y posteriormente contrata nuestros servicios de defensa técnica penal.</p>
+                        </section>
+
+                        <section id="sec-2" class="scroll-section">
+                            <h2 data-es="2. Naturaleza de los Servicios (Obligación de Medios)" data-en="2. Nature of the Services (Obligation of Means)">2. Naturaleza de los Servicios (Obligación de Medios)</h2>
+                            <p data-es="HM Legal presta servicios de asesoría, redacción de querellas, defensas y ejecución de oficios en litigios de cibercrimen (estafas criptográficas, ransomware, fraude corporativo BEC, lavado de activos). La labor profesional del Despacho constituye siempre una <strong>obligación de medios y no de resultados</strong>." data-en="HM Legal provides advisory services, drafting of complaints, defenses, and execution of legal requests in cybercrime litigation (crypto scams, ransomware, BEC corporate fraud, money laundering). The Firm's professional work always constitutes an <strong>obligation of means and not of results</strong>.">HM Legal presta servicios de asesoría, redacción de querellas, defensas y ejecución de oficios en litigios de cibercrimen (estafas criptográficas, ransomware, fraude corporativo BEC, lavado de activos). La labor profesional del Despacho constituye siempre una <strong>obligación de medios y no de resultados</strong>.</p>
+                            <p data-es="Nos comprometemos a aplicar el máximo rigor jurídico y forense; sin embargo, no garantizamos sentencias favorables, recuperación total de fondos en exchanges (como Binance, Kraken u otros), ni la condena o absolución definitiva, dado que dichos resultados dependen de la apreciación soberana de los Tribunales de Justicia y la cooperación internacional." data-en="We commit to applying maximum legal and forensic rigor; however, we do not guarantee favorable judgments, full recovery of funds in exchanges (such as Binance, Kraken, or others), nor definitive conviction or acquittal, as such results depend on the sovereign appreciation of the Courts of Justice and international cooperation.">Nos comprometemos a aplicar el máximo rigor jurídico y forense; sin embargo, no garantizamos sentencias favorables, recuperación total de fondos en exchanges (como Binance, Kraken u otros), ni la condena o absolución definitiva, dado que dichos resultados dependen de la apreciación soberana de los Tribunales de Justicia y la cooperación internacional.</p>
+                        </section>
+
+                        <section id="sec-3" class="scroll-section">
+                            <h2 data-es="3. Evaluación de Casos y Umbral Patrimonial" data-en="3. Case Evaluation and Patrimonial Threshold">3. Evaluación de Casos y Umbral Patrimonial</h2>
+                            <p data-es="Debido a la alta complejidad técnica que exige el rastreo digital y el peritaje internacional, Cybercrimen.cl evalúa y asume exclusivamente casos cuyo perjuicio o riesgo económico <strong>supere el umbral de los $5.000 USD</strong> (o su equivalente), o aquellos donde el Cliente vea comprometida su libertad personal, su imagen o reputación, o la continuidad operacional de su empresa. El uso del formulario de evaluación no constituye, por sí solo, un mandato judicial ni obliga a HM Legal a asumir la representación de la causa." data-en="Due to the high technical complexity required by digital tracking and international expertise, Cybercrimen.cl exclusively evaluates and assumes cases whose damage or economic risk <strong>exceeds the threshold of $5,000 USD</strong> (or equivalent), or those where the Client's personal freedom, image or reputation, or operational continuity are compromised. The use of the evaluation form does not, by itself, constitute a judicial mandate nor obliges HM Legal to assume the representation of the case.">Debido a la alta complejidad técnica que exige el rastreo digital y el peritaje internacional, Cybercrimen.cl evalúa y asume exclusivamente casos cuyo perjuicio o riesgo económico <strong>supere el umbral de los $5.000 USD</strong> (o su equivalente), o aquellos donde el Cliente vea comprometida su libertad personal, su imagen o reputación, o la continuidad operacional de su empresa. El uso del formulario de evaluación no constituye, por sí solo, un mandato judicial ni obliga a HM Legal a asumir la representación de la causa.</p>
+                        </section>
+
+                        <section id="sec-4" class="scroll-section">
+                            <h2 data-es="4. Honorarios y Costas Forenses" data-en="4. Fees and Forensic Costs">4. Honorarios y Costas Forenses</h2>
+                            <p data-es="La estructura de honorarios en derecho penal tecnológico se define caso a caso, una vez superada la evaluación de viabilidad. Estos pueden estructurarse en base a un honorario fijo, una provisión de fondos para gastos y/o una cuota litis (porcentaje sobre la recuperación de activos), lo cual quedará plasmado en el respectivo <strong>Contrato de Prestación de Servicios Profesionales</strong>." data-en="The fee structure in technological criminal law is defined on a case-by-case basis, once the viability evaluation is passed. These may be structured based on a fixed fee, a provision of funds for expenses, and/or a contingency fee (percentage of asset recovery), which will be reflected in the respective <strong>Professional Services Agreement</strong>.">La estructura de honorarios en derecho penal tecnológico se define caso a caso, una vez superada la evaluación de viabilidad. Estos pueden estructurarse en base a un honorario fijo, una provisión de fondos para gastos y/o una cuota litis (porcentaje sobre la recuperación de activos), lo cual quedará plasmado en el respectivo <strong>Contrato de Prestación de Servicios Profesionales</strong>.</p>
+                            <p data-es="El Cliente asume expresamente que los costos de <strong>peritajes informáticos externos, auditorías de servidores, empresas de rastreo On-Chain (ej. Chainalysis) y traducciones certificadas</strong> no están incluidos en los honorarios legales, y deberán ser financiados de forma independiente por el Cliente según la estrategia acordada." data-en="The Client expressly assumes that the costs of <strong>external computer expert reports, server audits, On-Chain tracking companies (e.g., Chainalysis), and certified translations</strong> are not included in the legal fees, and must be financed independently by the Client according to the agreed strategy.">El Cliente asume expresamente que los costos de <strong>peritajes informáticos externos, auditorías de servidores, empresas de rastreo On-Chain (ej. Chainalysis) y traducciones certificadas</strong> no están incluidos en los honorarios legales, y deberán ser financiados de forma independiente por el Cliente según la estrategia acordada.</p>
+                        </section>
+
+                        <section id="sec-5" class="scroll-section">
+                            <h2 data-es="5. Veracidad de la Evidencia y Colaboración" data-en="5. Truthfulness of Evidence and Collaboration">5. Veracidad de la Evidencia y Colaboración</h2>
+                            <p data-es="La eficacia de nuestra defensa depende críticamente de la información que usted proporciona. El Cliente se obliga a:" data-en="The effectiveness of our defense critically depends on the information you provide. The Client is obliged to:">La eficacia de nuestra defensa depende críticamente de la información que usted proporciona. El Cliente se obliga a:</p>
+                            <ul>
+                                <li data-es="Entregar antecedentes veraces, completos y no manipulados (logs, correos, capturas, direcciones hash)." data-en="Provide truthful, complete, and unmanipulated background information (logs, emails, screenshots, hash addresses).">Entregar antecedentes veraces, completos y no manipulados (logs, correos, capturas, direcciones hash).</li>
+                                <li data-es="Abstenerse de destruir evidencia digital, reiniciar servidores comprometidos o alertar a los sospechosos antes de iniciar el protocolo legal." data-en="Refrain from destroying digital evidence, restarting compromised servers, or alerting suspects before initiating the legal protocol.">Abstenerse de destruir evidencia digital, reiniciar servidores comprometidos o alertar a los sospechosos antes de iniciar el protocolo legal.</li>
+                                <li data-es="No utilizar a HM Legal para fines ilícitos, perjurio procesal o legitimación de activos de origen fraudulento." data-en="Not use HM Legal for illicit purposes, procedural perjury, or legitimization of assets of fraudulent origin.">No utilizar a HM Legal para fines ilícitos, perjurio procesal o legitimación de activos de origen fraudulento.</li>
+                            </ul>
+                            <p data-es="Si HM Legal detecta ocultamiento malicioso de información o indicios de lavado de activos por parte del Cliente, el Despacho podrá renunciar inmediatamente al patrocinio, sin derecho a reembolso de los honorarios ya devengados." data-en="If HM Legal detects malicious concealment of information or signs of money laundering by the Client, the Firm may immediately resign from representation, without the right to reimbursement of fees already accrued.">Si HM Legal detecta ocultamiento malicioso de información o indicios de lavado de activos por parte del Cliente, el Despacho podrá renunciar inmediatamente al patrocinio, sin derecho a reembolso de los honorarios ya devengados.</p>
+                        </section>
+
+                        <section id="sec-6" class="scroll-section">
+                            <h2 data-es="6. Secreto Profesional y Confidencialidad" data-en="6. Professional Secrecy and Confidentiality">6. Secreto Profesional y Confidencialidad</h2>
+                            <p data-es="Acorde a nuestra Política de Privacidad, toda comunicación y documentación intercambiada con Cybercrimen.cl está protegida por el Secreto Profesional más absoluto. Nos obligamos a no revelar tácticas de defensa, montos defraudados ni identidades a la prensa o a terceros, salvo instrucción expresa del Cliente o requerimiento judicial ineludible." data-en="According to our Privacy Policy, all communication and documentation exchanged with Cybercrimen.cl is protected by the most absolute Professional Secrecy. We are obliged not to reveal defense tactics, defrauded amounts, or identities to the press or third parties, except upon express instruction from the Client or unavoidable judicial requirement.">Acorde a nuestra Política de Privacidad, toda comunicación y documentación intercambiada con Cybercrimen.cl está protegida por el Secreto Profesional más absoluto. Nos obligamos a no revelar tácticas de defensa, montos defraudados ni identidades a la prensa o a terceros, salvo instrucción expresa del Cliente o requerimiento judicial ineludible.</p>
+                        </section>
+
+                        <section id="sec-7" class="scroll-section">
+                            <h2 data-es="7. Propiedad Intelectual de la Estrategia" data-en="7. Intellectual Property of the Strategy">7. Propiedad Intelectual de la Estrategia</h2>
+                            <p data-es="Los modelos de querella, argumentos jurídicos, metodologías de rastreo y minutas de defensa elaborados por HM Legal son propiedad intelectual del Despacho. El Cliente no podrá ceder, vender o utilizar dichos documentos para otros litigios sin la autorización escrita de HM Legal." data-en="The complaint models, legal arguments, tracking methodologies, and defense minutes prepared by HM Legal are the intellectual property of the Firm. The Client may not assign, sell, or use such documents for other litigation without the written authorization of HM Legal.">Los modelos de querella, argumentos jurídicos, metodologías de rastreo y minutas de defensa elaborados por HM Legal son propiedad intelectual del Despacho. El Cliente no podrá ceder, vender o utilizar dichos documentos para otros litigios sin la autorización escrita de HM Legal.</p>
+                        </section>
+
+                        <section id="sec-8" class="scroll-section">
+                            <h2 data-es="8. Jurisdicción y Resolución de Controversias" data-en="8. Jurisdiction and Dispute Resolution">8. Jurisdicción y Resolución de Controversias</h2>
+                            <p data-es="Para todos los efectos legales, contractuales y procesales derivados de la interpretación o cumplimiento de estos Términos, las partes fijan su domicilio en la ciudad de Concepción, Chile, y se someten a la jurisdicción de sus Tribunales Ordinarios de Justicia, renunciando a cualquier otro fuero que pudiera corresponderles por domicilio presente o futuro." data-en="For all legal, contractual, and procedural effects derived from the interpretation or fulfillment of these Terms, the parties establish their domicile in the city of Concepción, Chile, and submit to the jurisdiction of its Ordinary Courts of Justice, waiving any other jurisdiction that might correspond to them by present or future domicile.">Para todos los efectos legales, contractuales y procesales derivados de la interpretación o cumplimiento de estos Términos, las partes fijan su domicilio en la ciudad de Concepción, Chile, y se someten a la jurisdicción de sus Tribunales Ordinarios de Justicia, renunciando a cualquier otro fuero que pudiera corresponderles por domicilio presente o futuro.</p>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 relative z-10 fade-in-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Logo" class="h-8 w-auto">
+            </div>
+            
+            <div class="text-slate-500 text-sm text-center md:text-left">
+                <p data-es="&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados." data-en="&copy; 2026 HM Legal | Technological Criminal Division. All rights reserved.">&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados.</p>
+                <p class="mt-1 font-mono text-xs">Avenida O’Higgins 1186, Of. 1107 | contacto@hmlegal.cl</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+                <a href="https://hmlegal.cl/cybercrimen/documentos/politica.pdf" target="_blank" class="hover:text-gold-400 transition-colors" data-es="Política de Privacidad" data-en="Privacy Policy">Política de Privacidad</a>
+                <span>|</span>
+                <a href="https://hmlegal.cl/cybercrimen/home.html" class="hover:text-gold-400 transition-colors" data-es="Volver al Inicio" data-en="Back to Home">Volver al Inicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. Lógica Bilingüe (Mejorada para coincidir con Home) ---
+        let currentLang = 'es';
+
+        function changeLang(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-es]').forEach(el => {
+                if (el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea') {
+                    if (el.placeholder) el.placeholder = el.getAttribute(`data-${lang}`);
+                } else if (el.tagName.toLowerCase() === 'option') {
+                     el.textContent = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            // Actualizar estado visual de los botones
+            if(lang === 'es') {
+                document.getElementById('btn-es').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-en').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            } else {
+                document.getElementById('btn-en').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-es').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            }
+
+            // Actualizar título de la pestaña
+            document.title = lang === 'es' ? 'Términos y Condiciones de Servicio | Cybercrimen.cl' : 'Terms and Conditions of Service | Cybercrimen.cl';
+        }
+
+        // --- 2. Intersection Observer para Animaciones (Fade-in-up) ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerFade = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach((el) => {
+                observerFade.observe(el);
+            });
+
+            // --- 3. Lógica para resaltar el Índice Lateral activo ---
+            const sections = document.querySelectorAll('.scroll-section');
+            const navLinks = document.querySelectorAll('.toc-link');
+
+            const observerToc = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remover clase activa de todos
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        // Añadir clase activa al link correspondiente
+                        const id = entry.target.getAttribute('id');
+                        const activeLink = document.querySelector(`.toc-link[href="#${id}"]`);
+                        if(activeLink) activeLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-100px 0px -60% 0px' }); // Ajuste para que se active cuando el título toca el tercio superior
+
+            sections.forEach(section => observerToc.observe(section));
+        });
+    </script>
+</body>
+</html>

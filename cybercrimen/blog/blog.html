@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog y Actualidad Jurídica | HM Legal - División Penal Tecnológica</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#AA8C2C',
+                        },
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617;
+            color: #e2e8f0;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        
+        /* Animaciones */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos del Blog Desplegable */
+        .blog-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+            opacity: 0;
+        }
+        .blog-content.expanded {
+            opacity: 1;
+        }
+        
+        .article-body p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+            line-height: 1.8;
+            color: #94a3b8; /* slate-400 */
+        }
+        .article-body h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .article-body strong {
+            color: #D4AF37;
+        }
+        .author-avatar {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .group:hover .author-avatar {
+            filter: grayscale(0%);
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen bg-grid selection:bg-gold-500/30 selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="https://hmlegal.cl/cybercrimen/homecc.html" class="flex items-center gap-2 transition-transform hover:scale-105">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Cybercrimen Logo" class="h-10 md:h-12 w-auto object-contain">
+            </a>
+            
+            <div class="flex items-center gap-4 md:gap-6">
+                <a href="https://hmlegal.cl/cybercrimen/nosotros.html" class="hidden md:block text-sm font-medium text-slate-400 hover:text-white transition-colors" data-es="Quiénes Somos" data-en="About Us">Quiénes Somos</a>
+                <a href="https://hmlegal.cl/cybercrimen/blog/blog.html" class="hidden md:block text-sm font-semibold text-gold-400" data-es="Blog" data-en="Blog">Blog</a>
+
+                <!-- Selector de Idioma -->
+                <div class="flex items-center gap-2 bg-slate-900 rounded-full px-3 py-1 border border-slate-700">
+                    <button onclick="changeLang('es')" id="btn-es" class="text-xs font-semibold text-gold-400 transition-colors">ES</button>
+                    <span class="text-slate-600 text-xs">|</span>
+                    <button onclick="changeLang('en')" id="btn-en" class="text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors">EN</button>
+                </div>
+                
+                <!-- Botón Volver -->
+                <a href="https://hmlegal.cl/cybercrimen/homecc.html" class="hidden sm:flex items-center gap-2 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-gold-400 font-semibold py-2 px-4 rounded-md transition-all duration-300 text-sm" data-es='<i class="fa-solid fa-arrow-left"></i> Volver al Inicio' data-en='<i class="fa-solid fa-arrow-left"></i> Back to Home'>
+                    <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                </a>
+                <a href="https://hmlegal.cl/cybercrimen/homecc.html" class="sm:hidden flex items-center justify-center bg-slate-900 border border-slate-700 text-gold-400 w-9 h-9 rounded-md">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-24">
+        
+        <!-- Hero Section -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 fade-in-up">
+            <div class="text-center">
+                <span class="inline-block py-1 px-3 rounded-full bg-slate-900 border border-slate-800 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-4" data-es="Centro de Conocimiento" data-en="Knowledge Center">
+                    Centro de Conocimiento
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight">
+                    <span data-es="Blog y Actualidad" data-en="Blog and News">Blog y Actualidad</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-500 block mt-2" data-es="Jurídica Tecnológica" data-en="Legal Technology">Jurídica Tecnológica</span>
+                </h1>
+            </div>
+        </div>
+
+        <!-- Lista de Artículos -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+
+            <!-- ARTÍCULO 1 -->
+            <article class="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-slate-600 shadow-lg fade-in-up">
+                <!-- Cabecera visible (Click para desplegar) -->
+                <button onclick="toggleArticle(this)" class="w-full text-left p-0 focus:outline-none group">
+                    <div class="flex flex-col md:flex-row">
+                        <!-- Imagen de Portada -->
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative overflow-hidden">
+                            <img src="https://hmlegal.cl/cybercrimen/imagenes/imagenblog1.png" alt="[Imagen de Balanza de la justicia y tecnología digital]" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/D4AF37?text=Articulo+1'">
+                        </div>
+                        <!-- Resumen -->
+                        <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center relative">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-xs font-mono text-gold-400 tracking-wider uppercase" data-es="Dogmática Penal" data-en="Criminal Dogmatics">Dogmática Penal</span>
+                            </div>
+                            <h2 class="text-2xl font-serif font-bold text-white mb-3 group-hover:text-gold-400 transition-colors" data-es="Cibercrimen en Chile: Las Claves de la Nueva Ley N° 21.459 que Transformó la Defensa Penal" data-en="Cybercrime in Chile: The Keys to the New Law No. 21.459 that Transformed Criminal Defense">
+                                Cibercrimen en Chile: Las Claves de la Nueva Ley N° 21.459 que Transformó la Defensa Penal
+                            </h2>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2" data-es="La Ley N° 21.459 derogó completamente la antigua Ley N° 19.223 e introdujo un nuevo paradigma para la persecución y defensa de los delitos informáticos en Chile. Su entrada en vigencia modificó profundamente la forma en que fiscales, policías, empresas y abogados deben abordar la evidencia digital." data-en="Law No. 21.459 completely repealed the old Law No. 19.223 and introduced a new paradigm for the prosecution and defense of cybercrimes in Chile. Its entry into force deeply modified the way prosecutors, police, companies, and lawyers must approach digital evidence.">
+                                La Ley N° 21.459 derogó completamente la antigua Ley N° 19.223 e introdujo un nuevo paradigma para la persecución y defensa de los delitos informáticos en Chile. Su entrada en vigencia modificó profundamente la forma en que fiscales, policías, empresas y abogados deben abordar la evidencia digital.
+                            </p>
+                            
+                            <!-- Firma autor (compacta) -->
+                            <div class="flex items-center gap-3 mt-auto">
+                                <img src="https://hmlegal.cl/cybercrimen/imagenes/hmn.jpg" alt="Horacio Morales Nancavil" class="w-8 h-8 rounded-full author-avatar object-cover border border-slate-700" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0f172a/D4AF37?text=HM'">
+                                <span class="text-sm text-slate-300 font-medium">Horacio Morales Nancavil</span>
+                                <div class="ml-auto text-gold-400">
+                                    <svg class="w-6 h-6 transform transition-transform duration-500 toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+                
+                <!-- Contenido Desplegable -->
+                <div class="blog-content bg-slate-950 border-t border-slate-800">
+                    <div class="p-6 md:p-10 max-w-3xl mx-auto article-body">
+                        
+                        <h4 data-es="La revolución del Derecho Penal Digital en Chile" data-en="The revolution of Digital Criminal Law in Chile">La revolución del Derecho Penal Digital en Chile</h4>
+                        <p data-es="Durante casi tres décadas, la persecución de los delitos informáticos en Chile se sustentó en la Ley N° 19.223, promulgada en 1993, cuando Internet apenas comenzaba su expansión y conceptos hoy cotidianos —como computación en la nube, ransomware, phishing, criptomonedas o inteligencia artificial— simplemente no existían dentro del debate jurídico." data-en="For almost three decades, the prosecution of cybercrimes in Chile was based on Law No. 19.223, enacted in 1993, when the Internet was just beginning its expansion and concepts that are everyday today—such as cloud computing, ransomware, phishing, cryptocurrencies, or artificial intelligence—simply did not exist within the legal debate.">Durante casi tres décadas, la persecución de los delitos informáticos en Chile se sustentó en la Ley N° 19.223, promulgada en 1993, cuando Internet apenas comenzaba su expansión y conceptos hoy cotidianos —como computación en la nube, ransomware, phishing, criptomonedas o inteligencia artificial— simplemente no existían dentro del debate jurídico.</p>
+                        
+                        <p data-es="El crecimiento exponencial de la economía digital evidenció rápidamente las limitaciones de esa normativa. Las organizaciones comenzaron a depender de infraestructuras tecnológicas complejas, la información pasó a constituir uno de los principales activos económicos y los ataques informáticos evolucionaron desde simples accesos no autorizados hacia verdaderas operaciones criminales organizadas." data-en="The exponential growth of the digital economy quickly highlighted the limitations of that regulation. Organizations began to depend on complex technological infrastructures, information became one of the main economic assets, and cyberattacks evolved from simple unauthorized access to true organized criminal operations.">El crecimiento exponencial de la economía digital evidenció rápidamente las limitaciones de esa normativa. Las organizaciones comenzaron a depender de infraestructuras tecnológicas complejas, la información pasó a constituir uno de los principales activos económicos y los ataques informáticos evolucionaron desde simples accesos no autorizados hacia verdaderas operaciones criminales organizadas.</p>
+                        
+                        <p data-es="La antigua legislación resultaba insuficiente para perseguir eficazmente muchas conductas modernas, generando vacíos legales que afectaban tanto la persecución penal como las posibilidades de defensa. Frente a esta realidad, Chile decidió modernizar completamente su legislación mediante la promulgación de la Ley N° 21.459, alineando su sistema penal con los estándares internacionales establecidos por el Convenio de Budapest sobre Ciberdelincuencia. Más que una simple actualización normativa, esta ley representa un cambio estructural en la forma en que el Derecho Penal comprende el entorno digital." data-en="The old legislation was insufficient to effectively prosecute many modern behaviors, creating legal loopholes that affected both criminal prosecution and defense possibilities. Faced with this reality, Chile decided to completely modernize its legislation through the enactment of Law No. 21.459, aligning its penal system with the international standards established by the Budapest Convention on Cybercrime. More than a simple normative update, this law represents a structural change in how Criminal Law understands the digital environment.">La antigua legislación resultaba insuficiente para perseguir eficazmente muchas conductas modernas, generando vacíos legales que afectaban tanto la persecución penal como las posibilidades de defensa. Frente a esta realidad, Chile decidió modernizar completamente su legislación mediante la promulgación de la Ley N° 21.459, alineando su sistema penal con los estándares internacionales establecidos por el Convenio de Budapest sobre Ciberdelincuencia. Más que una simple actualización normativa, esta ley representa un cambio estructural en la forma en que el Derecho Penal comprende el entorno digital.</p>
+
+                        <h4 data-es="¿Qué cambió con la Ley N° 21.459?" data-en="What changed with Law No. 21.459?">¿Qué cambió con la Ley N° 21.459?</h4>
+                        <p data-es="La principal innovación consiste en abandonar una regulación extremadamente limitada para construir un sistema integral de protección penal de los sistemas informáticos y de los datos digitales. La ley ya no protege únicamente computadores o equipos físicos. Protege principalmente la información, los sistemas, las comunicaciones electrónicas y la confianza en los entornos digitales. Esto tiene consecuencias directas tanto para la investigación criminal como para las estrategias de defensa. Hoy una causa por cibercrimen exige comprender simultáneamente aspectos tecnológicos, informáticos, probatorios y jurídicos." data-en="The main innovation consists of abandoning an extremely limited regulation to build an integral system of penal protection for computer systems and digital data. The law no longer protects only computers or physical equipment. It primarily protects information, systems, electronic communications, and trust in digital environments. This has direct consequences for both criminal investigation and defense strategies. Today, a cybercrime case requires simultaneously understanding technological, computing, evidentiary, and legal aspects.">La principal innovación consiste en abandonar una regulación extremadamente limitada para construir un sistema integral de protección penal de los sistemas informáticos y de los datos digitales. La ley ya no protege únicamente computadores o equipos físicos. Protege principalmente la información, los sistemas, las comunicaciones electrónicas y la confianza en los entornos digitales. Esto tiene consecuencias directas tanto para la investigación criminal como para las estrategias de defensa. Hoy una causa por cibercrimen exige comprender simultáneamente aspectos tecnológicos, informáticos, probatorios y jurídicos.</p>
+
+                        <h4 data-es="Un glosario técnico obligatorio para jueces y tribunales" data-en="A mandatory technical glossary for judges and courts">Un glosario técnico obligatorio para jueces y tribunales</h4>
+                        <p data-es="Uno de los cambios más relevantes —aunque muchas veces pasa inadvertido— es que la ley incorpora un conjunto de definiciones legales que deben utilizar obligatoriamente fiscales, jueces y tribunales al interpretar los delitos informáticos." data-en="One of the most relevant changes—although it often goes unnoticed—is that the law incorporates a set of legal definitions that prosecutors, judges, and courts must mandatorily use when interpreting cybercrimes.">Uno de los cambios más relevantes —aunque muchas veces pasa inadvertido— es que la ley incorpora un conjunto de definiciones legales que deben utilizar obligatoriamente fiscales, jueces y tribunales al interpretar los delitos informáticos.</p>
+                        
+                        <p data-es="Conceptos como: datos informáticos; sistema informático; proveedor de servicios; programa computacional; comunicaciones informáticas; tráfico de datos, dejan de ser simples conceptos técnicos para transformarse en elementos jurídicos esenciales del tipo penal." data-en="Concepts such as: computer data; computer system; service provider; computer program; computer communications; data traffic, cease to be simple technical concepts to become essential legal elements of the criminal offense.">Conceptos como: datos informáticos; sistema informático; proveedor de servicios; programa computacional; comunicaciones informáticas; tráfico de datos, dejan de ser simples conceptos técnicos para transformarse en elementos jurídicos esenciales del tipo penal.</p>
+
+                        <p data-es="Esta precisión legislativa tiene enorme importancia práctica. En Derecho Penal no basta con demostrar que existió una conducta reprochable. Es indispensable acreditar que los hechos encajan exactamente dentro de la descripción legal del delito. Por ello, muchas defensas exitosas comienzan precisamente cuestionando si los elementos técnicos descritos por la Fiscalía corresponden realmente a las definiciones establecidas por la Ley N° 21.459." data-en="This legislative precision is of enormous practical importance. In Criminal Law, it is not enough to demonstrate that a reprehensible conduct existed. It is essential to prove that the facts fit exactly within the legal description of the crime. Therefore, many successful defenses begin precisely by questioning whether the technical elements described by the Prosecution really correspond to the definitions established by Law No. 21.459.">Esta precisión legislativa tiene enorme importancia práctica. En Derecho Penal no basta con demostrar que existió una conducta reprochable. Es indispensable acreditar que los hechos encajan exactamente dentro de la descripción legal del delito. Por ello, muchas defensas exitosas comienzan precisamente cuestionando si los elementos técnicos descritos por la Fiscalía corresponden realmente a las definiciones establecidas por la Ley N° 21.459.</p>
+
+                        <h4 data-es="Los nuevos delitos informáticos" data-en="The new cybercrimes">Los nuevos delitos informáticos</h4>
+                        <p data-es="La legislación amplía considerablemente el catálogo de ilícitos penales. Entre las principales figuras destacan:" data-en="The legislation considerably expands the catalog of criminal offenses. Among the main figures stand out:">La legislación amplía considerablemente el catálogo de ilícitos penales. Entre las principales figuras destacan:</p>
+                        
+                        <ul class="list-disc pl-5 mb-5 space-y-3 text-slate-400">
+                            <li data-es="<strong>Acceso ilícito:</strong> Se sanciona a quien accede a un sistema informático vulnerando medidas tecnológicas de protección. El elemento esencial no consiste simplemente en ingresar a un sistema. La conducta debe implicar la superación de mecanismos de seguridad implementados por el titular del sistema. Esto genera múltiples discusiones jurídicas respecto del consentimiento, autorizaciones implícitas, permisos revocados y alcances de las medidas de protección." data-en="<strong>Illicit access:</strong> Punishes those who access a computer system violating technological protection measures. The essential element is not simply entering a system. The conduct must involve overcoming security mechanisms implemented by the owner of the system. This generates multiple legal discussions regarding consent, implicit authorizations, revoked permissions, and the scope of protection measures."><strong>Acceso ilícito:</strong> Se sanciona a quien accede a un sistema informático vulnerando medidas tecnológicas de protección. El elemento esencial no consiste simplemente en ingresar a un sistema. La conducta debe implicar la superación de mecanismos de seguridad implementados por el titular del sistema. Esto genera múltiples discusiones jurídicas respecto del consentimiento, autorizaciones implícitas, permisos revocados y alcances de las medidas de protección.</li>
+                            <li data-es="<strong>Interceptación ilícita:</strong> Se penaliza la captación, interrupción o interceptación de transmisiones no públicas de datos informáticos. Esta figura adquiere especial relevancia en investigaciones relacionadas con espionaje industrial, interceptación de comunicaciones empresariales y obtención clandestina de información." data-en="<strong>Illicit interception:</strong> Penalizes the capture, interruption, or interception of non-public transmissions of computer data. This figure acquires special relevance in investigations related to industrial espionage, interception of corporate communications, and clandestine obtaining of information."><strong>Interceptación ilícita:</strong> Se penaliza la captación, interrupción o interceptación de transmisiones no públicas de datos informáticos. Esta figura adquiere especial relevancia en investigaciones relacionadas con espionaje industrial, interceptación de comunicaciones empresariales y obtención clandestina de información.</li>
+                            <li data-es="<strong>Ataque a la integridad de los datos:</strong> Consiste en alterar, dañar, deteriorar, borrar o inutilizar datos informáticos sin autorización. La conducta puede afectar desde bases de datos corporativas hasta registros financieros o información crítica de organismos públicos." data-en="<strong>Attack on data integrity:</strong> Consists of altering, damaging, deteriorating, deleting, or rendering useless computer data without authorization. The conduct can affect everything from corporate databases to financial records or critical information of public organizations."><strong>Ataque a la integridad de los datos:</strong> Consiste en alterar, dañar, deteriorar, borrar o inutilizar datos informáticos sin autorización. La conducta puede afectar desde bases de datos corporativas hasta registros financieros o información crítica de organismos públicos.</li>
+                            <li data-es="<strong>Ataque a la integridad de un sistema informático:</strong> Sanciona la obstaculización grave del funcionamiento de un sistema mediante la introducción, transmisión, daño o eliminación de datos. Dentro de esta categoría suelen encontrarse ataques de denegación de servicio (DDoS), sabotajes informáticos y otras formas de interrupción tecnológica." data-en="<strong>Attack on the integrity of a computer system:</strong> Punishes the serious obstruction of the functioning of a system through the introduction, transmission, damage, or deletion of data. Within this category are usually found denial of service (DDoS) attacks, computer sabotage, and other forms of technological interruption."><strong>Ataque a la integridad de un sistema informático:</strong> Sanciona la obstaculización grave del funcionamiento de un sistema mediante la introducción, transmisión, daño o eliminación de datos. Dentro de esta categoría suelen encontrarse ataques de denegación de servicio (DDoS), sabotajes informáticos y otras formas de interrupción tecnológica.</li>
+                            <li data-es="<strong>Falsificación informática:</strong> La ley incorpora una figura específica destinada a proteger la autenticidad de la información digital. No se trata simplemente de falsificar documentos tradicionales. Ahora también pueden constituir delito determinadas manipulaciones de registros electrónicos, bases de datos o documentos digitales." data-en="<strong>Computer forgery:</strong> The law incorporates a specific figure aimed at protecting the authenticity of digital information. It is not simply about forging traditional documents. Now, certain manipulations of electronic records, databases, or digital documents can also constitute a crime."><strong>Falsificación informática:</strong> La ley incorpora una figura específica destinada a proteger la autenticidad de la información digital. No se trata simplemente de falsificar documentos tradicionales. Ahora también pueden constituir delito determinadas manipulaciones de registros electrónicos, bases de datos o documentos digitales.</li>
+                            <li data-es="<strong>Fraude informático:</strong> Probablemente constituye una de las figuras más relevantes de la nueva legislación. Su configuración exige que la manipulación de datos o sistemas produzca una transferencia patrimonial indebida mediante mecanismos tecnológicos. A diferencia de la estafa tradicional, aquí el engaño puede ejecutarse directamente sobre sistemas automatizados, sin interacción personal con la víctima. Esta diferencia tiene importantes consecuencias procesales y probatorias." data-en="<strong>Computer fraud:</strong> It is probably one of the most relevant figures of the new legislation. Its configuration requires that the manipulation of data or systems produces an improper patrimonial transfer through technological mechanisms. Unlike traditional fraud, here the deception can be executed directly on automated systems, without personal interaction with the victim. This difference has important procedural and evidentiary consequences."><strong>Fraude informático:</strong> Probablemente constituye una de las figuras más relevantes de la nueva legislación. Su configuración exige que la manipulación de datos o sistemas produzca una transferencia patrimonial indebida mediante mecanismos tecnológicos. A diferencia de la estafa tradicional, aquí el engaño puede ejecutarse directamente sobre sistemas automatizados, sin interacción personal con la víctima. Esta diferencia tiene importantes consecuencias procesales y probatorias.</li>
+                        </ul>
+
+                        <h4 data-es="La importancia de la evidencia digital" data-en="The importance of digital evidence">La importancia de la evidencia digital</h4>
+                        <p data-es="En los delitos informáticos, la prueba suele encontrarse almacenada en dispositivos electrónicos, servidores remotos, registros de conexión, plataformas digitales y servicios en la nube. La correcta obtención de esta evidencia resulta determinante para el éxito de una investigación. Errores en la cadena de custodia, alteraciones involuntarias de archivos, obtención ilícita de información o deficiencias en los peritajes pueden afectar seriamente la validez de la prueba. Por ello, la defensa penal moderna requiere comprender no solo las normas procesales, sino también principios de informática forense, preservación de evidencia digital y análisis técnico de sistemas." data-en="In cybercrimes, evidence is usually stored in electronic devices, remote servers, connection logs, digital platforms, and cloud services. The correct obtaining of this evidence is determining for the success of an investigation. Errors in the chain of custody, involuntary alterations of files, illicit obtaining of information, or deficiencies in expert reports can seriously affect the validity of the evidence. Therefore, modern criminal defense requires understanding not only procedural rules, but also principles of computer forensics, preservation of digital evidence, and technical analysis of systems.">En los delitos informáticos, la prueba suele encontrarse almacenada en dispositivos electrónicos, servidores remotos, registros de conexión, plataformas digitales y servicios en la nube. La correcta obtención de esta evidencia resulta determinante para el éxito de una investigación. Errores en la cadena de custodia, alteraciones involuntarias de archivos, obtención ilícita de información o deficiencias en los peritajes pueden afectar seriamente la validez de la prueba. Por ello, la defensa penal moderna requiere comprender no solo las normas procesales, sino también principios de informática forense, preservación de evidencia digital y análisis técnico de sistemas.</p>
+
+                        <h4 data-es="Hacking ético: cuando investigar vulnerabilidades no constituye delito" data-en="Ethical hacking: when researching vulnerabilities does not constitute a crime">Hacking ético: cuando investigar vulnerabilidades no constituye delito</h4>
+                        <p data-es="Uno de los aspectos más innovadores de la Ley N° 21.459 consiste en reconocer que determinadas actividades de investigación informática cumplen una función legítima para la seguridad digital. Los denominados investigadores de seguridad o hackers éticos desarrollan pruebas destinadas a descubrir vulnerabilidades antes de que puedan ser explotadas por organizaciones criminales." data-en="One of the most innovative aspects of Law No. 21.459 consists of recognizing that certain computer research activities fulfill a legitimate function for digital security. The so-called security researchers or ethical hackers develop tests aimed at discovering vulnerabilities before they can be exploited by criminal organizations.">Uno de los aspectos más innovadores de la Ley N° 21.459 consiste en reconocer que determinadas actividades de investigación informática cumplen una función legítima para la seguridad digital. Los denominados investigadores de seguridad o hackers éticos desarrollan pruebas destinadas a descubrir vulnerabilidades antes de que puedan ser explotadas por organizaciones criminales.</p>
+
+                        <p data-es="Sin una regulación adecuada, estas actividades podían quedar expuestas a responsabilidad penal. La nueva legislación incorpora criterios que permiten excluir la responsabilidad criminal cuando concurren determinadas circunstancias. En términos generales, resulta indispensable que la investigación se realice dentro de parámetros autorizados, respetando los protocolos establecidos, evitando la divulgación irresponsable de vulnerabilidades y actuando con finalidades legítimas de seguridad informática. Cada caso requiere un análisis particular, pues pequeñas diferencias en la forma de obtener acceso, comunicar los hallazgos o manejar la información pueden modificar completamente la evaluación jurídica." data-en="Without proper regulation, these activities could be exposed to criminal liability. The new legislation incorporates criteria that allow excluding criminal liability when certain circumstances occur. In general terms, it is essential that the research is carried out within authorized parameters, respecting the established protocols, avoiding the irresponsible disclosure of vulnerabilities, and acting with legitimate computer security purposes. Each case requires a particular analysis, since small differences in the way access is obtained, findings are communicated, or information is handled can completely modify the legal evaluation.">Sin una regulación adecuada, estas actividades podían quedar expuestas a responsabilidad penal. La nueva legislación incorpora criterios que permiten excluir la responsabilidad criminal cuando concurren determinadas circunstancias. En términos generales, resulta indispensable que la investigación se realice dentro de parámetros autorizados, respetando los protocolos establecidos, evitando la divulgación irresponsable de vulnerabilidades y actuando con finalidades legítimas de seguridad informática. Cada caso requiere un análisis particular, pues pequeñas diferencias en la forma de obtener acceso, comunicar los hallazgos o manejar la información pueden modificar completamente la evaluación jurídica.</p>
+
+                        <h4 data-es="El desafío para empresas y organizaciones" data-en="The challenge for companies and organizations">El desafío para empresas y organizaciones</h4>
+                        <p data-es="La Ley N° 21.459 no solo modifica la persecución penal. También eleva significativamente el estándar de diligencia esperado de las organizaciones respecto de la protección de sus sistemas informáticos. Empresas, instituciones públicas y entidades privadas deben fortalecer sus políticas de ciberseguridad, implementar protocolos de respuesta frente a incidentes y preservar adecuadamente la evidencia digital cuando son víctimas de un ataque. Una reacción inadecuada durante las primeras horas posteriores a un incidente puede comprometer tanto la investigación penal como la posibilidad de perseguir responsabilidades civiles o administrativas." data-en="Law No. 21.459 not only modifies criminal prosecution. It also significantly raises the standard of diligence expected of organizations regarding the protection of their computer systems. Companies, public institutions, and private entities must strengthen their cybersecurity policies, implement incident response protocols, and adequately preserve digital evidence when they are victims of an attack. An inadequate reaction during the first hours following an incident can compromise both the criminal investigation and the possibility of pursuing civil or administrative responsibilities.">La Ley N° 21.459 no solo modifica la persecución penal. También eleva significativamente el estándar de diligencia esperado de las organizaciones respecto de la protección de sus sistemas informáticos. Empresas, instituciones públicas y entidades privadas deben fortalecer sus políticas de ciberseguridad, implementar protocolos de respuesta frente a incidentes y preservar adecuadamente la evidencia digital cuando son víctimas de un ataque. Una reacción inadecuada durante las primeras horas posteriores a un incidente puede comprometer tanto la investigación penal como la posibilidad de perseguir responsabilidades civiles o administrativas.</p>
+
+                        <h4 data-es="La defensa penal en la era digital" data-en="Criminal defense in the digital age">La defensa penal en la era digital</h4>
+                        <p data-es="Los delitos informáticos ya no pueden abordarse exclusivamente desde una perspectiva jurídica. Hoy resulta indispensable integrar conocimientos de Derecho Penal, informática forense, análisis de evidencia digital, protección de datos y ciberseguridad. La estrategia de defensa comienza mucho antes de la audiencia. Inicia con la comprensión técnica de los hechos, la revisión de la evidencia electrónica, la identificación de vulnerabilidades probatorias y el análisis riguroso de cada elemento del tipo penal." data-en="Cybercrimes can no longer be approached exclusively from a legal perspective. Today it is essential to integrate knowledge of Criminal Law, computer forensics, analysis of digital evidence, data protection, and cybersecurity. The defense strategy begins long before the hearing. It starts with the technical understanding of the facts, the review of electronic evidence, the identification of evidentiary vulnerabilities, and the rigorous analysis of each element of the criminal offense.">Los delitos informáticos ya no pueden abordarse exclusivamente desde una perspectiva jurídica. Hoy resulta indispensable integrar conocimientos de Derecho Penal, informática forense, análisis de evidencia digital, protección de datos y ciberseguridad. La estrategia de defensa comienza mucho antes de la audiencia. Inicia con la comprensión técnica de los hechos, la revisión de la evidencia electrónica, la identificación de vulnerabilidades probatorias y el análisis riguroso de cada elemento del tipo penal.</p>
+
+                        <p data-es="En HM Legal abordamos estas investigaciones mediante un trabajo interdisciplinario entre abogados e ingenieros especializados, permitiendo desarrollar estrategias de defensa acordes con la complejidad del cibercrimen moderno." data-en="At HM Legal we approach these investigations through interdisciplinary work between lawyers and specialized engineers, allowing us to develop defense strategies in line with the complexity of modern cybercrime.">En HM Legal abordamos estas investigaciones mediante un trabajo interdisciplinario entre abogados e ingenieros especializados, permitiendo desarrollar estrategias de defensa acordes con la complejidad del cibercrimen moderno.</p>
+
+                        <div class="mt-10 p-6 bg-slate-900 border-l-4 border-gold-400 rounded-r-lg">
+                            <div class="flex items-center gap-4">
+                                <img src="https://hmlegal.cl/cybercrimen/imagenes/hmn.jpg" alt="Horacio Morales Nancavil" class="w-16 h-16 rounded-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0f172a/D4AF37?text=HM'">
+                                <div>
+                                    <h5 class="text-white font-bold text-lg">Horacio Morales Nancavil</h5>
+                                    <p class="text-gold-400 text-sm font-mono" data-es="Director Jurídico HM Legal" data-en="Legal Director HM Legal">Director Jurídico HM Legal</p>
+                                    <p class="text-slate-400 text-sm mt-2" data-es="Si usted enfrenta una investigación penal relacionada con acceso ilícito, fraude informático, ataques a sistemas, evidencia digital, suplantación de identidad, ransomware, criptomonedas o cualquier otro delito tecnológico, nuestro equipo puede evaluar jurídicamente su situación y diseñar una estrategia de defensa desde las primeras etapas del procedimiento." data-en="If you face a criminal investigation related to illicit access, computer fraud, system attacks, digital evidence, identity theft, ransomware, cryptocurrencies, or any other technological crime, our team can legally evaluate your situation and design a defense strategy from the early stages of the procedure.">Si usted enfrenta una investigación penal relacionada con acceso ilícito, fraude informático, ataques a sistemas, evidencia digital, suplantación de identidad, ransomware, criptomonedas o cualquier otro delito tecnológico, nuestro equipo puede evaluar jurídicamente su situación y diseñar una estrategia de defensa desde las primeras etapas del procedimiento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARTÍCULO 2 -->
+            <article class="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-slate-600 shadow-lg fade-in-up">
+                <button onclick="toggleArticle(this)" class="w-full text-left p-0 focus:outline-none group">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative overflow-hidden">
+                            <img src="https://hmlegal.cl/cybercrimen/imagenes/imagenblog2.png" alt="[Imagen de Servidores de bases de datos y seguridad informática]" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/D4AF37?text=Articulo+2'">
+                        </div>
+                        <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center relative">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-xs font-mono text-gold-400 tracking-wider uppercase" data-es="Informática Forense" data-en="Computer Forensics">Informática Forense</span>
+                            </div>
+                            <h2 class="text-2xl font-serif font-bold text-white mb-3 group-hover:text-gold-400 transition-colors" data-es="Informática Forense: El Error de los USD $10.000 que Puede Destruir una Investigación Penal" data-en="Computer Forensics: The USD $10,000 Mistake That Can Destroy a Criminal Investigation">
+                                Informática Forense: El Error de los USD $10.000 que Puede Destruir una Investigación Penal
+                            </h2>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2" data-es="Después de un ataque informático, un fraude interno o un acceso no autorizado, muchas empresas reaccionan intentando resolver el problema por sus propios medios. Reinician servidores, cambian contraseñas o eliminan archivos." data-en="After a cyberattack, an internal fraud, or an unauthorized access, many companies react by trying to solve the problem on their own. They restart servers, change passwords, or delete files.">
+                                Después de un ataque informático, un fraude interno o un acceso no autorizado, muchas empresas reaccionan intentando "resolver el problema" por sus propios medios. Reinician servidores, revisan computadores, cambian contraseñas, eliminan archivos o restauran respaldos.
+                            </p>
+                            
+                            <div class="flex items-center gap-3 mt-auto">
+                                <img src="https://hmlegal.cl/cybercrimen/imagenes/col.jpg" alt="Carlos Olivares" class="w-8 h-8 rounded-full author-avatar object-cover border border-slate-700" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0f172a/D4AF37?text=CO'">
+                                <span class="text-sm text-slate-300 font-medium">Carlos Olivares Leal</span>
+                                <div class="ml-auto text-gold-400">
+                                    <svg class="w-6 h-6 transform transition-transform duration-500 toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+                
+                <div class="blog-content bg-slate-950 border-t border-slate-800">
+                    <div class="p-6 md:p-10 max-w-3xl mx-auto article-body">
+                        
+                        <p data-es="Después de un ataque informático, un fraude interno o un acceso no autorizado, muchas empresas reaccionan intentando 'resolviendo el problema' por sus propios medios. Reinician servidores, revisan computadores, cambian contraseñas, eliminan archivos o restauran respaldos. Lo hacen con la mejor intención. Sin embargo, desde la perspectiva de la informática forense, esas acciones pueden destruir para siempre la evidencia digital necesaria para identificar al responsable o defenderse en un proceso penal." data-en="After a cyberattack, an internal fraud, or an unauthorized access, many companies react by trying to 'solve the problem' on their own. They restart servers, check computers, change passwords, delete files, or restore backups. They do it with the best intentions. However, from the perspective of computer forensics, those actions can forever destroy the digital evidence necessary to identify the perpetrator or defend oneself in a criminal proceeding.">Después de un ataque informático, un fraude interno o un acceso no autorizado, muchas empresas reaccionan intentando 'resolver el problema' por sus propios medios. Reinician servidores, revisan computadores, cambian contraseñas, eliminan archivos o restauran respaldos. Lo hacen con la mejor intención. Sin embargo, desde la perspectiva de la informática forense, esas acciones pueden destruir para siempre la evidencia digital necesaria para identificar al responsable o defenderse en un proceso penal.</p>
+
+                        <h4 data-es="Cuando actuar rápidamente puede convertirse en el peor error" data-en="When acting quickly can become the worst mistake">Cuando actuar rápidamente puede convertirse en el peor error</h4>
+                        <p data-es="Imagine que una empresa descubre un acceso no autorizado a su servidor principal durante la madrugada. El departamento de informática desconecta equipos, reinicia servicios, instala actualizaciones de emergencia y restaura una copia de seguridad para reanudar la operación. Horas después descubren que el incidente corresponde a un delito informático y presentan una denuncia." data-en="Imagine that a company discovers unauthorized access to its main server during the early hours of the morning. The IT department disconnects equipment, restarts services, installs emergency updates, and restores a backup to resume operations. Hours later they discover that the incident corresponds to a cybercrime and file a complaint.">Imagine que una empresa descubre un acceso no autorizado a su servidor principal durante la madrugada. El departamento de informática desconecta equipos, reinicia servicios, instala actualizaciones de emergencia y restaura una copia de seguridad para reanudar la operación. Horas después descubren que el incidente corresponde a un delito informático y presentan una denuncia.</p>
+
+                        <p data-es="El problema es que, para ese momento, gran parte de la evidencia ya ha desaparecido. Los registros de memoria fueron sobrescritos, los archivos temporales fueron eliminados, las marcas de tiempo cambiaron y los registros del sistema dejaron de reflejar el estado original del ataque. Lo que parecía una reacción lógica terminó destruyendo la principal fuente de prueba. Este escenario ocurre con mucha más frecuencia de lo que se cree y representa una de las principales dificultades en la persecución de delitos informáticos." data-en="The problem is that, by that time, much of the evidence has already disappeared. Memory logs were overwritten, temporary files were deleted, timestamps changed, and system logs stopped reflecting the original state of the attack. What seemed like a logical reaction ended up destroying the main source of evidence. This scenario occurs much more frequently than believed and represents one of the main difficulties in the prosecution of cybercrimes.">El problema es que, para ese momento, gran parte de la evidencia ya ha desaparecido. Los registros de memoria fueron sobrescritos, los archivos temporales fueron eliminados, las marcas de tiempo cambiaron y los registros del sistema dejaron de reflejar el estado original del ataque. Lo que parecía una reacción lógica terminó destruyendo la principal fuente de prueba. Este escenario ocurre con mucha más frecuencia de lo que se cree y representa una de las principales dificultades en la persecución de delitos informáticos.</p>
+
+                        <h4 data-es="La evidencia digital es extraordinariamente frágil" data-en="Digital evidence is extraordinarily fragile">La evidencia digital es extraordinariamente frágil</h4>
+                        <p data-es="A diferencia de una huella dactilar o un documento físico, la evidencia digital cambia constantemente. Basta con encender un computador para modificar cientos o miles de archivos del sistema. Abrir una carpeta altera fechas de acceso. Ejecutar un antivirus modifica registros. Reiniciar un servidor elimina información almacenada únicamente en memoria RAM. Actualizar un sistema operativo puede sobrescribir archivos críticos para reconstruir una intrusión." data-en="Unlike a fingerprint or a physical document, digital evidence changes constantly. Just turning on a computer modifies hundreds or thousands of system files. Opening a folder alters access dates. Running an antivirus modifies registries. Restarting a server deletes information stored only in RAM memory. Updating an operating system can overwrite critical files to reconstruct an intrusion.">A diferencia de una huella dactilar o un documento físico, la evidencia digital cambia constantemente. Basta con encender un computador para modificar cientos o miles de archivos del sistema. Abrir una carpeta altera fechas de acceso. Ejecutar un antivirus modifica registros. Reiniciar un servidor elimina información almacenada únicamente en memoria RAM. Actualizar un sistema operativo puede sobrescribir archivos críticos para reconstruir una intrusión.</p>
+
+                        <p data-es="Incluso acciones aparentemente inocentes, como copiar archivos o conectar un dispositivo USB, pueden alterar metadatos fundamentales para una investigación. Por esta razón, la informática forense parte de un principio esencial: Toda intervención sobre un sistema comprometido debe realizarse bajo una metodología que garantice la preservación íntegra de la evidencia." data-en="Even seemingly innocent actions, such as copying files or connecting a USB device, can alter metadata fundamental to an investigation. For this reason, computer forensics starts from an essential principle: Every intervention on a compromised system must be carried out under a methodology that guarantees the integral preservation of evidence.">Incluso acciones aparentemente inocentes, como copiar archivos o conectar un dispositivo USB, pueden alterar metadatos fundamentales para una investigación. Por esta razón, la informática forense parte de un principio esencial: Toda intervención sobre un sistema comprometido debe realizarse bajo una metodología que garantice la preservación íntegra de la evidencia.</p>
+
+                        <h4 data-es="¿Qué es la cadena de custodia digital?" data-en="What is the digital chain of custody?">¿Qué es la cadena de custodia digital?</h4>
+                        <p data-es="La cadena de custodia constituye el conjunto de procedimientos destinados a garantizar que la evidencia presentada ante un tribunal corresponde exactamente a la obtenida en el lugar de los hechos y que no ha sido modificada durante todo el proceso de investigación." data-en="The chain of custody constitutes the set of procedures aimed at ensuring that the evidence presented in court corresponds exactly to that obtained at the scene and that it has not been modified throughout the investigation process.">La cadena de custodia constituye el conjunto de procedimientos destinados a garantizar que la evidencia presentada ante un tribunal corresponde exactamente a la obtenida en el lugar de los hechos y que no ha sido modificada durante todo el proceso de investigación.</p>
+
+                        <p data-es="En materia informática este principio adquiere una importancia aún mayor. Un solo archivo alterado puede generar cuestionamientos sobre la integridad del conjunto de la evidencia. Si la defensa demuestra que existió manipulación, contaminación o pérdida de trazabilidad, el tribunal puede restar valor probatorio o incluso excluir completamente esa evidencia. Por ello, la informática forense moderna combina procedimientos técnicos, documentación rigurosa y estándares internacionales destinados a preservar la autenticidad de la información digital." data-en="In computer matters, this principle acquires even greater importance. A single altered file can generate questions about the integrity of the entire evidence. If the defense proves that there was manipulation, contamination, or loss of traceability, the court can subtract evidentiary value or even completely exclude that evidence. Therefore, modern computer forensics combines technical procedures, rigorous documentation, and international standards aimed at preserving the authenticity of digital information.">En materia informática este principio adquiere una importancia aún mayor. Un solo archivo alterado puede generar cuestionamientos sobre la integridad del conjunto de la evidencia. Si la defensa demuestra que existió manipulación, contaminación o pérdida de trazabilidad, el tribunal puede restar valor probatorio o incluso excluir completamente esa evidencia. Por ello, la informática forense moderna combina procedimientos técnicos, documentación rigurosa y estándares internacionales destinados a preservar la autenticidad de la información digital.</p>
+
+                        <h4 data-es="Las cuatro fases fundamentales de la preservación forense" data-en="The four fundamental phases of forensic preservation">Las cuatro fases fundamentales de la preservación forense</h4>
+                        <ul class="list-disc pl-5 mb-5 space-y-3 text-slate-400">
+                            <li data-es="<strong>1. Inspección y fijación inicial:</strong> La primera actuación consiste en documentar exhaustivamente el estado original del entorno. Antes de mover un equipo o desconectar un cable deben registrarse aspectos como la ubicación física, conexiones, alimentación, estado de pantallas, etc." data-en="<strong>1. Initial inspection and fixation:</strong> The first action consists of exhaustively documenting the original state of the environment. Before moving a piece of equipment or disconnecting a cable, aspects such as physical location, connections, power, screen status, etc., must be recorded."><strong>1. Inspección y fijación inicial:</strong> La primera actuación consiste en documentar exhaustivamente el estado original del entorno. Antes de mover un equipo o desconectar un cable deben registrarse aspectos como la ubicación física, conexiones, alimentación, estado de pantallas, etc.</li>
+                            <li data-es="<strong>2. Preservación y recolección de la evidencia:</strong> Una vez asegurado el lugar, comienza la adquisición técnica de la información (imágenes forenses, memoria RAM, logs). La regla fundamental consiste en trabajar siempre sobre copias forenses y nunca directamente sobre la evidencia original." data-en="<strong>2. Preservation and collection of evidence:</strong> Once the location is secured, the technical acquisition of information begins (forensic images, RAM memory, logs). The fundamental rule consists of always working on forensic copies and never directly on the original evidence."><strong>2. Preservación y recolección de la evidencia:</strong> Una vez asegurado el lugar, comienza la adquisición técnica de la información (imágenes forenses, memoria RAM, logs). La regla fundamental consiste en trabajar siempre sobre copias forenses y nunca directamente sobre la evidencia original.</li>
+                            <li data-es="<strong>3. Registro y trazabilidad:</strong> Cada actuación debe quedar documentada. La cadena de custodia registra quién obtuvo la evidencia, cuándo fue recolectada, dónde permaneció almacenada y bajo qué condiciones." data-en="<strong>3. Registration and traceability:</strong> Every action must be documented. The chain of custody records who obtained the evidence, when it was collected, where it remained stored, and under what conditions."><strong>3. Registro y trazabilidad:</strong> Cada actuación debe quedar documentada. La cadena de custodia registra quién obtuvo la evidencia, cuándo fue recolectada, dónde permaneció almacenada y bajo qué condiciones.</li>
+                            <li data-es="<strong>4. Verificación mediante funciones hash:</strong> Uno de los pilares de la informática forense moderna consiste en la utilización de funciones criptográficas conocidas como hashes. Si posteriormente cambia un solo bit de información, el hash será distinto. Esto acredita científicamente la inmutabilidad." data-en="<strong>4. Verification through hash functions:</strong> One of the pillars of modern computer forensics consists of the use of cryptographic functions known as hashes. If later a single bit of information changes, the hash will be different. This scientifically proves immutability."><strong>4. Verificación mediante funciones hash:</strong> Uno de los pilares de la informática forense moderna consiste en la utilización de funciones criptográficas conocidas como hashes. Si posteriormente cambia un solo bit de información, el hash será distinto. Esto acredita científicamente la inmutabilidad.</li>
+                        </ul>
+
+                        <h4 data-es="El costo real de una mala decisión" data-en="The real cost of a bad decision">El costo real de una mala decisión</h4>
+                        <p data-es="Muchas organizaciones intentan resolver internamente un incidente antes de consultar a especialistas. En ocasiones buscan minimizar el impacto operativo, evitar interrupciones del negocio o reducir costos. Paradójicamente, esa decisión suele producir el efecto contrario. Una evidencia contaminada puede impedir identificar al responsable, dificultar la recuperación de activos, afectar reclamaciones de seguros, debilitar acciones civiles y comprometer seriamente una investigación penal." data-en="Many organizations try to internally resolve an incident before consulting specialists. Sometimes they seek to minimize the operational impact, avoid business interruptions, or reduce costs. Paradoxically, that decision usually produces the opposite effect. Contaminated evidence can prevent identifying the perpetrator, hinder asset recovery, affect insurance claims, weaken civil actions, and seriously compromise a criminal investigation.">Muchas organizaciones intentan resolver internamente un incidente antes de consultar a especialistas. En ocasiones buscan minimizar el impacto operativo, evitar interrupciones del negocio o reducir costos. Paradójicamente, esa decisión suele producir el efecto contrario. Una evidencia contaminada puede impedir identificar al responsable, dificultar la recuperación de activos, afectar reclamaciones de seguros, debilitar acciones civiles y comprometer seriamente una investigación penal.</p>
+
+                        <h4 data-es="¿Puede el tribunal incautar los servidores?" data-en="Can the court confiscate the servers?">¿Puede el tribunal incautar los servidores?</h4>
+                        <p data-es="Sí. En determinadas investigaciones penales, especialmente cuando los servidores o dispositivos electrónicos constituyen instrumentos del delito o contienen evidencia relevante, el Ministerio Público puede solicitar su incautación. Esta medida puede afectar gravemente la continuidad operacional de una empresa si no existe una estrategia adecuada de preservación de la información. Por ello, una actuación temprana resulta fundamental para solicitar copias forenses." data-en="Yes. In certain criminal investigations, especially when servers or electronic devices constitute instruments of the crime or contain relevant evidence, the Public Ministry can request their confiscation. This measure can severely affect the operational continuity of a company if there is no adequate strategy for information preservation. Therefore, early action is essential to request forensic copies.">Sí. En determinadas investigaciones penales, especialmente cuando los servidores o dispositivos electrónicos constituyen instrumentos del delito o contienen evidencia relevante, el Ministerio Público puede solicitar su incautación. Esta medida puede afectar gravemente la continuidad operacional de una empresa si no existe una estrategia adecuada de preservación de la información. Por ello, una actuación temprana resulta fundamental para solicitar copias forenses.</p>
+
+                        <div class="mt-10 p-6 bg-slate-900 border-l-4 border-gold-400 rounded-r-lg">
+                            <div class="flex items-center gap-4">
+                                <img src="https://hmlegal.cl/cybercrimen/imagenes/col.jpg" alt="Carlos Olivares Leal" class="w-16 h-16 rounded-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0f172a/D4AF37?text=CO'">
+                                <div>
+                                    <h5 class="text-white font-bold text-lg">Carlos Olivares Leal</h5>
+                                    <p class="text-gold-400 text-sm font-mono" data-es="Jefe Unidad Informática HM Legal" data-en="Head of IT Unit HM Legal">Jefe Unidad Informática HM Legal</p>
+                                    <p class="text-slate-400 text-sm mt-2" data-es="En HM Legal, la Unidad Informática trabaja de manera coordinada con el equipo jurídico para preservar evidencia digital conforme a estándares técnicos y procesales, integrando conocimientos de informática forense, ciberseguridad y litigación penal. Actúe antes de alterar la evidencia." data-en="At HM Legal, the IT Unit works in coordination with the legal team to preserve digital evidence in accordance with technical and procedural standards, integrating knowledge of computer forensics, cybersecurity, and criminal litigation. Act before altering the evidence.">En HM Legal, la Unidad Informática trabaja de manera coordinada con el equipo jurídico para preservar evidencia digital conforme a estándares técnicos y procesales, integrando conocimientos de informática forense, ciberseguridad y litigación penal. Actúe antes de alterar la evidencia.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARTÍCULO 3 -->
+            <article class="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-slate-600 shadow-lg fade-in-up">
+                <button onclick="toggleArticle(this)" class="w-full text-left p-0 focus:outline-none group">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative overflow-hidden">
+                            <img src="https://hmlegal.cl/cybercrimen/imagenes/imagenblog3.png" alt="[Imagen de Mallete de juez y escudo de privacidad]" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/D4AF37?text=Articulo+3'">
+                        </div>
+                        <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center relative">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-xs font-mono text-gold-400 tracking-wider uppercase" data-es="Estrategia Procesal" data-en="Procedural Strategy">Estrategia Procesal</span>
+                            </div>
+                            <h2 class="text-2xl font-serif font-bold text-white mb-3 group-hover:text-gold-400 transition-colors" data-es="Allanamientos y Celulares: Tu Guía de Supervivencia Jurídica Frente a la Fiscalía" data-en="Raids and Cellphones: Your Legal Survival Guide Against the Prosecution">
+                                Allanamientos y Celulares: Tu Guía de Supervivencia Jurídica Frente a la Fiscalía
+                            </h2>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2" data-es="La frontera entre preservar y acceder a datos. Qué puede hacer realmente la Fiscalía, cuándo necesita autorización judicial y cómo proteger tus derechos durante un allanamiento por delitos informáticos." data-en="The border between preserving and accessing data. What the Prosecution can really do, when it needs judicial authorization, and how to protect your rights during a raid for cybercrimes.">
+                                La frontera entre preservar y acceder a datos. Qué puede hacer realmente la Fiscalía, cuándo necesita autorización judicial y cómo proteger tus derechos durante un allanamiento por delitos informáticos.
+                            </p>
+                            
+                            <div class="flex items-center gap-3 mt-auto">
+                                <img src="https://hmlegal.cl/cybercrimen/imagenes/hmn.jpg" alt="Horacio Morales" class="w-8 h-8 rounded-full author-avatar object-cover border border-slate-700" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0f172a/D4AF37?text=HM'">
+                                <span class="text-sm text-slate-300 font-medium">Horacio Morales Nancavil</span>
+                                <div class="ml-auto text-gold-400">
+                                    <svg class="w-6 h-6 transform transition-transform duration-500 toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+                
+                <div class="blog-content bg-slate-950 border-t border-slate-800">
+                    <div class="p-6 md:p-10 max-w-3xl mx-auto article-body">
+                        
+                        <h4 data-es="Cuando la investigación comienza antes de que lo sepas" data-en="When the investigation begins before you know it">Cuando la investigación comienza antes de que lo sepas</h4>
+                        <p data-es="Una de las principales características de los delitos informáticos es que la evidencia digital puede desaparecer en cuestión de segundos. Precisamente por ello, la Ley N° 21.459 incorporó importantes modificaciones al Código Procesal Penal destinadas a permitir una investigación más rápida y eficiente. Sin embargo, estas nuevas herramientas investigativas también generan una tensión permanente entre dos intereses constitucionales igualmente relevantes: la necesidad del Estado de investigar delitos complejos; y el derecho de toda persona a la privacidad, al debido proceso y a una defensa efectiva." data-en="One of the main characteristics of cybercrimes is that digital evidence can disappear in a matter of seconds. Precisely because of this, Law No. 21.459 incorporated important modifications to the Criminal Procedure Code aimed at allowing a faster and more efficient investigation. However, these new investigative tools also generate a permanent tension between two equally relevant constitutional interests: the need of the State to investigate complex crimes; and the right of every person to privacy, due process, and an effective defense.">Una de las principales características de los delitos informáticos es que la evidencia digital puede desaparecer en cuestión de segundos. Precisamente por ello, la Ley N° 21.459 incorporó importantes modificaciones al Código Procesal Penal destinadas a permitir una investigación más rápida y eficiente. Sin embargo, estas nuevas herramientas investigativas también generan una tensión permanente entre dos intereses constitucionales igualmente relevantes: la necesidad del Estado de investigar delitos complejos; y el derecho de toda persona a la privacidad, al debido proceso y a una defensa efectiva.</p>
+
+                        <p data-es="En HM Legal observamos diariamente que muchos imputados cometen errores irreversibles durante las primeras horas de una investigación. Conocer qué puede hacer la Fiscalía y cuáles son los límites legales de sus actuaciones puede marcar la diferencia entre una defensa sólida y una condena basada en evidencia obtenida sin oposición." data-en="At HM Legal we observe daily that many defendants make irreversible mistakes during the first hours of an investigation. Knowing what the Prosecution can do and what the legal limits of its actions are can make the difference between a solid defense and a conviction based on unopposed evidence.">En HM Legal observamos diariamente que muchos imputados cometen errores irreversibles durante las primeras horas de una investigación. Conocer qué puede hacer la Fiscalía y cuáles son los límites legales de sus actuaciones puede marcar la diferencia entre una defensa sólida y una condena basada en evidencia obtenida sin oposición.</p>
+
+                        <h4 data-es="La preservación provisoria de datos: la herramienta que inicia muchas investigaciones" data-en="Provisional preservation of data: the tool that initiates many investigations">La preservación provisoria de datos: la herramienta que inicia muchas investigaciones</h4>
+                        <p data-es="Uno de los cambios más relevantes introducidos por la Ley N° 21.459 fue la incorporación del artículo 218 bis del Código Procesal Penal, denominado Preservación Provisoria de Datos Informáticos. Esta medida permite que el Ministerio Público solicite a proveedores de internet, empresas tecnológicas y otros prestadores de servicios digitales la conservación inmediata de información que podría ser eliminada. Es importante comprender que preservar datos no significa revisarlos. La ley distingue claramente ambas actuaciones." data-en="One of the most relevant changes introduced by Law No. 21.459 was the incorporation of Article 218 bis of the Criminal Procedure Code, called Provisional Preservation of Computer Data. This measure allows the Public Ministry to request Internet providers, technology companies, and other digital service providers to immediately preserve information that could be deleted. It is important to understand that preserving data does not mean reviewing it. The law clearly distinguishes both actions.">Uno de los cambios más relevantes introducidos por la Ley N° 21.459 fue la incorporación del artículo 218 bis del Código Procesal Penal, denominado Preservación Provisoria de Datos Informáticos. Esta medida permite que el Ministerio Público solicite a proveedores de internet, empresas tecnológicas y otros prestadores de servicios digitales la conservación inmediata de información que podría ser eliminada. Es importante comprender que preservar datos no significa revisarlos. La ley distingue claramente ambas actuaciones.</p>
+
+                        <ul class="list-disc pl-5 mb-5 space-y-3 text-slate-400">
+                            <li data-es="<strong>Preservación:</strong> Consiste únicamente en ordenar que determinados registros digitales no sean eliminados (registros de conexión, direcciones IP, correos). La empresa simplemente debe conservar la información. No puede entregarla todavía." data-en="<strong>Preservation:</strong> Consists only of ordering that certain digital records not be deleted (connection logs, IP addresses, emails). The company must simply keep the information. It cannot deliver it yet."><strong>Preservación:</strong> Consiste únicamente en ordenar que determinados registros digitales no sean eliminados (registros de conexión, direcciones IP, correos). La empresa simplemente debe conservar la información. No puede entregarla todavía.</li>
+                            <li data-es="<strong>Acceso:</strong> Es la revisión efectiva del contenido (leer WhatsApp, correos, revisar fotografías). Para esta segunda etapa normalmente será necesaria una autorización judicial fundada." data-en="<strong>Access:</strong> It is the effective review of the content (reading WhatsApp, emails, reviewing photographs). For this second stage, a reasoned judicial authorization will normally be necessary."><strong>Acceso:</strong> Es la revisión efectiva del contenido (leer WhatsApp, correos, revisar fotografías). Para esta segunda etapa normalmente será necesaria una autorización judicial fundada.</li>
+                        </ul>
+
+                        <h4 data-es="El 'vaciado' del celular no es automático" data-en="The 'emptying' of the cellphone is not automatic">El "vaciado" del celular no es automático</h4>
+                        <p data-es="Probablemente uno de los mayores mitos es creer que, una vez incautado un teléfono, la Fiscalía puede revisar inmediatamente todo su contenido. Eso no es correcto. La extracción forense completa del dispositivo constituye una medida altamente intrusiva que afecta derechos constitucionales como la vida privada y las comunicaciones. Por esta razón, el examen del contenido del teléfono debe respetar exigencias legales estrictas." data-en="Probably one of the biggest myths is believing that, once a phone is seized, the Prosecution can immediately review all its content. That is not correct. The complete forensic extraction of the device constitutes a highly intrusive measure that affects constitutional rights such as private life and communications. For this reason, the examination of the phone's content must respect strict legal requirements.">Probablemente uno de los mayores mitos es creer que, una vez incautado un teléfono, la Fiscalía puede revisar inmediatamente todo su contenido. Eso no es correcto. La extracción forense completa del dispositivo constituye una medida altamente intrusiva que afecta derechos constitucionales como la vida privada y las comunicaciones. Por esta razón, el examen del contenido del teléfono debe respetar exigencias legales estrictas.</p>
+
+                        <h4 data-es="El consentimiento puede cambiar completamente un caso" data-en="Consent can completely change a case">El consentimiento puede cambiar completamente un caso</h4>
+                        <p data-es="Uno de los errores más frecuentes ocurre durante un allanamiento. Muchas personas creen que colaborar facilitará su situación procesal. Entonces entregan espontáneamente claves del teléfono, códigos biométricos o contraseñas. Desde una perspectiva jurídica, ese consentimiento puede transformar radicalmente la discusión posterior. Si la entrega fue libre y voluntaria, posteriormente será mucho más complejo alegar vulneraciones a la privacidad o solicitar la exclusión de esa evidencia." data-en="One of the most frequent errors occurs during a raid. Many people believe that collaborating will ease their procedural situation. So they spontaneously hand over phone passwords, biometric codes, or passwords. From a legal perspective, that consent can radically transform the subsequent discussion. If the delivery was free and voluntary, it will later be much more complex to claim privacy violations or request the exclusion of that evidence.">Uno de los errores más frecuentes ocurre durante un allanamiento. Muchas personas creen que colaborar facilitará su situación procesal. Entonces entregan espontáneamente claves del teléfono, códigos biométricos o contraseñas. Desde una perspectiva jurídica, ese consentimiento puede transformar radicalmente la discusión posterior. Si la entrega fue libre y voluntaria, posteriormente será mucho más complejo alegar vulneraciones a la privacidad o solicitar la exclusión de esa evidencia.</p>
+
+                        <h4 data-es="El derecho a guardar silencio sigue siendo una de las mejores herramientas" data-en="The right to remain silent remains one of the best tools">El derecho a guardar silencio sigue siendo una de las mejores herramientas</h4>
+                        <p data-es="En investigaciones por cibercrimen existe una enorme asimetría de información. La defensa muchas veces desconoce completamente el contexto técnico del caso. Declarar prematuramente puede consolidar una hipótesis investigativa equivocada. El ejercicio del derecho a guardar silencio no constituye un indicio de culpabilidad. Es aconsejable que la defensa estudie íntegramente la carpeta, realice peritajes independientes y evalúe la licitud de la evidencia antes de declarar." data-en="In cybercrime investigations there is an enormous asymmetry of information. The defense often completely ignores the technical context of the case. Testifying prematurely can consolidate a wrong investigative hypothesis. The exercise of the right to remain silent does not constitute an indication of guilt. It is advisable that the defense fully studies the folder, performs independent expertise, and evaluates the legality of the evidence before testifying.">En investigaciones por cibercrimen existe una enorme asimetría de información. La defensa muchas veces desconoce completamente el contexto técnico del caso. Declarar prematuramente puede consolidar una hipótesis investigativa equivocada. El ejercicio del derecho a guardar silencio no constituye un indicio de culpabilidad. Es aconsejable que la defensa estudie íntegramente la carpeta, realice peritajes independientes y evalúe la licitud de la evidencia antes de declarar.</p>
+
+                        <h4 data-es="Qué hacer si la Fiscalía llega a tu domicilio o empresa" data-en="What to do if the Prosecution arrives at your home or business">Qué hacer si la Fiscalía llega a tu domicilio o empresa</h4>
+                        <ul class="list-disc pl-5 mb-5 space-y-2 text-slate-400">
+                            <li data-es="Mantén la calma y no obstaculices el procedimiento." data-en="Keep calm and do not hinder the procedure.">Mantén la calma y no obstaculices el procedimiento.</li>
+                            <li data-es="Solicita identificar a los funcionarios y la resolución judicial." data-en="Ask to identify the officials and the judicial resolution.">Solicita identificar a los funcionarios y la resolución judicial.</li>
+                            <li data-es="No destruyas información ni manipules dispositivos electrónicos." data-en="Do not destroy information or manipulate electronic devices.">No destruyas información ni manipules dispositivos electrónicos.</li>
+                            <li data-es="No entregues voluntariamente contraseñas sin asesoría jurídica." data-en="Do not voluntarily provide passwords without legal advice.">No entregues voluntariamente contraseñas sin asesoría jurídica.</li>
+                            <li data-es="Contacta inmediatamente a un abogado especializado en cibercrimen." data-en="Immediately contact a lawyer specializing in cybercrime.">Contacta inmediatamente a un abogado especializado en cibercrimen.</li>
+                        </ul>
+
+                        <div class="mt-10 p-6 bg-slate-900 border-l-4 border-gold-400 rounded-r-lg">
+                            <div class="flex items-center gap-4">
+                                <img src="https://hmlegal.cl/cybercrimen/imagenes/hmn.jpg" alt="Horacio Morales Nancavil" class="w-16 h-16 rounded-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0f172a/D4AF37?text=HM'">
+                                <div>
+                                    <h5 class="text-white font-bold text-lg">Horacio Morales Nancavil</h5>
+                                    <p class="text-gold-400 text-sm font-mono" data-es="Director Jurídico HM Legal" data-en="Legal Director HM Legal">Director Jurídico HM Legal</p>
+                                    <p class="text-slate-400 text-sm mt-2" data-es="Abogado con más de catorce años de experiencia en litigación penal y estratégica. Especialista en defensa de delitos informáticos, evidencia digital y criminalidad tecnológica." data-en="Lawyer with more than fourteen years of experience in criminal and strategic litigation. Specialist in the defense of cybercrimes, digital evidence, and technological criminality.">Abogado con más de catorce años de experiencia en litigación penal y estratégica. Especialista en defensa de delitos informáticos, evidencia digital y criminalidad tecnológica.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ARTÍCULO 4 -->
+            <article class="bg-slate-900/50 border border-slate-800 rounded-2xl overflow-hidden transition-all duration-300 hover:border-slate-600 shadow-lg fade-in-up">
+                <button onclick="toggleArticle(this)" class="w-full text-left p-0 focus:outline-none group">
+                    <div class="flex flex-col md:flex-row">
+                        <div class="w-full md:w-1/3 h-48 md:h-auto relative overflow-hidden">
+                            <img src="https://hmlegal.cl/cybercrimen/imagenes/imagenblog4.png" alt="[Imagen de reloj de arena digital]" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/D4AF37?text=Articulo+4'">
+                        </div>
+                        <div class="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-center relative">
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-xs font-mono text-gold-400 tracking-wider uppercase" data-es="Contención de Crisis" data-en="Crisis Containment">Contención de Crisis</span>
+                            </div>
+                            <h2 class="text-2xl font-serif font-bold text-white mb-3 group-hover:text-gold-400 transition-colors" data-es="Horas Críticas: La Estrategia Definitiva Tras un Incidente Digital" data-en="Critical Hours: The Definitive Strategy After a Digital Incident">
+                                Horas Críticas: La Estrategia Definitiva Tras un Incidente Digital
+                            </h2>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2" data-es="Por qué las decisiones tomadas durante las primeras horas tras un ciberataque, una denuncia o una intervención de la Fiscalía pueden determinar el éxito o el fracaso absoluto de una defensa penal." data-en="Why decisions made during the first hours after a cyberattack, a complaint, or a Prosecution intervention can determine the absolute success or failure of a criminal defense.">
+                                Por qué las decisiones tomadas durante las primeras horas tras un ciberataque, una denuncia o una intervención de la Fiscalía pueden determinar el éxito o el fracaso absoluto de una defensa penal.
+                            </p>
+                            
+                            <div class="flex items-center gap-3 mt-auto">
+                                <img src="https://hmlegal.cl/cybercrimen/imagenes/hmn.jpg" alt="Horacio Morales" class="w-8 h-8 rounded-full author-avatar object-cover border border-slate-700" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0f172a/D4AF37?text=HM'">
+                                <span class="text-sm text-slate-300 font-medium">Horacio Morales Nancavil</span>
+                                <div class="ml-auto text-gold-400">
+                                    <svg class="w-6 h-6 transform transition-transform duration-500 toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </button>
+                
+                <div class="blog-content bg-slate-950 border-t border-slate-800">
+                    <div class="p-6 md:p-10 max-w-3xl mx-auto article-body">
+                        
+                        <h4 data-es="En cibercrimen, las primeras horas deciden el futuro del caso" data-en="In cybercrime, the first hours decide the future of the case">En cibercrimen, las primeras horas deciden el futuro del caso</h4>
+                        <p data-es="En el mundo de la criminalidad informática existe una máxima que todo abogado especializado conoce: la primera decisión suele ser la más importante de toda la investigación. A diferencia de otros delitos, donde la evidencia física permanece relativamente estable, la prueba digital es extraordinariamente frágil. Un simple reinicio de un servidor, la actualización automática de un sistema operativo o el acceso de un administrador pueden modificar registros críticos, alterar metadatos y destruir evidencia irrepetible." data-en="In the world of computer criminality there is a maxim that every specialized lawyer knows: the first decision is usually the most important of the entire investigation. Unlike other crimes, where physical evidence remains relatively stable, digital evidence is extraordinarily fragile. A simple server restart, an automatic OS update, or an admin access can modify critical logs, alter metadata, and destroy unrepeatable evidence.">En el mundo de la criminalidad informática existe una máxima que todo abogado especializado conoce: la primera decisión suele ser la más importante de toda la investigación. A diferencia de otros delitos, donde la evidencia física permanece relativamente estable, la prueba digital es extraordinariamente frágil. Un simple reinicio de un servidor, la actualización automática de un sistema operativo o el acceso de un administrador pueden modificar registros críticos, alterar metadatos y destruir evidencia irrepetible.</p>
+
+                        <p data-es="Por esa razón, las primeras horas posteriores a un incidente reciben en informática forense el nombre de 'horas críticas' o 'golden hours'. Es precisamente durante ese breve período cuando se define si la organización conservará la capacidad de reconstruir técnicamente los hechos o si perderá para siempre elementos esenciales para su defensa." data-en="For that reason, the first hours following an incident receive the name of 'critical hours' or 'golden hours' in computer forensics. It is precisely during that brief period when it is defined whether the organization will retain the ability to technically reconstruct the facts or if it will forever lose essential elements for its defense.">Por esa razón, las primeras horas posteriores a un incidente reciben en informática forense el nombre de 'horas críticas' o 'golden hours'. Es precisamente durante ese breve período cuando se define si la organización conservará la capacidad de reconstruir técnicamente los hechos o si perderá para siempre elementos esenciales para su defensa.</p>
+
+                        <h4 data-es="Cuando un incidente deja de ser tecnológico y se convierte en un problema penal" data-en="When an incident ceases to be technological and becomes a criminal problem">Cuando un incidente deja de ser tecnológico y se convierte en un problema penal</h4>
+                        <p data-es="Muchas organizaciones creen que un ciberataque es únicamente un incidente informático. No lo es. Desde el momento en que existen antecedentes de acceso ilícito, ransomware, fraude electrónico, robo de credenciales, o extorsión informática, el problema deja de ser exclusivamente tecnológico y adquiere una dimensión jurídica." data-en="Many organizations believe that a cyberattack is solely a computer incident. It is not. From the moment there is evidence of illicit access, ransomware, wire fraud, credential theft, or cyber extortion, the problem ceases to be exclusively technological and acquires a legal dimension.">Muchas organizaciones creen que un ciberataque es únicamente un incidente informático. No lo es. Desde el momento en que existen antecedentes de acceso ilícito, ransomware, fraude electrónico, robo de credenciales, o extorsión informática, el problema deja de ser exclusivamente tecnológico y adquiere una dimensión jurídica.</p>
+
+                        <h4 data-es="El verdadero enemigo durante una crisis es la improvisación" data-en="The real enemy during a crisis is improvisation">El verdadero enemigo durante una crisis es la improvisación</h4>
+                        <p data-es="La reacción instintiva suele ser siempre la misma. El gerente llama al proveedor informático. Se reinician servidores. Se restauran respaldos. Aunque todas esas decisiones parecen razonables desde una perspectiva operativa, muchas de ellas pueden destruir precisamente la evidencia que permitirá identificar al responsable o defender jurídicamente a la organización." data-en="The instinctive reaction is usually always the same. The manager calls the IT provider. Servers are restarted. Backups are restored. Although all these decisions seem reasonable from an operational perspective, many of them can destroy precisely the evidence that will allow identifying the perpetrator or legally defending the organization.">La reacción instintiva suele ser siempre la misma. El gerente llama al proveedor informático. Se reinician servidores. Se restauran respaldos. Aunque todas esas decisiones parecen razonables desde una perspectiva operativa, muchas de ellas pueden destruir precisamente la evidencia que permitirá identificar al responsable o defender jurídicamente a la organización.</p>
+
+                        <h4 data-es="Los cinco errores que más perjudican una investigación" data-en="The five mistakes that harm an investigation the most">Los cinco errores que más perjudican una investigación</h4>
+                        <ul class="list-disc pl-5 mb-5 space-y-2 text-slate-400">
+                            <li data-es="<strong>1. Manipular los sistemas antes de documentarlos:</strong> Toda intervención no documentada puede impedir reconstruir cronológicamente el ataque." data-en="<strong>1. Manipulating systems before documenting them:</strong> Any undocumented intervention can prevent chronological reconstruction of the attack."><strong>1. Manipular los sistemas antes de documentarlos:</strong> Toda intervención no documentada puede impedir reconstruir cronológicamente el ataque.</li>
+                            <li data-es="<strong>2. Priorizar la continuidad operacional sobre la evidencia:</strong> Restaurar respaldos antes de obtener imágenes forenses hace desaparecer evidencia única." data-en="<strong>2. Prioritizing operational continuity over evidence:</strong> Restoring backups before obtaining forensic images makes unique evidence disappear."><strong>2. Priorizar la continuidad operacional sobre la evidencia:</strong> Restaurar respaldos antes de obtener imágenes forenses hace desaparecer evidencia única.</li>
+                            <li data-es="<strong>3. Comunicar versiones sin certeza:</strong> Emitir conclusiones prematuras puede generar contradicciones procesales." data-en="<strong>3. Communicating versions without certainty:</strong> Issuing premature conclusions can generate procedural contradictions."><strong>3. Comunicar versiones sin certeza:</strong> Emitir conclusiones prematuras puede generar contradicciones procesales.</li>
+                            <li data-es="<strong>4. Declarar sin asesoría:</strong> Entregar antecedentes creyendo colaborar suele resultar en proporcionar información incompleta o perjudicial." data-en="<strong>4. Testifying without advice:</strong> Providing background believing to collaborate usually results in providing incomplete or harmful information."><strong>4. Declarar sin asesoría:</strong> Entregar antecedentes creyendo colaborar suele resultar en proporcionar información incompleta o perjudicial.</li>
+                            <li data-es="<strong>5. Esperar para contratar especialistas:</strong> Cada hora que pasa, los registros de red se sobrescriben. El tiempo es un recurso probatorio." data-en="<strong>5. Waiting to hire specialists:</strong> With each passing hour, network logs are overwritten. Time is an evidentiary resource."><strong>5. Esperar para contratar especialistas:</strong> Cada hora que pasa, los registros de red se sobrescriben. El tiempo es un recurso probatorio.</li>
+                        </ul>
+
+                        <h4 data-es="La gestión de crisis ya no puede ser exclusivamente informática" data-en="Crisis management can no longer be exclusively IT-focused">La gestión de crisis ya no puede ser exclusivamente informática</h4>
+                        <p data-es="Las investigaciones actuales exigen una respuesta multidisciplinaria. La coordinación temprana entre abogados penalistas, ingenieros informáticos y peritos forenses permite actuar de manera ordenada. Mientras el equipo técnico contiene el incidente, el equipo jurídico protege los derechos de la organización y prepara la estrategia procesal." data-en="Current investigations require a multidisciplinary response. Early coordination between criminal lawyers, computer engineers, and forensic experts allows acting in an orderly manner. While the technical team contains the incident, the legal team protects the rights of the organization and prepares the procedural strategy.">Las investigaciones actuales exigen una respuesta multidisciplinaria. La coordinación temprana entre abogados penalistas, ingenieros informáticos y peritos forenses permite actuar de manera ordenada. Mientras el equipo técnico contiene el incidente, el equipo jurídico protege los derechos de la organización y prepara la estrategia procesal.</p>
+
+                        <div class="mt-10 p-6 bg-slate-900 border-l-4 border-gold-400 rounded-r-lg">
+                            <div class="flex items-center gap-4">
+                                <img src="https://hmlegal.cl/cybercrimen/imagenes/hmn.jpg" alt="Horacio Morales Nancavil" class="w-16 h-16 rounded-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/100x100/0f172a/D4AF37?text=HM'">
+                                <div>
+                                    <h5 class="text-white font-bold text-lg">Horacio Morales Nancavil</h5>
+                                    <p class="text-gold-400 text-sm font-mono" data-es="Director Jurídico HM Legal" data-en="Legal Director HM Legal">Director Jurídico HM Legal</p>
+                                    <p class="text-slate-400 text-sm mt-2" data-es="En HM Legal entendemos que una investigación por cibercrimen comienza mucho antes de una audiencia judicial. Nuestra División Penal trabaja desde el primer minuto para contener la crisis, preservar evidencia y diseñar una estrategia sólida." data-en="At HM Legal we understand that a cybercrime investigation begins long before a court hearing. Our Criminal Division works from the very first minute to contain the crisis, preserve evidence, and design a solid strategy.">En HM Legal entendemos que una investigación por cibercrimen comienza mucho antes de una audiencia judicial. Nuestra División Penal trabaja desde el primer minuto para contener la crisis, preservar evidencia y diseñar una estrategia sólida.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 relative z-10 mt-12 fade-in-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Logo" class="h-8 w-auto">
+            </div>
+            
+            <div class="text-slate-500 text-sm text-center md:text-left">
+                <p data-es="&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados." data-en="&copy; 2026 HM Legal | Technological Criminal Division. All rights reserved.">&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados.</p>
+                <p class="mt-1 font-mono text-xs">Avenida O’Higgins 1186, Of. 1107 | contacto@hmlegal.cl</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+                <a href="https://hmlegal.cl/cybercrimen/documentos/politica.html" class="hover:text-gold-400 transition-colors" data-es="Política de Privacidad" data-en="Privacy Policy">Política de Privacidad</a>
+                <span>|</span>
+                <a href="https://hmlegal.cl/cybercrimen/documentos/terminos.html" class="hover:text-gold-400 transition-colors" data-es="Términos Legales" data-en="Legal Terms">Términos Legales</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Lógica Bilingüe ---
+        let currentLang = 'es';
+
+        function changeLang(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-es]').forEach(el => {
+                if (el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea') {
+                    if (el.placeholder) el.placeholder = el.getAttribute(`data-${lang}`);
+                } else if (el.tagName.toLowerCase() === 'option') {
+                     el.textContent = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            // Actualizar estado visual de los botones
+            if(lang === 'es') {
+                document.getElementById('btn-es').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-en').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            } else {
+                document.getElementById('btn-en').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-es').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            }
+
+            // Actualizar título de la pestaña
+            document.title = lang === 'es' ? 'Blog y Actualidad Jurídica | HM Legal' : 'Blog and Legal News | HM Legal';
+
+            // Re-calcular alturas de acordeones si hay alguno abierto para evitar cortes de texto
+            document.querySelectorAll('.blog-content.expanded').forEach(content => {
+                content.style.maxHeight = content.scrollHeight + "px";
+            });
+        }
+
+        // --- Lógica de Acordeón (Menús Desplegables) ---
+        function toggleArticle(button) {
+            const article = button.closest('article');
+            const content = article.querySelector('.blog-content');
+            const icon = article.querySelector('.toggle-icon');
+            const isExpanded = content.classList.contains('expanded');
+
+            // Cerrar todos los demás artículos para mantener la vista limpia
+            document.querySelectorAll('.blog-content').forEach(el => {
+                el.style.maxHeight = null;
+                el.classList.remove('expanded');
+            });
+            document.querySelectorAll('.toggle-icon').forEach(el => el.classList.remove('rotate-180', 'text-gold-500'));
+            document.querySelectorAll('article').forEach(el => el.classList.remove('border-gold-500/50'));
+
+            // Si no estaba expandido, abrir este
+            if (!isExpanded) {
+                content.classList.add('expanded');
+                // timeout ultra corto para permitir que el display renderice el texto antes de calcular la altura
+                setTimeout(() => {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }, 10);
+                
+                icon.classList.add('rotate-180', 'text-gold-500');
+                article.classList.add('border-gold-500/50');
+                
+                // Scroll suave para que el artículo quede bien posicionado en la pantalla
+                setTimeout(() => {
+                    const y = article.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({top: y, behavior: 'smooth'});
+                }, 300);
+            }
+        }
+
+        // --- Intersection Observer para Animaciones Fade-In ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerFade = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach((el) => {
+                observerFade.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes Somos | HM Legal - División Penal Tecnológica</title>
+    <meta name="description" content="Conozca al equipo de HM Legal especializado en delitos informáticos, evidencia digital y litigación compleja.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#AA8C2C',
+                        },
+                        slate: {
+                            850: '#151e2e',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617; /* Slate 950 */
+            color: #e2e8f0;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        
+        /* Animaciones */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos de perfil de imagen */
+        .profile-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            border: 1px solid #1e293b;
+        }
+        .profile-img-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(2, 6, 23, 0.9) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .profile-img {
+            transition: all 0.7s ease;
+            filter: grayscale(100%) contrast(1.1);
+        }
+        .group:hover .profile-img {
+            filter: grayscale(0%) contrast(1);
+            transform: scale(1.05);
+        }
+
+        /* Listas personalizadas */
+        .custom-list {
+            list-style: none;
+            padding: 0;
+        }
+        .custom-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #94a3b8;
+        }
+        .custom-list li::before {
+            content: "■";
+            color: #D4AF37;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 0.6rem;
+            line-height: 2.5;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen bg-grid selection:bg-gold-500/30 selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="https://hmlegal.cl/cybercrimen/homecc.html" class="flex items-center gap-2 transition-transform hover:scale-105">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Cybercrimen Logo" class="h-10 md:h-12 w-auto object-contain">
+            </a>
+            
+            <div class="flex items-center gap-4 md:gap-6">
+                <!-- Links de navegación -->
+                <a href="https://hmlegal.cl/cybercrimen/nosotros.html" class="hidden md:block text-sm font-semibold text-gold-400" data-es="Quiénes Somos" data-en="About Us">Quiénes Somos</a>
+                <a href="https://hmlegal.cl/cybercrimen/blog/blog.html" class="hidden md:block text-sm font-medium text-slate-400 hover:text-white transition-colors" data-es="Blog" data-en="Blog">Blog</a>
+
+                <!-- Selector de Idioma -->
+                <div class="flex items-center gap-2 bg-slate-900 rounded-full px-3 py-1 border border-slate-700">
+                    <button onclick="changeLang('es')" id="btn-es" class="text-xs font-semibold text-gold-400 transition-colors">ES</button>
+                    <span class="text-slate-600 text-xs">|</span>
+                    <button onclick="changeLang('en')" id="btn-en" class="text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors">EN</button>
+                </div>
+                
+                <!-- Botón Volver -->
+                <a href="https://hmlegal.cl/cybercrimen/homecc.html" class="hidden sm:flex items-center gap-2 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-gold-400 font-semibold py-2 px-4 rounded-md transition-all duration-300 text-sm" data-es='<i class="fa-solid fa-arrow-left"></i> Volver al Inicio' data-en='<i class="fa-solid fa-arrow-left"></i> Back to Home'>
+                    <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                </a>
+                <a href="https://hmlegal.cl/cybercrimen/homecc.html" class="sm:hidden flex items-center justify-center bg-slate-900 border border-slate-700 text-gold-400 w-9 h-9 rounded-md">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-24">
+        
+        <!-- Hero Section -->
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 fade-in-up">
+            <div class="text-center max-w-4xl mx-auto">
+                <span class="inline-block py-1 px-3 rounded-full bg-slate-900 border border-slate-800 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-6" data-es="Nuestra Filosofía" data-en="Our Philosophy">
+                    Nuestra Filosofía
+                </span>
+                <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-8 leading-tight">
+                    <span data-es="En materia penal, las decisiones de las primeras horas" data-en="In criminal matters, the decisions made during the first hours">En materia penal, las decisiones de las primeras horas</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-500 block mt-2" data-es="definen el resultado completo." data-en="define the entire outcome.">definen el resultado completo.</span>
+                </h1>
+                <p class="text-lg text-slate-400 leading-relaxed text-justify mb-6" data-es="Por ello, HM Legal basa su trabajo en una preparación exhaustiva, absoluta confidencialidad, independencia técnica y una estrategia diseñada específicamente para cada cliente." data-en="Therefore, HM Legal bases its work on exhaustive preparation, absolute confidentiality, technical independence, and a strategy specifically designed for each client.">
+                    Por ello, HM Legal basa su trabajo en una preparación exhaustiva, absoluta confidencialidad, independencia técnica y una estrategia diseñada específicamente para cada cliente.
+                </p>
+                <p class="text-lg text-slate-300 font-medium leading-relaxed text-justify" data-es="Cada defensa y cada querella se desarrollan con un único objetivo: proteger la libertad, el patrimonio, la reputación y los derechos de quienes enfrentan un conflicto penal." data-en="Every defense and lawsuit is developed with a single objective: to protect the freedom, assets, reputation, and rights of those facing a criminal conflict.">
+                    Cada defensa y cada querella se desarrollan con un único objetivo: proteger la libertad, el patrimonio, la reputación y los derechos de quienes enfrentan un conflicto penal.
+                </p>
+            </div>
+        </div>
+
+        <!-- Equipo Section -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+            
+            <!-- Perfil 1: Horacio Morales -->
+            <div class="group grid grid-cols-1 lg:grid-cols-12 gap-12 items-center fade-in-up">
+                <!-- Imagen -->
+                <div class="lg:col-span-5 profile-img-container aspect-[3/4] lg:aspect-auto lg:h-[650px] shadow-2xl">
+                    <img src="https://hmlegal.cl/cybercrimen/imagenes/hmn.jpg" alt="Horacio Morales Nancavil" class="profile-img w-full h-full object-cover object-center" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/0f172a/D4AF37?text=Horacio+Morales'">
+                    <div class="absolute bottom-6 left-6 right-6 z-10 hidden lg:block">
+                        <p class="text-gold-400 font-mono text-sm drop-shadow-md tracking-wider">&gt; LEGAL_DIRECTOR_ACTIVE</p>
+                    </div>
+                </div>
+                <!-- Contenido -->
+                <div class="lg:col-span-7">
+                    <h2 class="text-4xl font-serif font-bold text-white mb-2">Horacio Morales Nancavil</h2>
+                    <p class="text-gold-400 font-medium mb-6 uppercase tracking-wide text-sm" data-es="Abogado | Magíster en Derecho | Director Jurídico de HM Legal – División Penal Tecnológica" data-en="Attorney | Master of Laws | Legal Director of HM Legal – Technological Criminal Division">Abogado | Magíster en Derecho | Director Jurídico de HM Legal – División Penal Tecnológica</p>
+                    
+                    <div class="space-y-4 text-slate-400 text-justify mb-8">
+                        <p data-es="La defensa penal exige mucho más que conocer la ley. Requiere comprender cómo se construye una investigación, cómo se obtiene y analiza la evidencia y cómo anticiparse a la estrategia de persecución penal." data-en="Criminal defense demands much more than knowing the law. It requires understanding how an investigation is built, how evidence is obtained and analyzed, and how to anticipate the criminal prosecution strategy.">
+                            La defensa penal exige mucho más que conocer la ley. Requiere comprender cómo se construye una investigación, cómo se obtiene y analiza la evidencia y cómo anticiparse a la estrategia de persecución penal.
+                        </p>
+                        <p data-es="Abogado habilitado para el ejercicio profesional desde 2012, cuenta con más de catorce años de experiencia en litigación, representación judicial y diseño de estrategias procesales en causas de alta complejidad." data-en="Admitted to practice law since 2012, he has over fourteen years of experience in litigation, legal representation, and the design of procedural strategies in highly complex cases.">
+                            Abogado habilitado para el ejercicio profesional desde 2012, cuenta con más de catorce años de experiencia en litigación, representación judicial y diseño de estrategias procesales en causas de alta complejidad.
+                        </p>
+                        <p data-es="Es Magíster en Derecho por la Universidad de Concepción, donde desarrolló investigación especializada sobre transmisión de datos personales entre organismos públicos, una materia que hoy resulta especialmente relevante frente a los desafíos de la evidencia digital, la privacidad, la protección de datos y la criminalidad tecnológica." data-en="He holds a Master of Laws from the University of Concepción, where he developed specialized research on the transmission of personal data between public organizations, a matter that is particularly relevant today given the challenges of digital evidence, privacy, data protection, and technological criminality.">
+                            Es Magíster en Derecho por la Universidad de Concepción, donde desarrolló investigación especializada sobre transmisión de datos personales entre organismos públicos, una materia que hoy resulta especialmente relevante frente a los desafíos de la evidencia digital, la privacidad, la protección de datos y la criminalidad tecnológica.
+                        </p>
+                        <p data-es="Complementó su formación con estudios de Derecho Internacional de los Derechos Humanos en la Universidad de Chile, fortaleciendo una visión de la defensa penal basada en el respeto irrestricto de las garantías constitucionales, el debido proceso y los estándares internacionales aplicables a la investigación criminal." data-en="He complemented his education with studies in International Human Rights Law at the University of Chile, strengthening a vision of criminal defense based on the strict respect of constitutional guarantees, due process, and international standards applicable to criminal investigation.">
+                            Complementó su formación con estudios de Derecho Internacional de los Derechos Humanos en la Universidad de Chile, fortaleciendo una visión de la defensa penal basada en el respeto irrestricto de las garantías constitucionales, el debido proceso y los estándares internacionales aplicables a la investigación criminal.
+                        </p>
+                        <p data-es="A lo largo de su trayectoria ha participado en litigios complejos ante Juzgados de Garantía, Tribunales de Juicio Oral en lo Penal, Cortes de Apelaciones y Corte Suprema, desarrollando estrategias de defensa y persecución penal orientadas a proteger los derechos e intereses de personas y empresas." data-en="Throughout his career, he has participated in complex litigation before Guarantee Courts, Oral Criminal Trial Courts, Courts of Appeals, and the Supreme Court, developing defense and criminal prosecution strategies aimed at protecting the rights and interests of individuals and companies.">
+                            A lo largo de su trayectoria ha participado en litigios complejos ante Juzgados de Garantía, Tribunales de Juicio Oral en lo Penal, Cortes de Apelaciones y Corte Suprema, desarrollando estrategias de defensa y persecución penal orientadas a proteger los derechos e intereses de personas y empresas.
+                        </p>
+                    </div>
+
+                    <h3 class="text-white font-semibold mb-4" data-es="Práctica profesional concentrada en:" data-en="Professional practice focused on:">Práctica profesional concentrada en:</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                        <ul class="custom-list text-sm">
+                            <li data-es="Delitos informáticos." data-en="Cybercrimes.">Delitos informáticos.</li>
+                            <li data-es="Fraudes digitales." data-en="Digital frauds.">Fraudes digitales.</li>
+                            <li data-es="Estafas electrónicas." data-en="Electronic scams.">Estafas electrónicas.</li>
+                            <li data-es="Suplantación de identidad." data-en="Identity theft.">Suplantación de identidad.</li>
+                            <li data-es="Acceso ilícito a sistemas informáticos." data-en="Illicit access to computer systems.">Acceso ilícito a sistemas informáticos.</li>
+                            <li data-es="Extorsión y amenazas tecnológicas." data-en="Extortion and technological threats.">Extorsión y amenazas tecnológicas.</li>
+                        </ul>
+                        <ul class="custom-list text-sm">
+                            <li data-es="Delitos vinculados a criptomonedas." data-en="Crimes linked to cryptocurrencies.">Delitos vinculados a criptomonedas.</li>
+                            <li data-es="Evidencia digital y cadena de custodia." data-en="Digital evidence and chain of custody.">Evidencia digital y cadena de custodia.</li>
+                            <li data-es="Litigación penal estratégica." data-en="Strategic criminal litigation.">Litigación penal estratégica.</li>
+                            <li data-es="Defensa penal empresarial." data-en="Corporate criminal defense.">Defensa penal empresarial.</li>
+                            <li data-es="Querellas complejas." data-en="Complex lawsuits.">Querellas complejas.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 flex items-center gap-3">
+                        <a href="mailto:hmorales@hmlegal.cl" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 border border-slate-700 hover:border-gold-500 text-white text-sm font-medium rounded-lg transition-colors">
+                            <i class="fa-regular fa-envelope text-gold-400"></i> hmorales@hmlegal.cl
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perfil 2: Carlos Olivares -->
+            <div class="group grid grid-cols-1 lg:grid-cols-12 gap-12 items-center fade-in-up">
+                <!-- Contenido -->
+                <div class="lg:col-span-7 order-2 lg:order-1">
+                    <span class="inline-block py-1 px-3 rounded text-slate-400 bg-slate-900 text-xs font-mono tracking-widest uppercase mb-4 border border-slate-800" data-es="Unidad de Tecnología e Investigación Digital" data-en="Technology and Digital Investigation Unit">
+                        Unidad de Tecnología e Investigación Digital
+                    </span>
+                    <h2 class="text-4xl font-serif font-bold text-white mb-2">Carlos Olivares Leal</h2>
+                    <p class="text-gold-400 font-medium mb-6 uppercase tracking-wide text-sm" data-es="Ingeniero Civil en Informática | Jefe de la Unidad Informática" data-en="Civil Computer Engineer | Head of the IT Unit">Ingeniero Civil en Informática | Jefe de la Unidad Informática</p>
+                    
+                    <div class="space-y-4 text-slate-400 text-justify mb-8">
+                        <p data-es="La investigación de delitos tecnológicos exige un trabajo conjunto entre abogados e ingenieros especializados." data-en="The investigation of technological crimes requires joint work between lawyers and specialized engineers.">
+                            La investigación de delitos tecnológicos exige un trabajo conjunto entre abogados e ingenieros especializados.
+                        </p>
+                        <p data-es="La Unidad Informática de HM Legal es dirigida por Carlos Olivares Leal, Ingeniero Civil en Informática de la Universidad del Bío-Bío, con más de 15 años de experiencia liderando proyectos tecnológicos, análisis de información y gestión de soluciones complejas para organizaciones públicas y privadas." data-en="The IT Unit of HM Legal is directed by Carlos Olivares Leal, Civil Computer Engineer from the University of Bío-Bío, with more than 15 years of experience leading technological projects, information analysis, and management of complex solutions for public and private organizations.">
+                            La Unidad Informática de HM Legal es dirigida por Carlos Olivares Leal, Ingeniero Civil en Informática de la Universidad del Bío-Bío, con más de 15 años de experiencia liderando proyectos tecnológicos, análisis de información y gestión de soluciones complejas para organizaciones públicas y privadas.
+                        </p>
+                        <p data-es="Su experiencia en arquitectura de sistemas, metodologías ágiles, análisis de datos, diseño de procesos y gestión de riesgos aporta una perspectiva técnica esencial para el estudio y análisis de la evidencia digital." data-en="His experience in systems architecture, agile methodologies, data analysis, process design, and risk management provides an essential technical perspective for the study and analysis of digital evidence.">
+                            Su experiencia en arquitectura de sistemas, metodologías ágiles, análisis de datos, diseño de procesos y gestión de riesgos aporta una perspectiva técnica esencial para el estudio y análisis de la evidencia digital.
+                        </p>
+                        <p data-es="La integración permanente entre la Dirección Jurídica y la Unidad Informática permite que cada caso sea abordado desde una perspectiva interdisciplinaria, combinando conocimiento jurídico, análisis tecnológico y estrategia procesal para enfrentar con eficacia los desafíos del cibercrimen y la delincuencia digital." data-en="The permanent integration between the Legal Directorate and the IT Unit allows each case to be approached from an interdisciplinary perspective, combining legal knowledge, technological analysis, and procedural strategy to effectively face the challenges of cybercrime and digital delinquency.">
+                            La integración permanente entre la Dirección Jurídica y la Unidad Informática permite que cada caso sea abordado desde una perspectiva interdisciplinaria, combinando conocimiento jurídico, análisis tecnológico y estrategia procesal para enfrentar con eficacia los desafíos del cibercrimen y la delincuencia digital.
+                        </p>
+                    </div>
+
+                    <h3 class="text-white font-semibold mb-4" data-es="Dirección de procesos tecnológicos relacionados con:" data-en="Direction of technological processes related to:">Dirección de procesos tecnológicos relacionados con:</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6">
+                        <ul class="custom-list text-sm">
+                            <li data-es="Análisis de evidencia digital." data-en="Digital evidence analysis.">Análisis de evidencia digital.</li>
+                            <li data-es="Reconstrucción técnica de hechos." data-en="Technical reconstruction of facts.">Reconstrucción técnica de hechos.</li>
+                            <li data-es="Análisis de registros electrónicos." data-en="Electronic records analysis.">Análisis de registros electrónicos.</li>
+                            <li data-es="Investigación informática." data-en="Computer investigation.">Investigación informática.</li>
+                        </ul>
+                        <ul class="custom-list text-sm">
+                            <li data-es="Gestión segura de información digital." data-en="Secure digital information management.">Gestión segura de información digital.</li>
+                            <li data-es="Apoyo técnico en delitos informáticos." data-en="Technical support in cybercrimes.">Apoyo técnico en delitos informáticos.</li>
+                            <li data-es="Implementación de I.A. aplicada a la investigación jurídica." data-en="Implementation of A.I. applied to legal investigation.">Implementación de I.A. aplicada a la investigación jurídica.</li>
+                            <li data-es="Desarrollo de herramientas para litigación penal." data-en="Development of tools for criminal litigation.">Desarrollo de herramientas para litigación penal.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 flex items-center gap-3">
+                        <a href="mailto:colivares@hmlegal.cl" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 border border-slate-700 hover:border-gold-500 text-white text-sm font-medium rounded-lg transition-colors">
+                            <i class="fa-regular fa-envelope text-gold-400"></i> colivares@hmlegal.cl
+                        </a>
+                    </div>
+                </div>
+                <!-- Imagen -->
+                <div class="lg:col-span-5 profile-img-container aspect-[3/4] lg:aspect-auto lg:h-[650px] shadow-2xl order-1 lg:order-2">
+                    <img src="https://hmlegal.cl/cybercrimen/imagenes/col.jpg" alt="Carlos Olivares Leal" class="profile-img w-full h-full object-cover object-center" onerror="this.onerror=null; this.src='https://placehold.co/800x1200/0f172a/D4AF37?text=Carlos+Olivares'">
+                    <div class="absolute bottom-6 right-6 z-10 hidden lg:block text-right">
+                        <p class="text-gold-400 font-mono text-sm drop-shadow-md tracking-wider">IT_UNIT_ACTIVE &lt;</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Separador Metodología (Movido al final) -->
+            <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-8 md:p-12 text-center fade-in-up relative overflow-hidden">
+                <i class="fa-solid fa-network-wired absolute -left-10 -bottom-10 text-[15rem] text-slate-800/20 z-0"></i>
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-gold-400 mb-6" data-es="Derecho Penal para la Era Digital" data-en="Criminal Law for the Digital Age">Derecho Penal para la Era Digital</h2>
+                    <p class="text-slate-300 mb-4 text-justify" data-es="HM Legal desarrolla una metodología propia que integra análisis jurídico avanzado con herramientas tecnológicas de última generación." data-en="HM Legal develops its own methodology that integrates advanced legal analysis with cutting-edge technological tools.">
+                        HM Legal desarrolla una metodología propia que integra análisis jurídico avanzado con herramientas tecnológicas de última generación.
+                    </p>
+                    <p class="text-slate-300 mb-4 text-justify" data-es="Cada investigación comienza con la reconstrucción técnica de los hechos, el análisis de evidencia digital y el diseño de una teoría del caso capaz de sostenerse desde el inicio de la investigación hasta el juicio oral." data-en="Every investigation begins with the technical reconstruction of facts, the analysis of digital evidence, and the design of a case theory capable of holding up from the start of the investigation to the oral trial.">
+                        Cada investigación comienza con la reconstrucción técnica de los hechos, el análisis de evidencia digital y el diseño de una teoría del caso capaz de sostenerse desde el inicio de la investigación hasta el juicio oral.
+                    </p>
+                    <p class="text-slate-400 mb-4 text-justify" data-es="El uso de inteligencia artificial aplicada al análisis jurídico permite procesar grandes volúmenes de información, identificar inconsistencias probatorias, fortalecer la investigación defensiva y optimizar la preparación estratégica de cada litigio." data-en="The use of artificial intelligence applied to legal analysis allows processing large volumes of information, identifying evidentiary inconsistencies, strengthening defensive investigation, and optimizing the strategic preparation of each litigation.">
+                        El uso de inteligencia artificial aplicada al análisis jurídico permite procesar grandes volúmenes de información, identificar inconsistencias probatorias, fortalecer la investigación defensiva y optimizar la preparación estratégica de cada litigio.
+                    </p>
+                    <p class="text-slate-400 mb-6 text-justify" data-es="La combinación entre experiencia procesal, análisis tecnológico y comprensión de la criminalidad digital permite enfrentar investigaciones complejas con un enfoque moderno, riguroso y orientado a resultados." data-en="The combination of procedural experience, technological analysis, and understanding of digital criminality allows us to face complex investigations with a modern, rigorous, and results-oriented approach.">
+                        La combinación entre experiencia procesal, análisis tecnológico y comprensión de la criminalidad digital permite enfrentar investigaciones complejas con un enfoque moderno, riguroso y orientado a resultados.
+                    </p>
+                    <div class="inline-flex items-center gap-2 border-t border-slate-700 pt-6 text-white font-medium">
+                        <i class="fa-solid fa-shield-halved text-gold-400"></i>
+                        <span data-es="Confianza construida sobre preparación." data-en="Trust built on preparation.">Confianza construida sobre preparación.</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 relative z-10 mt-12 fade-in-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Logo" class="h-8 w-auto">
+            </div>
+            
+            <div class="text-slate-500 text-sm text-center md:text-left">
+                <p data-es="&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados." data-en="&copy; 2026 HM Legal | Technological Criminal Division. All rights reserved.">&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados.</p>
+                <p class="mt-1 font-mono text-xs">Avenida O’Higgins 1186, Of. 1107 | contacto@hmlegal.cl</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+                <a href="https://hmlegal.cl/cybercrimen/documentos/politica.html" class="hover:text-gold-400 transition-colors" data-es="Política de Privacidad" data-en="Privacy Policy">Política de Privacidad</a>
+                <span>|</span>
+                <a href="https://hmlegal.cl/cybercrimen/documentos/terminos.html" class="hover:text-gold-400 transition-colors" data-es="Términos Legales" data-en="Legal Terms">Términos Legales</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- Lógica Bilingüe ---
+        let currentLang = 'es';
+
+        function changeLang(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-es]').forEach(el => {
+                if (el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea') {
+                    if (el.placeholder) el.placeholder = el.getAttribute(`data-${lang}`);
+                } else if (el.tagName.toLowerCase() === 'option') {
+                     el.textContent = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            // Actualizar estado visual de los botones
+            if(lang === 'es') {
+                document.getElementById('btn-es').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-en').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            } else {
+                document.getElementById('btn-en').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-es').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            }
+
+            // Actualizar título de la pestaña
+            document.title = lang === 'es' ? 'Quiénes Somos | HM Legal - División Penal Tecnológica' : 'About Us | HM Legal - Technological Criminal Division';
+        }
+
+        // --- Intersection Observer para Animaciones ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerFade = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach((el) => {
+                observerFade.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

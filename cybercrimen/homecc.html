@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HM Legal | División Penal Tecnológica</title>
+    <meta name="description" content="Defensa penal y querellas estratégicas en delitos informáticos, estafas cripto y fraude corporativo.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#B5952F',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Oculta la barra de desplazamiento pero permite hacer scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+    
+    <!-- Google Analytics (Reemplazar G-XXXXXXXXXX) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "HM Legal - División Penal Tecnológica",
+      "url": "https://hmlegal.cl/cybercrimen/",
+      "logo": "https://hmlegal.cl/cybercrimen/imagenes/logo.png",
+      "image": "https://hmlegal.cl/cybercrimen/imagenes/image1.png",
+      "description": "Despacho penal en Chile especializado en delitos informáticos, estafas con criptomonedas, fraude corporativo (BEC) y lavado de activos digitales.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Concepción",
+        "addressRegion": "Biobío",
+        "addressCountry": "CL"
+      },
+      "email": "contacto@hmlegal.cl",
+      "areaServed": "Chile",
+      "priceRange": "$$$$"
+    }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-300 font-sans antialiased selection:bg-gold-500/30 selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex-shrink-0 flex items-center gap-3">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Cybercrimen Logo" class="h-10 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x80/0f172a/D4AF37?text=HM+LEGAL'">
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://hmlegal.cl/cybercrimen/nosotros.html" class="text-sm font-medium text-slate-400 hover:text-white transition-colors" data-es="Quiénes Somos" data-en="About Us">Quiénes Somos</a>
+                <a href="https://hmlegal.cl/cybercrimen/blog/blog.html" class="text-sm font-medium text-slate-400 hover:text-white transition-colors" data-es="Blog" data-en="Blog">Blog</a>
+                <div class="flex items-center gap-2 bg-slate-900 rounded-full px-3 py-1 border border-slate-800">
+                    <button onclick="changeLang('es')" id="btn-es" class="text-xs font-semibold text-gold-400 transition-colors">ES</button>
+                    <span class="text-slate-600 text-xs">|</span>
+                    <button onclick="changeLang('en')" id="btn-en" class="text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors">EN</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950"></div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center fade-in-up">
+            <span class="inline-block py-1 px-3 rounded-full bg-red-950/30 border border-red-900/50 text-red-500 text-xs font-semibold tracking-wider uppercase mb-6" data-es="División Penal Tecnológica" data-en="Technological Criminal Division">
+                División Penal Tecnológica
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-8 leading-tight">
+                <span data-es="La primera decisión que tome tras un incidente digital" data-en="The first decision made after a digital incident">La primera decisión que tome tras un incidente digital</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-500 block mt-2" data-es="define el curso de la investigación." data-en="defines the course of the investigation.">define el curso de la investigación.</span>
+            </h1>
+            <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed" data-es="Nuestra división interviene desde el primer momento para dirigir la estrategia jurídica y probatoria. Protegemos su patrimonio, su libertad y la continuidad de sus operaciones." data-en="Our division intervenes from the first moment to direct the legal and evidentiary strategy. We protect your assets, your freedom, and the continuity of your operations.">
+                Nuestra división interviene desde el primer momento para dirigir la estrategia jurídica y probatoria. Protegemos su patrimonio, su libertad y la continuidad de sus operaciones.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#diagnostico" class="w-full sm:w-auto px-8 py-4 bg-gold-500 hover:bg-gold-400 text-slate-950 font-semibold rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]" data-es="Solicitar Evaluación Estratégica" data-en="Request Strategic Evaluation">
+                    Solicitar Evaluación Estratégica
+                </a>
+                <a href="#filtro" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-slate-700 hover:border-slate-500 text-white font-medium rounded-lg transition-all duration-300 hover:-translate-y-1" data-es="¿Mi caso califica?" data-en="Does my case qualify?">
+                    ¿Mi caso califica?
+                </a>
+            </div>
+            <p class="mt-6 text-xs text-slate-500 font-medium tracking-wide" data-es="Evaluación confidencial • Sin compromiso inicial • Casos seleccionados" data-en="Confidential evaluation • No initial commitment • Selected cases">
+                Evaluación confidencial &bull; Sin compromiso inicial &bull; Casos seleccionados
+            </p>
+        </div>
+    </section>
+
+    <!-- Diagnóstico Inicial -->
+    <section id="diagnostico" class="py-20 bg-slate-950 relative border-t border-slate-900/50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-4" data-es="Diagnóstico Inicial" data-en="Initial Diagnostics">Diagnóstico Inicial</h2>
+                <p class="text-slate-400" data-es="Seleccione la naturaleza de su situación para adaptar el protocolo de ingreso." data-en="Select the nature of your situation to adapt the intake protocol.">Seleccione la naturaleza de su situación para adaptar el protocolo de ingreso.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 fade-in-up">
+                <!-- Panel 1 -->
+                <button onclick="selectIncident('empresa', 'Mi empresa sufrió un ataque', 'Comencemos la evaluación jurídica de este incidente.', this)" class="incident-card group text-left bg-slate-900/30 border border-slate-800 rounded-xl p-6 hover:bg-slate-900 hover:border-gold-500/50 transition-all duration-300 relative overflow-hidden">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="text-2xl mb-3 block opacity-80 group-hover:opacity-100 transition-opacity">🏢</span>
+                            <h3 class="text-lg font-semibold text-white mb-1" data-es="Mi empresa sufrió un ataque" data-en="My company suffered an attack">Mi empresa sufrió un ataque</h3>
+                            <p class="text-sm text-slate-500" data-es="Ransomware, BEC, Phishing corporativo." data-en="Ransomware, BEC, Corporate Phishing.">Ransomware, BEC, Phishing corporativo.</p>
+                        </div>
+                        <div class="check-indicator hidden text-gold-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                    </div>
+                </button>
+                
+                <!-- Panel 2 -->
+                <button onclick="selectIncident('investigado', 'Estoy siendo investigado', 'Necesitamos comprender el estado actual de la investigación.', this)" class="incident-card group text-left bg-slate-900/30 border border-slate-800 rounded-xl p-6 hover:bg-slate-900 hover:border-gold-500/50 transition-all duration-300 relative overflow-hidden">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="text-2xl mb-3 block opacity-80 group-hover:opacity-100 transition-opacity">⚖️</span>
+                            <h3 class="text-lg font-semibold text-white mb-1" data-es="Estoy siendo investigado" data-en="I am being investigated">Estoy siendo investigado</h3>
+                            <p class="text-sm text-slate-500" data-es="Citaciones, allanamientos, cuentas congeladas." data-en="Subpoenas, raids, frozen accounts.">Citaciones, allanamientos, cuentas congeladas.</p>
+                        </div>
+                        <div class="check-indicator hidden text-gold-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Panel 3 -->
+                <button onclick="selectIncident('activos', 'Perdí activos digitales', 'Recopilemos la información esencial para evaluar las posibilidades de recuperación.', this)" class="incident-card group text-left bg-slate-900/30 border border-slate-800 rounded-xl p-6 hover:bg-slate-900 hover:border-gold-500/50 transition-all duration-300 relative overflow-hidden">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="text-2xl mb-3 block opacity-80 group-hover:opacity-100 transition-opacity">🪙</span>
+                            <h3 class="text-lg font-semibold text-white mb-1" data-es="Perdí activos digitales" data-en="I lost digital assets">Perdí activos digitales</h3>
+                            <p class="text-sm text-slate-500" data-es="Fraudes cripto, vaciado de wallets, exchanges." data-en="Crypto fraud, wallet draining, exchanges.">Fraudes cripto, vaciado de wallets, exchanges.</p>
+                        </div>
+                        <div class="check-indicator hidden text-gold-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                    </div>
+                </button>
+
+                <!-- Panel 4 -->
+                <button onclick="selectIncident('prevencion', 'Necesito prevenir riesgos', 'Identifiquemos el escenario para diseñar la estrategia preventiva.', this)" class="incident-card group text-left bg-slate-900/30 border border-slate-800 rounded-xl p-6 hover:bg-slate-900 hover:border-gold-500/50 transition-all duration-300 relative overflow-hidden">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="text-2xl mb-3 block opacity-80 group-hover:opacity-100 transition-opacity">🛡️</span>
+                            <h3 class="text-lg font-semibold text-white mb-1" data-es="Necesito prevenir riesgos" data-en="I need to prevent risks">Necesito prevenir riesgos</h3>
+                            <p class="text-sm text-slate-500" data-es="Compliance penal tecnológico, due diligence." data-en="Technological criminal compliance, due diligence.">Compliance penal tecnológico, due diligence.</p>
+                        </div>
+                        <div class="check-indicator hidden text-gold-400">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            
+            <div id="sync-indicator" class="mt-6 text-center opacity-0 transition-opacity duration-500 flex items-center justify-center gap-2">
+                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span class="text-sm text-slate-400" data-es="✓ Incidente identificado y sincronizado con el protocolo." data-en="✓ Incident identified and synced with protocol.">✓ Incidente identificado y sincronizado con el protocolo.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Especialización (Minimal Cards) -->
+    <section class="py-24 bg-slate-900 border-t border-slate-800 fade-in-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4" data-es="Protocolos de Actuación Jurídica" data-en="Legal Action Protocols">Protocolos de Actuación Jurídica</h2>
+                <p class="text-slate-400" data-es="Intervenimos durante las primeras horas del incidente para proteger la evidencia, reducir el riesgo jurídico y definir la estrategia procesal desde el inicio." data-en="We intervene during the first hours of the incident to protect evidence, reduce legal risk, and define the procedural strategy from the outset.">Intervenimos durante las primeras horas del incidente para proteger la evidencia, reducir el riesgo jurídico y definir la estrategia procesal desde el inicio.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="accordion-card bg-slate-950/50 border border-slate-800 rounded-xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-6 focus:outline-none group">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-gold-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></div>
+                            <svg class="w-5 h-5 text-slate-500 transform transition-transform duration-300 accordion-icon group-hover:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2" data-es="Investigaciones Penales Digitales" data-en="Digital Criminal Investigations">Investigaciones Penales Digitales</h3>
+                        <p class="text-sm text-slate-400" data-es="Defensa jurídica frente a investigaciones por delitos informáticos." data-en="Legal defense against cybercrime investigations.">Defensa jurídica frente a investigaciones por delitos informáticos.</p>
+                    </button>
+                    <!-- Accordion Content -->
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-slate-900/50">
+                        <div class="p-6 pt-0 border-t border-slate-800 mt-2">
+                            <h4 class="text-gold-400 text-sm font-semibold mb-3 mt-4" data-es="Decisiones Críticas durante las Primeras Horas:" data-en="Critical Decisions during the First Hours:">Decisiones Críticas durante las Primeras Horas:</h4>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li data-es="• Preservar íntegramente la evidencia digital antes de cualquier intervención." data-en="• Preserve digital evidence entirely before any intervention.">• Preservar íntegramente la evidencia digital antes de cualquier intervención.</li>
+                                <li data-es="• Evaluar jurídicamente cualquier requerimiento de acceso a dispositivos, cuentas o información digital." data-en="• Legally evaluate any request for access to devices, accounts, or digital information.">• Evaluar jurídicamente cualquier requerimiento de acceso a dispositivos, cuentas o información digital.</li>
+                                <li data-es="• Definir la estrategia procesal antes de prestar declaraciones o colaborar con diligencias investigativas." data-en="• Define the procedural strategy before making statements or collaborating with investigative procedures.">• Definir la estrategia procesal antes de prestar declaraciones o colaborar con diligencias investigativas.</li>
+                            </ul>
+                            <a href="https://hmlegal.cl/cybercrimen/blog.html" class="inline-block w-full py-2 bg-slate-800 hover:bg-gold-500 hover:text-slate-950 text-slate-300 text-sm font-semibold rounded text-center transition-colors mt-4" data-es="Más info" data-en="More info">Más info</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="accordion-card bg-slate-950/50 border border-slate-800 rounded-xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-6 focus:outline-none group">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-gold-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg></div>
+                            <svg class="w-5 h-5 text-slate-500 transform transition-transform duration-300 accordion-icon group-hover:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2" data-es="Fraude Corporativo" data-en="Corporate Fraud">Fraude Corporativo</h3>
+                        <p class="text-sm text-slate-400" data-es="Diseño de estrategias frente a fraudes complejos y ataques BEC." data-en="Strategy design against complex frauds and BEC attacks.">Diseño de estrategias frente a fraudes complejos y ataques BEC.</p>
+                    </button>
+                    <!-- Accordion Content -->
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-slate-900/50">
+                        <div class="p-6 pt-0 border-t border-slate-800 mt-2">
+                            <h4 class="text-gold-400 text-sm font-semibold mb-3 mt-4" data-es="Decisiones Críticas durante las Primeras Horas:" data-en="Critical Decisions during the First Hours:">Decisiones Críticas durante las Primeras Horas:</h4>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li data-es="• Contención jurídica inmediata del incidente." data-en="• Immediate legal containment of the incident.">• Contención jurídica inmediata del incidente.</li>
+                                <li data-es="• Coordinación con instituciones financieras para proteger activos." data-en="• Coordination with financial institutions to protect assets.">• Coordinación con instituciones financieras para proteger activos.</li>
+                                <li data-es="• Preservación de evidencia destinada a futuras acciones penales." data-en="• Preservation of evidence for future criminal actions.">• Preservación de evidencia destinada a futuras acciones penales.</li>
+                                <li data-es="• Diseño de estrategia para recuperación patrimonial." data-en="• Design of strategy for asset recovery.">• Diseño de estrategia para recuperación patrimonial.</li>
+                            </ul>
+                            <a href="https://hmlegal.cl/cybercrimen/blog.html" class="inline-block w-full py-2 bg-slate-800 hover:bg-gold-500 hover:text-slate-950 text-slate-300 text-sm font-semibold rounded text-center transition-colors mt-4" data-es="Más info" data-en="More info">Más info</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="accordion-card bg-slate-950/50 border border-slate-800 rounded-xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-6 focus:outline-none group">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-gold-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg></div>
+                            <svg class="w-5 h-5 text-slate-500 transform transition-transform duration-300 accordion-icon group-hover:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2" data-es="Blockchain Forensics" data-en="Blockchain Forensics">Blockchain Forensics</h3>
+                        <p class="text-sm text-slate-400" data-es="Análisis jurídico asociado al rastreo y recuperación de activos digitales." data-en="Legal analysis associated with tracing and recovering digital assets.">Análisis jurídico asociado al rastreo y recuperación de activos digitales.</p>
+                    </button>
+                    <!-- Accordion Content -->
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-slate-900/50">
+                        <div class="p-6 pt-0 border-t border-slate-800 mt-2">
+                            <h4 class="text-gold-400 text-sm font-semibold mb-3 mt-4" data-es="Decisiones Críticas durante las Primeras Horas:" data-en="Critical Decisions during the First Hours:">Decisiones Críticas durante las Primeras Horas:</h4>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li data-es="• Identificación del recorrido de los activos digitales." data-en="• Identification of the path of digital assets.">• Identificación del recorrido de los activos digitales.</li>
+                                <li data-es="• Evaluación de las jurisdicciones involucradas." data-en="• Evaluation of the jurisdictions involved.">• Evaluación de las jurisdicciones involucradas.</li>
+                                <li data-es="• Coordinación con exchanges y proveedores internacionales." data-en="• Coordination with international exchanges and providers.">• Coordinación con exchanges y proveedores internacionales.</li>
+                                <li data-es="• Preparación de medidas destinadas a inmovilizar activos identificados cuando resulte jurídicamente procedente." data-en="• Preparation of measures aimed at immobilizing identified assets when legally appropriate.">• Preparación de medidas destinadas a inmovilizar activos identificados cuando resulte jurídicamente procedente.</li>
+                            </ul>
+                            <a href="https://hmlegal.cl/cybercrimen/blog.html" class="inline-block w-full py-2 bg-slate-800 hover:bg-gold-500 hover:text-slate-950 text-slate-300 text-sm font-semibold rounded text-center transition-colors mt-4" data-es="Más info" data-en="More info">Más info</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="accordion-card bg-slate-950/50 border border-slate-800 rounded-xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-6 focus:outline-none group">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-gold-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></div>
+                            <svg class="w-5 h-5 text-slate-500 transform transition-transform duration-300 accordion-icon group-hover:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2" data-es="Ransomware" data-en="Ransomware">Ransomware</h3>
+                        <p class="text-sm text-slate-400" data-es="Coordinación jurídica durante incidentes críticos." data-en="Legal coordination during critical incidents.">Coordinación jurídica durante incidentes críticos.</p>
+                    </button>
+                    <!-- Accordion Content -->
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-slate-900/50">
+                        <div class="p-6 pt-0 border-t border-slate-800 mt-2">
+                            <h4 class="text-gold-400 text-sm font-semibold mb-3 mt-4" data-es="Decisiones Críticas durante las Primeras Horas:" data-en="Critical Decisions during the First Hours:">Decisiones Críticas durante las Primeras Horas:</h4>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li data-es="• Protección de la evidencia para futuras acciones judiciales." data-en="• Protection of evidence for future legal actions.">• Protección de la evidencia para futuras acciones judiciales.</li>
+                                <li data-es="• Evaluación de obligaciones legales derivadas del incidente." data-en="• Evaluation of legal obligations arising from the incident.">• Evaluación de obligaciones legales derivadas del incidente.</li>
+                                <li data-es="• Coordinación jurídica de la respuesta frente al ataque." data-en="• Legal coordination of the response to the attack.">• Coordinación jurídica de la respuesta frente al ataque.</li>
+                                <li data-es="• Diseño de estrategia frente a escenarios de extorsión digital." data-en="• Design of strategy against digital extortion scenarios.">• Diseño de estrategia frente a escenarios de extorsión digital.</li>
+                            </ul>
+                            <a href="https://hmlegal.cl/cybercrimen/blog.html" class="inline-block w-full py-2 bg-slate-800 hover:bg-gold-500 hover:text-slate-950 text-slate-300 text-sm font-semibold rounded text-center transition-colors mt-4" data-es="Más info" data-en="More info">Más info</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="accordion-card bg-slate-950/50 border border-slate-800 rounded-xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-6 focus:outline-none group">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-gold-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
+                            <svg class="w-5 h-5 text-slate-500 transform transition-transform duration-300 accordion-icon group-hover:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2" data-es="Cadena de Custodia Digital" data-en="Digital Chain of Custody">Cadena de Custodia Digital</h3>
+                        <p class="text-sm text-slate-400" data-es="Protección procesal de la evidencia." data-en="Procedural protection of evidence.">Protección procesal de la evidencia.</p>
+                    </button>
+                    <!-- Accordion Content -->
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-slate-900/50">
+                        <div class="p-6 pt-0 border-t border-slate-800 mt-2">
+                            <h4 class="text-gold-400 text-sm font-semibold mb-3 mt-4" data-es="Decisiones Críticas durante las Primeras Horas:" data-en="Critical Decisions during the First Hours:">Decisiones Críticas durante las Primeras Horas:</h4>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li data-es="• Preservación de la integridad probatoria." data-en="• Preservation of evidentiary integrity.">• Preservación de la integridad probatoria.</li>
+                                <li data-es="• Documentación de la cadena de custodia." data-en="• Documentation of the chain of custody.">• Documentación de la cadena de custodia.</li>
+                                <li data-es="• Coordinación con peritos especializados." data-en="• Coordination with specialized experts.">• Coordinación con peritos especializados.</li>
+                                <li data-es="• Preparación de evidencia destinada a procesos judiciales." data-en="• Preparation of evidence intended for judicial proceedings.">• Preparación de evidencia destinada a procesos judiciales.</li>
+                            </ul>
+                            <a href="https://hmlegal.cl/cybercrimen/blog.html" class="inline-block w-full py-2 bg-slate-800 hover:bg-gold-500 hover:text-slate-950 text-slate-300 text-sm font-semibold rounded text-center transition-colors mt-4" data-es="Más info" data-en="More info">Más info</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="accordion-card bg-slate-950/50 border border-slate-800 rounded-xl overflow-hidden transition-all duration-300">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-6 focus:outline-none group">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-gold-400"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg></div>
+                            <svg class="w-5 h-5 text-slate-500 transform transition-transform duration-300 accordion-icon group-hover:text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2" data-es="Lavado de Activos Digitales" data-en="Digital Money Laundering">Lavado de Activos Digitales</h3>
+                        <p class="text-sm text-slate-400" data-es="Defensa penal especializada." data-en="Specialized criminal defense.">Defensa penal especializada.</p>
+                    </button>
+                    <!-- Accordion Content -->
+                    <div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-slate-900/50">
+                        <div class="p-6 pt-0 border-t border-slate-800 mt-2">
+                            <h4 class="text-gold-400 text-sm font-semibold mb-3 mt-4" data-es="Decisiones Críticas durante las Primeras Horas:" data-en="Critical Decisions during the First Hours:">Decisiones Críticas durante las Primeras Horas:</h4>
+                            <ul class="text-sm text-slate-300 space-y-2">
+                                <li data-es="• Evaluación inmediata del riesgo penal." data-en="• Immediate evaluation of criminal risk.">• Evaluación inmediata del riesgo penal.</li>
+                                <li data-es="• Análisis del origen y trazabilidad de los activos." data-en="• Analysis of the origin and traceability of assets.">• Análisis del origen y trazabilidad de los activos.</li>
+                                <li data-es="• Diseño de estrategia frente a requerimientos de autoridades." data-en="• Design of strategy against requests from authorities.">• Diseño de estrategia frente a requerimientos de autoridades.</li>
+                                <li data-es="• Coordinación internacional cuando la investigación involucre múltiples jurisdicciones." data-en="• International coordination when the investigation involves multiple jurisdictions.">• Coordinación internacional cuando la investigación involucre múltiples jurisdicciones.</li>
+                            </ul>
+                            <a href="https://hmlegal.cl/cybercrimen/blog.html" class="inline-block w-full py-2 bg-slate-800 hover:bg-gold-500 hover:text-slate-950 text-slate-300 text-sm font-semibold rounded text-center transition-colors mt-4" data-es="Más info" data-en="More info">Más info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtro de Casos -->
+    <section id="filtro" class="py-20 bg-slate-950 fade-in-up">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-12 items-center">
+            <div class="w-full md:w-1/2">
+                <h2 class="text-2xl font-bold text-white mb-6" data-es="Nuestra práctica se concentra en asuntos de alta complejidad." data-en="Our practice focuses on matters of high complexity.">Nuestra práctica se concentra en asuntos de alta complejidad.</h2>
+                <p class="text-slate-400 mb-6" data-es="La especialización técnica y jurídica exige concentrar nuestros recursos exclusivamente en determinadas materias para garantizar un nivel de representación óptimo." data-en="Technical and legal specialization requires concentrating our resources exclusively on certain matters to guarantee an optimal level of representation.">
+                    La especialización técnica y jurídica exige concentrar nuestros recursos exclusivamente en determinadas materias para garantizar un nivel de representación óptimo.
+                </p>
+                <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                    <li class="flex items-center gap-2"><span class="text-red-500">✕</span> <span data-es="Estafas menores en redes sociales o Marketplace." data-en="Minor scams on social media or Marketplace.">Estafas menores en redes sociales o Marketplace.</span></li>
+                    <li class="flex items-center gap-2"><span class="text-red-500">✕</span> <span data-es="Recuperación de cuentas de Facebook/Instagram." data-en="Facebook/Instagram account recovery.">Recuperación de cuentas de Facebook/Instagram.</span></li>
+                    <li class="flex items-center gap-2"><span class="text-red-500">✕</span> <span data-es="Clonación de tarjetas de crédito comunes." data-en="Standard credit card cloning.">Clonación de tarjetas de crédito comunes.</span></li>
+                    <li class="flex items-center gap-2"><span class="text-red-500">✕</span> <span data-es="Ciberacoso sin implicaciones patrimoniales graves." data-en="Cyberbullying without serious patrimonial implications.">Ciberacoso sin implicaciones patrimoniales graves.</span></li>
+                </ul>
+                <p class="text-sm font-medium text-slate-500 border-l-2 border-slate-700 pl-4" data-es="Cuando un asunto no corresponde a nuestra práctica, preferimos indicarlo desde el inicio para evitar generar expectativas que no podremos cumplir." data-en="When a matter does not fall within our practice, we prefer to state it from the outset to avoid raising expectations we cannot meet.">
+                    Cuando un asunto no corresponde a nuestra práctica, preferimos indicarlo desde el inicio para evitar generar expectativas que no podremos cumplir.
+                </p>
+            </div>
+            <div class="w-full md:w-1/2 relative group">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/image1.png" alt="Análisis de Evidencia Digital" class="rounded-xl shadow-2xl border border-slate-800 opacity-80 mix-blend-overlay group-hover:opacity-100 transition-opacity duration-500 object-cover h-[400px] w-full" onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/334155?text=Evidencia+Digital'">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent rounded-xl"></div>
+                <div class="absolute bottom-6 left-6 right-6 p-4 bg-slate-950/40 backdrop-blur-md rounded-lg border border-slate-700/50">
+                    <p class="text-gold-400 font-mono text-sm leading-tight drop-shadow-md">
+                        &gt; EXTRACTING DATA...<br>
+                        &gt; BLOCKCHAIN TRACE: CONFIRMED<br>
+                        &gt; JURISDICTION: INTERNATIONAL
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Viabilidad -->
+    <section id="evaluacion" class="py-24 bg-slate-900 border-t border-slate-800 fade-in-up">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="bg-slate-950 rounded-2xl border border-slate-800 p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                <!-- Barra de Progreso y Contexto -->
+                <div class="mb-8 border-b border-slate-800 pb-6 text-center">
+                    <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold mb-2 block" data-es="Paso 1 de 1" data-en="Step 1 of 1">Paso 1 de 1</span>
+                    <h2 class="text-3xl font-bold text-white mb-2" data-es="Evaluación Inicial" data-en="Initial Evaluation">Evaluación Inicial</h2>
+                    <p class="text-sm text-slate-400 mb-4" data-es="La evaluación preliminar tarda aproximadamente dos minutos." data-en="The preliminary evaluation takes approximately two minutes.">La evaluación preliminar tarda aproximadamente dos minutos.</p>
+                    <div id="dynamic-header" class="hidden text-sm font-medium text-white bg-slate-900 border border-slate-700 py-3 rounded-lg mx-auto max-w-md transition-all duration-300">
+                        <!-- El texto dinámico se inserta aquí por JS -->
+                    </div>
+                </div>
+
+                <form id="evaluationForm" class="space-y-8" onsubmit="processForm(event)">
+                    
+                    <!-- Campo Oculto (Valor del incidente) -->
+                    <input type="hidden" id="incidente_valor" name="incidente_valor" required>
+
+                    <!-- 01: Incidente Detectado (Read Only UI) -->
+                    <div id="ui-incidente" class="space-y-2 relative hidden opacity-0 transition-opacity duration-300">
+                        <label class="block text-sm font-medium text-slate-300" data-es="01. Incidente Detectado" data-en="01. Detected Incident">01. Incidente Detectado</label>
+                        <div class="w-full bg-slate-900 border border-slate-700 rounded-lg p-4 flex items-center justify-between cursor-not-allowed">
+                            <div class="flex items-center gap-3">
+                                <span class="text-gold-400"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg></span>
+                                <span id="incidente_texto" class="text-white font-medium"></span>
+                            </div>
+                            <span class="text-xs text-slate-500 uppercase tracking-wide" data-es="Sincronizado" data-en="Synced">Sincronizado</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Overlay para bloquear el form si no han seleccionado incidente -->
+                    <div id="form-overlay" class="absolute inset-0 z-10 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center rounded-2xl">
+                        <p class="text-white font-medium mb-4" data-es="Por favor, inicie el protocolo seleccionando su incidente arriba." data-en="Please start the protocol by selecting your incident above.">Por favor, inicie el protocolo seleccionando su incidente arriba.</p>
+                        <a href="#diagnostico" class="px-6 py-2 bg-gold-500 text-slate-950 text-sm font-semibold rounded-lg hover:bg-gold-400 transition-colors" data-es="Ir a Diagnóstico" data-en="Go to Diagnostics">Ir a Diagnóstico</a>
+                    </div>
+
+                    <!-- 02: Situación Actual -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-slate-300" data-es="02. Situación actual" data-en="02. Current situation">02. Situación actual</label>
+                        <select id="situacion" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors">
+                            <option value="" disabled selected data-es="Seleccione el estado actual..." data-en="Select current status...">Seleccione el estado actual...</option>
+                            <option value="crisis" data-es="Crisis activa (El incidente está ocurriendo o acaba de ocurrir)" data-en="Active crisis (Incident is occurring or just occurred)">Crisis activa (El incidente está ocurriendo o acaba de ocurrir)</option>
+                            <option value="citado" data-es="Citación o requerimiento en curso" data-en="Subpoena or requirement in progress">Citación o requerimiento en curso</option>
+                            <option value="denunciado" data-es="Denuncia ya presentada" data-en="Complaint already filed">Denuncia ya presentada</option>
+                            <option value="preventivo" data-es="Evaluación preventiva" data-en="Preventive evaluation">Evaluación preventiva</option>
+                        </select>
+                    </div>
+
+                    <!-- 03: Participación -->
+                    <div class="space-y-3">
+                        <label class="block text-sm font-medium text-slate-300" data-es="03. ¿En qué calidad participa?" data-en="03. In what capacity are you participating?">03. ¿En qué calidad participa?</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="flex items-center gap-3 p-3 bg-slate-900 border border-slate-800 rounded-lg cursor-pointer hover:border-slate-600 transition-colors">
+                                <input type="radio" name="participacion" value="victima" required class="accent-gold-500 w-4 h-4">
+                                <span class="text-sm text-slate-300" data-es="Soy la víctima o afectado" data-en="I am the victim or affected party">Soy la víctima o afectado</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-slate-900 border border-slate-800 rounded-lg cursor-pointer hover:border-slate-600 transition-colors">
+                                <input type="radio" name="participacion" value="empresa" class="accent-gold-500 w-4 h-4">
+                                <span class="text-sm text-slate-300" data-es="Represento a una empresa" data-en="I represent a company">Represento a una empresa</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-slate-900 border border-slate-800 rounded-lg cursor-pointer hover:border-slate-600 transition-colors">
+                                <input type="radio" name="participacion" value="investigado" class="accent-gold-500 w-4 h-4">
+                                <span class="text-sm text-slate-300" data-es="He sido citado o investigado" data-en="I have been subpoenaed or investigated">He sido citado o investigado</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-slate-900 border border-slate-800 rounded-lg cursor-pointer hover:border-slate-600 transition-colors">
+                                <input type="radio" name="participacion" value="preventivo" class="accent-gold-500 w-4 h-4">
+                                <span class="text-sm text-slate-300" data-es="Necesito asesoría preventiva" data-en="I need preventive advice">Necesito asesoría preventiva</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 04: Magnitud del Riesgo -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-slate-300" data-es="04. Magnitud del Riesgo" data-en="04. Magnitude of Risk">04. Magnitud del Riesgo</label>
+                        <select id="magnitud" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors">
+                            <option value="" disabled selected data-es="Seleccione una opción..." data-en="Select an option...">Seleccione una opción...</option>
+                            <option value="rechazo" data-es="Hasta USD 5.000 (Casos de menor cuantía económica)" data-en="Up to USD 5,000 (Minor economic cases)">Hasta USD 5.000 (Casos de menor cuantía económica)</option>
+                            <option value="relevante" data-es="Entre USD 5.000 y USD 20.000 (Incidente con impacto patrimonial relevante)" data-en="Between USD 5,000 and USD 20,000 (Incident with relevant patrimonial impact)">Entre USD 5.000 y USD 20.000 (Incidente con impacto patrimonial relevante)</option>
+                            <option value="alta" data-es="Más de USD 20.000 (Incidente de alta complejidad económica)" data-en="More than USD 20,000 (Incident of high economic complexity)">Más de USD 20.000 (Incidente de alta complejidad económica)</option>
+                            <option value="penal" data-es="Existe riesgo para mi libertad, reputación o continuidad operacional" data-en="There is a risk to my freedom, reputation, or operational continuity">Existe riesgo para mi libertad, reputación o continuidad operacional</option>
+                        </select>
+                    </div>
+
+                    <!-- 05: Resumen -->
+                    <div class="space-y-2">
+                        <label class="block text-sm font-medium text-slate-300" data-es="05. Resumen Ejecutivo (Breve descripción)" data-en="05. Executive Summary (Brief description)">05. Resumen Ejecutivo (Breve descripción)</label>
+                        <textarea id="hechos" required rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-colors" placeholder="..."></textarea>
+                    </div>
+
+                    <!-- 06: Contacto -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-slate-300" data-es="06. Nombre o Entidad" data-en="06. Name or Entity">06. Nombre o Entidad</label>
+                            <input type="text" id="nombre" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-sm font-medium text-slate-300" data-es="07. Correo Electrónico" data-en="07. Email">07. Correo Electrónico</label>
+                            <input type="email" id="email" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Botón -->
+                    <button type="submit" id="submitBtn" class="w-full py-4 bg-gold-500 hover:bg-gold-400 text-slate-950 font-bold rounded-lg transition-all duration-300 flex items-center justify-center gap-2 mt-4 hover:shadow-lg">
+                        <span data-es="Finalizar y Enviar Evaluación" data-en="Finalize and Submit Evaluation">Finalizar y Enviar Evaluación</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </button>
+                    
+                    <!-- Indicador de proceso -->
+                    <div class="flex justify-center gap-4 text-xs font-medium text-slate-500 mt-4">
+                        <span data-es="✓ Incidente" data-en="✓ Incident">✓ Incidente</span>
+                        <span data-es="✓ Información protegida" data-en="✓ Protected data">✓ Información protegida</span>
+                        <span data-es="✓ Evaluación" data-en="✓ Evaluation">✓ Evaluación</span>
+                    </div>
+
+                    <p class="text-xs text-center text-slate-500 mt-6 border-t border-slate-800 pt-6" data-es="Toda la información se encuentra protegida por secreto profesional y será utilizada exclusivamente para evaluar la viabilidad del caso." data-en="All information is protected by professional secrecy and will be used exclusively to evaluate the viability of the case.">
+                        Toda la información se encuentra protegida por secreto profesional y será utilizada exclusivamente para evaluar la viabilidad del caso.
+                    </p>
+                </form>
+
+                <!-- Mensaje de Resultado (Oculto inicialmente) -->
+                <div id="resultadoMsg" class="hidden absolute inset-0 bg-slate-950 flex flex-col items-center justify-center p-8 text-center z-20">
+                    <!-- Contenido inyectado por JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Flotante Móvil -->
+    <a href="#evaluacion" class="md:hidden fixed bottom-6 right-6 z-50 bg-gold-500 text-slate-950 font-bold px-6 py-3 rounded-full shadow-[0_0_15px_rgba(212,175,55,0.4)] flex items-center gap-2 hover:bg-gold-400 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+        <span data-es="Solicitar Evaluación" data-en="Request Evaluation">Solicitar Evaluación</span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 fade-in-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="#" class="flex items-center gap-2">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Cybercrimen Logo" class="h-8 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x80/0f172a/D4AF37?text=HM+LEGAL'">
+            </a>
+            
+            <div class="text-slate-500 text-sm text-center md:text-left">
+                <p data-es="&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados." data-en="&copy; 2026 HM Legal | Technological Criminal Division. All rights reserved.">&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados.</p>
+                <p class="mt-1">Concepción, Chile. | <a href="mailto:contacto@hmlegal.cl" class="hover:text-gold-400 transition-colors">contacto@hmlegal.cl</a></p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+                <a href="https://hmlegal.cl/cybercrimen/nosotros.html" class="hover:text-gold-400 transition-colors" data-es="Quiénes Somos" data-en="About Us">Quiénes Somos</a>
+                <a href="https://hmlegal.cl/cybercrimen/blog/blog.html" class="hover:text-gold-400 transition-colors" data-es="Blog" data-en="Blog">Blog</a>
+                <a href="https://hmlegal.cl/cybercrimen/documentos/politicas.html" class="hover:text-gold-400 transition-colors" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+                <a href="https://hmlegal.cl/cybercrimen/documentos/terminos.html" class="hover:text-gold-400 transition-colors" data-es="Términos" data-en="Terms">Términos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Variables globales
+        let currentLang = 'es';
+
+        // 1. Selector de Idioma
+        function changeLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-es]').forEach(el => {
+                if (el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea') {
+                    if (el.placeholder) el.placeholder = el.getAttribute(`data-${lang}`);
+                } else if (el.tagName.toLowerCase() === 'option') {
+                     el.textContent = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            if(lang === 'es') {
+                document.getElementById('btn-es').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-en').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            } else {
+                document.getElementById('btn-en').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-es').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            }
+        }
+
+        // Accordion Logic
+        function toggleAccordion(button) {
+            const card = button.closest('.accordion-card');
+            const content = card.querySelector('.accordion-content');
+            const icon = card.querySelector('.accordion-icon');
+            const isExpanded = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+            // Cerrar todos los demás acordiones (Opcional, pero recomendado para UX limpia)
+            document.querySelectorAll('.accordion-content').forEach(el => el.style.maxHeight = '0px');
+            document.querySelectorAll('.accordion-icon').forEach(el => el.classList.remove('rotate-180'));
+            document.querySelectorAll('.accordion-card').forEach(el => el.classList.remove('border-gold-500/50', 'shadow-[0_0_15px_rgba(212,175,55,0.1)]'));
+
+            // Si no estaba expandido, abrir este
+            if (!isExpanded) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.classList.add('rotate-180');
+                card.classList.add('border-gold-500/50', 'shadow-[0_0_15px_rgba(212,175,55,0.1)]');
+            }
+        }
+
+        // 2. Lógica del Diagnóstico y Formulario
+        function selectIncident(val, textES, headerTextES, btnElement) {
+            // Resetear estilos visuales de botones
+            document.querySelectorAll('.incident-card').forEach(card => {
+                card.classList.remove('border-gold-500', 'bg-slate-900');
+                card.querySelector('.check-indicator').classList.add('hidden');
+            });
+
+            // Aplicar estilo activo
+            btnElement.classList.add('border-gold-500', 'bg-slate-900');
+            btnElement.querySelector('.check-indicator').classList.remove('hidden');
+
+            // Actualizar datos del formulario
+            document.getElementById('incidente_valor').value = val;
+            
+            // Textos según idioma activo
+            const textToUse = currentLang === 'es' ? textES : btnElement.querySelector('h3').getAttribute('data-en');
+            document.getElementById('incidente_texto').textContent = textToUse;
+            
+            const headerToUse = currentLang === 'es' ? headerTextES : 
+                                (val === 'empresa' ? 'Let us begin the legal evaluation of this incident.' :
+                                 val === 'investigado' ? 'We need to understand the current status of the investigation.' :
+                                 val === 'activos' ? 'Let us gather the essential info to evaluate recovery options.' :
+                                 'Let us identify the scenario to design the preventive strategy.');
+
+            // Modificar UI del Form
+            document.getElementById('form-overlay').classList.add('hidden');
+            const dynamicHeader = document.getElementById('dynamic-header');
+            dynamicHeader.textContent = headerToUse;
+            dynamicHeader.classList.remove('hidden');
+            dynamicHeader.classList.add('block');
+            
+            const uiIncidente = document.getElementById('ui-incidente');
+            uiIncidente.classList.remove('hidden');
+            setTimeout(() => { uiIncidente.classList.remove('opacity-0'); }, 50);
+
+            // Mostrar sincronización
+            const sync = document.getElementById('sync-indicator');
+            sync.classList.remove('opacity-0');
+            setTimeout(() => { sync.classList.add('opacity-0'); }, 3000);
+
+            // Scroll suave al formulario
+            setTimeout(() => {
+                document.getElementById('evaluacion').scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        }
+
+        // 3. Procesamiento del Formulario
+        function processForm(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const originalBtnText = btn.innerHTML;
+            const loadingText = currentLang === 'es' ? 'Procesando evaluación...' : 'Processing evaluation...';
+            btn.innerHTML = `<svg class="animate-spin h-5 w-5 mr-3 text-slate-900" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> ${loadingText}`;
+            btn.disabled = true;
+
+            const magnitud = document.getElementById('magnitud').value;
+            const resultBox = document.getElementById('resultadoMsg');
+
+            // Simular petición
+            setTimeout(() => {
+                resultBox.classList.remove('hidden');
+                
+                if (magnitud === 'rechazo') {
+                    const title = currentLang === 'es' ? 'Evaluación Concluida' : 'Evaluation Concluded';
+                    const msg = currentLang === 'es' ? 
+                        'Agradecemos su confianza. Al analizar preliminarmente los antecedentes, concluimos que los costos asociados a un despliegue forense y jurídico especializado superarían el beneficio económico de la recuperación.<br><br>Le sugerimos respetuosamente canalizar su caso directamente a través del Ministerio Público (Fiscalía). Su información será eliminada de nuestros servidores en cumplimiento de nuestras políticas de privacidad.' : 
+                        'We appreciate your trust. Upon preliminary analysis, we conclude that the costs associated with a specialized legal and forensic deployment would exceed the economic benefit of recovery.<br><br>We respectfully suggest directing your case to the Public Prosecutor\'s Office. Your information will be deleted from our servers in compliance with our privacy policies.';
+                    
+                    resultBox.innerHTML = `
+                        <div class="text-slate-400 mb-4"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg></div>
+                        <h3 class="text-2xl font-bold text-white mb-4">${title}</h3>
+                        <p class="text-slate-400 max-w-md mx-auto">${msg}</p>
+                        <button onclick="location.reload()" class="mt-8 px-6 py-2 border border-slate-700 text-slate-300 rounded hover:bg-slate-800 transition-colors">${currentLang === 'es' ? 'Cerrar' : 'Close'}</button>
+                    `;
+                } else {
+                    // Derivación a Calendly
+                    const title = currentLang === 'es' ? 'Protocolo Iniciado' : 'Protocol Initiated';
+                    const msg = currentLang === 'es' ? 
+                        'Hemos recibido correctamente su información.<br><br>El siguiente paso consiste en agendar una reunión inicial para evaluar jurídicamente el caso y establecer la estrategia de contención.' :
+                        'We have successfully received your information.<br><br>The next step is to schedule an initial meeting to legally evaluate the case and establish the containment strategy.';
+                    const redirect = currentLang === 'es' ? 'Redirigiendo a la agenda segura...' : 'Redirecting to secure schedule...';
+                    
+                    resultBox.innerHTML = `
+                        <div class="text-gold-400 mb-4"><svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <h3 class="text-2xl font-bold text-white mb-4">${title}</h3>
+                        <p class="text-slate-300 max-w-md mx-auto font-medium">${msg}</p>
+                        <div class="mt-8 flex items-center justify-center gap-3 text-gold-400 text-sm">
+                            <svg class="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                            ${redirect}
+                        </div>
+                    `;
+                    // Redirigir a calendly
+                    setTimeout(() => {
+                        window.location.href = "https://calendly.com/contacto-hmlegal";
+                    }, 2500);
+                }
+            }, 1500);
+        }
+
+        // 4. Animaciones al hacer scroll (Intersection Observer)
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

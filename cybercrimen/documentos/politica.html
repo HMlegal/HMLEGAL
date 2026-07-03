@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad y Confidencialidad | Cybercrimen.cl</title>
+    
+    <meta name="robots" content="noindex, follow">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#B5952F',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617; /* Slate 950 */
+            color: #e2e8f0;
+        }
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+        
+        /* Animaciones */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos de contenido legal */
+        .legal-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #D4AF37;
+            margin-top: 3rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 0.75rem;
+            scroll-margin-top: 100px; /* Offset para el header fijo */
+        }
+        
+        .legal-content p, .legal-content li {
+            line-height: 1.8;
+            color: #94a3b8;
+            margin-bottom: 1.25rem;
+            text-align: justify; 
+        }
+        
+        .legal-content ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .legal-content ul li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .legal-content ul li::before {
+            content: "■";
+            color: #D4AF37;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 0.75rem;
+            line-height: 2.2;
+        }
+
+        .legal-content strong {
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .legal-content a {
+            color: #D4AF37;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .legal-content a:hover {
+            color: #fde047;
+            text-decoration: underline;
+        }
+
+        /* Estilos de Tabla */
+        .legal-content table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #1e293b;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .legal-content th, .legal-content td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #1e293b;
+        }
+        .legal-content th {
+            background-color: #0f172a;
+            color: #D4AF37;
+            font-weight: 600;
+        }
+        .legal-content td {
+            background-color: #020617;
+            color: #94a3b8;
+        }
+        .legal-content tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen bg-grid selection:bg-gold-500/30 selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-900/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="https://hmlegal.cl/cybercrimen/home.html" class="flex-shrink-0 flex items-center gap-3 transition-transform hover:scale-105">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Cybercrimen Logo" class="h-10 md:h-12 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x80/0f172a/D4AF37?text=HM+LEGAL'">
+            </a>
+            
+            <div class="flex items-center gap-4 md:gap-6">
+                <!-- Etiqueta de Documento (Desktop) -->
+                <span class="hidden lg:flex text-xs text-green-500 items-center gap-2 border border-green-900/50 bg-green-900/10 px-3 py-1.5 rounded-full font-mono tracking-wide" data-es='<i class="fa-solid fa-shield-halved"></i> CANAL CIFRADO ACTIVO' data-en='<i class="fa-solid fa-shield-halved"></i> ACTIVE ENCRYPTED CHANNEL'>
+                    <i class="fa-solid fa-shield-halved"></i> CANAL CIFRADO ACTIVO
+                </span>
+
+                <!-- Selector de Idioma -->
+                <div class="flex items-center gap-2 bg-slate-900 rounded-full px-3 py-1 border border-slate-800">
+                    <button onclick="changeLang('es')" id="btn-es" class="text-xs font-semibold text-gold-400 transition-colors">ES</button>
+                    <span class="text-slate-600 text-xs">|</span>
+                    <button onclick="changeLang('en')" id="btn-en" class="text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors">EN</button>
+                </div>
+                
+                <!-- Botón Volver (Desktop) -->
+                <a href="https://hmlegal.cl/cybercrimen/home.html" class="hidden sm:flex items-center gap-2 bg-transparent hover:bg-slate-900 border border-slate-700 hover:border-gold-500/50 text-slate-300 hover:text-gold-400 font-medium py-2 px-4 rounded-lg transition-all duration-300 text-sm" data-es='<i class="fa-solid fa-arrow-left"></i> Volver al Inicio' data-en='<i class="fa-solid fa-arrow-left"></i> Back to Home'>
+                    <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
+                </a>
+                
+                <!-- Botón Volver (Móvil) -->
+                <a href="https://hmlegal.cl/cybercrimen/home.html" class="sm:hidden flex items-center justify-center bg-slate-900 border border-slate-700 text-slate-400 hover:text-gold-400 w-9 h-9 rounded-lg transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-32 pb-24">
+        
+        <!-- Hero Section del Documento -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 fade-in-up">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-3xl md:text-5xl font-serif font-bold text-white mb-4 leading-tight" data-es="Política de Privacidad y Estricta Confidencialidad" data-en="Privacy Policy and Strict Confidentiality">Política de Privacidad y Estricta Confidencialidad</h1>
+                <p class="text-slate-400 font-mono text-sm inline-block border-b border-slate-800 pb-2" data-es="Última actualización de protocolo: 01 de julio de 2026" data-en="Last protocol update: July 1, 2026">Última actualización de protocolo: 01 de julio de 2026</p>
+            </div>
+        </div>
+
+        <!-- Contenido Principal centrado (sin Sidebar) -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900/50 border border-slate-800 p-8 md:p-12 rounded-xl shadow-2xl backdrop-blur-sm relative overflow-hidden fade-in-up">
+                
+                <!-- Marca de agua decorativa -->
+                <i class="fa-solid fa-fingerprint absolute -right-20 -bottom-20 text-[20rem] text-slate-800/10 z-0 pointer-events-none"></i>
+                
+                <div class="legal-content relative z-10 text-justify">
+                        
+                        <div class="bg-gold-500/10 border border-gold-500/20 rounded-lg p-5 mb-8">
+                            <p class="text-gold-400 text-sm m-0" data-es="<strong>Aviso Importante:</strong> La transmisión de información a través de nuestros canales seguros implica el conocimiento y aceptación de la presente Política de Estricta Confidencialidad." data-en="<strong>Important Notice:</strong> The transmission of information through our secure channels implies the knowledge and acceptance of this Strict Confidentiality Policy."><strong>Aviso Importante:</strong> La transmisión de información a través de nuestros canales seguros implica el conocimiento y aceptación de la presente Política de Estricta Confidencialidad.</p>
+                        </div>
+
+                        <section id="sec-1" class="scroll-section">
+                            <h2 data-es="1. Privilegio Abogado-Cliente y Secreto Profesional" data-en="1. Attorney-Client Privilege and Professional Secrecy">1. Privilegio Abogado-Cliente y Secreto Profesional</h2>
+                            <p data-es="En el ámbito del cibercrimen, la información es el activo más crítico. <strong>HM Legal LTDA.</strong> (operando bajo su división penal <strong>Cybercrimen.cl</strong>) garantiza que todo dato, antecedente, comunicación o evidencia digital proporcionada a nuestro despacho está amparada de forma inmediata y absoluta por el <strong>Secreto Profesional</strong> (Artículo 231 del Código Penal y normativas del Colegio de Abogados de Chile)." data-en="In the realm of cybercrime, information is the most critical asset. <strong>HM Legal LTDA.</strong> (operating under its penal division <strong>Cybercrimen.cl</strong>) guarantees that all data, background, communication, or digital evidence provided to our firm is immediately and absolutely protected by <strong>Professional Secrecy</strong> (Article 231 of the Penal Code and regulations of the Chilean Bar Association).">En el ámbito del cibercrimen, la información es el activo más crítico. <strong>HM Legal LTDA.</strong> (operando bajo su división penal <strong>Cybercrimen.cl</strong>) garantiza que todo dato, antecedente, comunicación o evidencia digital proporcionada a nuestro despacho está amparada de forma inmediata y absoluta por el <strong>Secreto Profesional</strong> (Artículo 231 del Código Penal y normativas del Colegio de Abogados de Chile).</p>
+                            <p data-es="Su patrimonio y libertad exigen un despliegue técnico superior; por tanto, nuestra política de privacidad excede los estándares comerciales tradicionales, aplicando protocolos de grado forense desde el primer contacto evaluativo." data-en="Your assets and freedom require superior technical deployment; therefore, our privacy policy exceeds traditional commercial standards, applying forensic-grade protocols from the first evaluative contact.">Su patrimonio y libertad exigen un despliegue técnico superior; por tanto, nuestra política de privacidad excede los estándares comerciales tradicionales, aplicando protocolos de grado forense desde el primer contacto evaluativo.</p>
+                        </section>
+
+                        <section id="sec-2" class="scroll-section">
+                            <h2 data-es="2. Identidad del Responsable del Tratamiento" data-en="2. Identity of the Data Controller">2. Identidad del Responsable del Tratamiento</h2>
+                            <p data-es="El Responsable del Tratamiento es <strong>HM Legal LTDA.</strong>, RUT 77.771.384-1, representada legalmente por don Horacio Morales Nancavil, abogado. Nuestro domicilio principal se encuentra en Avenida O’Higgins N° 1186, Oficina 1107, Concepción, Chile, con operaciones estratégicas en Las Condes, Santiago." data-en="The Data Controller is <strong>HM Legal LTDA.</strong>, RUT 77.771.384-1, legally represented by Mr. Horacio Morales Nancavil, attorney. Our main office is located at Avenida O’Higgins No. 1186, Office 1107, Concepción, Chile, with strategic operations in Las Condes, Santiago.">El Responsable del Tratamiento es <strong>HM Legal LTDA.</strong>, RUT 77.771.384-1, representada legalmente por don Horacio Morales Nancavil, abogado. Nuestro domicilio principal se encuentra en Avenida O’Higgins N° 1186, Oficina 1107, Concepción, Chile, con operaciones estratégicas en Las Condes, Santiago.</p>
+                            <p data-es="Canal exclusivo y seguro para consultas de privacidad: <strong class='text-gold-400'>contacto@hmlegal.cl</strong>." data-en="Exclusive and secure channel for privacy inquiries: <strong class='text-gold-400'>contacto@hmlegal.cl</strong>.">Canal exclusivo y seguro para consultas de privacidad: <strong class='text-gold-400'>contacto@hmlegal.cl</strong>.</p>
+                        </section>
+
+                        <section id="sec-3" class="scroll-section">
+                            <h2 data-es="3. Naturaleza Sensible de los Datos Recopilados" data-en="3. Sensitive Nature of the Collected Data">3. Naturaleza Sensible de los Datos Recopilados</h2>
+                            <p data-es="Dada nuestra especialización en litigios de alta complejidad, fraudes corporativos, estafas con criptoactivos y defensas penales digitales, recopilamos información altamente sensible. Esto incluye:" data-en="Given our specialization in highly complex litigation, corporate fraud, crypto-asset scams, and digital criminal defenses, we collect highly sensitive information. This includes:">Dada nuestra especialización en litigios de alta complejidad, fraudes corporativos, estafas con criptoactivos y defensas penales digitales, recopilamos información altamente sensible. Esto incluye:</p>
+                            <ul>
+                                <li data-es="<strong>Datos Personales y Corporativos:</strong> Identificación plena, razones sociales, correos corporativos y números de contacto directo de directivos o particulares." data-en="<strong>Personal and Corporate Data:</strong> Full identification, corporate names, corporate emails, and direct contact numbers of executives or individuals."><strong>Datos Personales y Corporativos:</strong> Identificación plena, razones sociales, correos corporativos y números de contacto directo de directivos o particulares.</li>
+                                <li data-es="<strong>Antecedentes Penales y Procesales:</strong> Calidad en la que comparece (víctima, querellante, investigado o acusado) y descripción detallada de los hechos constitutivos de delito." data-en="<strong>Criminal and Procedural Background:</strong> Capacity in which you appear (victim, plaintiff, investigated, or accused) and detailed description of the facts constituting the crime."><strong>Antecedentes Penales y Procesales:</strong> Calidad en la que comparece (víctima, querellante, investigado o acusado) y descripción detallada de los hechos constitutivos de delito.</li>
+                                <li data-es="<strong>Evidencia Digital y Financiera:</strong> Direcciones de billeteras de criptomonedas (Wallets Hash), logs de servidores comprometidos por ransomware, correos de extorsión o suplantación (BEC), e información sobre bloqueos bancarios por investigaciones de lavado de activos." data-en="<strong>Digital and Financial Evidence:</strong> Cryptocurrency wallet addresses (Hash Wallets), logs of servers compromised by ransomware, extortion or impersonation emails (BEC), and information on bank freezes due to money laundering investigations."><strong>Evidencia Digital y Financiera:</strong> Direcciones de billeteras de criptomonedas (Wallets Hash), logs de servidores comprometidos por ransomware, correos de extorsión o suplantación (BEC), e información sobre bloqueos bancarios por investigaciones de lavado de activos.</li>
+                                <li data-es="<strong>Evaluación de Riesgo:</strong> Cuantificación patrimonial del perjuicio (superior a $5.000 USD) o casos donde el cliente vea comprometida su libertad personal, su imagen o reputación, o la continuidad operacional de su empresa." data-en="<strong>Risk Assessment:</strong> Patrimonial quantification of the damage (exceeding $5,000 USD) or cases where the client's personal freedom, image or reputation, or the operational continuity of their company are compromised."><strong>Evaluación de Riesgo:</strong> Cuantificación patrimonial del perjuicio (superior a $5.000 USD) o casos donde el cliente vea comprometida su libertad personal, su imagen o reputación, o la continuidad operacional de su empresa.</li>
+                            </ul>
+                        </section>
+
+                        <section id="sec-4" class="scroll-section">
+                            <h2 data-es="4. Finalidades del Tratamiento y Bases de Licitud" data-en="4. Purposes of Treatment and Lawful Bases">4. Finalidades del Tratamiento y Bases de Licitud</h2>
+                            <p data-es="El tratamiento de su información se limita estrictamente a la configuración de estrategias legales y forenses:" data-en="The processing of your information is strictly limited to the configuration of legal and forensic strategies:">El tratamiento de su información se limita estrictamente a la configuración de estrategias legales y forenses:</p>
+                            <div class="overflow-x-auto">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th data-es="Finalidad Estratégica" data-en="Strategic Purpose">Finalidad Estratégica</th>
+                                            <th data-es="Base Legal (Ley 19.628 / 21.719)" data-en="Legal Base (Law 19.628 / 21.719)">Base Legal (Ley 19.628 / 21.719)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td data-es="Precalificación de viabilidad jurídica y técnica del caso penal." data-en="Pre-qualification of legal and technical viability of the criminal case.">Precalificación de viabilidad jurídica y técnica del caso penal.</td>
+                                            <td data-es="Medidas precontractuales a petición del titular." data-en="Pre-contractual measures at the request of the data subject.">Medidas precontractuales a petición del titular.</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-es="Redacción de querellas, oficios urgentes a exchanges (Binance, Kraken) y autoridades (PDI, Ministerio Público)." data-en="Drafting of lawsuits, urgent requests to exchanges (Binance, Kraken) and authorities (PDI, Public Ministry).">Redacción de querellas, oficios urgentes a exchanges (Binance, Kraken) y autoridades (PDI, Ministerio Público).</td>
+                                            <td data-es="Ejecución de contrato de representación y mandato judicial." data-en="Execution of representation contract and judicial mandate.">Ejecución de contrato de representación y mandato judicial.</td>
+                                        </tr>
+                                        <tr>
+                                            <td data-es="Preservación de cadena de custodia de evidencia digital inalterable." data-en="Preservation of chain of custody of unalterable digital evidence.">Preservación de cadena de custodia de evidencia digital inalterable.</td>
+                                            <td data-es="Obligación legal y ejercicio de acciones procesales." data-en="Legal obligation and exercise of procedural actions.">Obligación legal y ejercicio de acciones procesales.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <section id="sec-5" class="scroll-section">
+                            <h2 data-es="5. Seguridad Arquitectónica y Criptográfica" data-en="5. Architectural and Cryptographic Security">5. Seguridad Arquitectónica y Criptográfica</h2>
+                            <p data-es="El derecho penal tradicional fracasa en el entorno digital. Por ello, hemos implementado medidas técnicas y organizativas rigurosas:" data-en="Traditional criminal law fails in the digital environment. Therefore, we have implemented rigorous technical and organizational measures:">El derecho penal tradicional fracasa en el entorno digital. Por ello, hemos implementado medidas técnicas y organizativas rigurosas:</p>
+                            <ul>
+                                <li data-es="<strong>Cifrado de Extremo a Extremo:</strong> Las comunicaciones recibidas a través de nuestros formularios de evaluación confidencial son transmitidas mediante protocolos TLS 1.3." data-en="<strong>End-to-End Encryption:</strong> Communications received through our confidential evaluation forms are transmitted using TLS 1.3 protocols."><strong>Cifrado de Extremo a Extremo:</strong> Las comunicaciones recibidas a través de nuestros formularios de evaluación confidencial son transmitidas mediante protocolos TLS 1.3.</li>
+                                <li data-es="<strong>Almacenamiento Forense:</strong> Los datos de prueba y evidencias se almacenan bajo principios de inmutabilidad (Hash Validation) en infraestructuras con acceso restringido exclusivo a los abogados y peritos asignados al caso." data-en="<strong>Forensic Storage:</strong> Evidence and test data are stored under principles of immutability (Hash Validation) in infrastructures with restricted access exclusive to the assigned lawyers and experts."><strong>Almacenamiento Forense:</strong> Los datos de prueba y evidencias se almacenan bajo principios de inmutabilidad (Hash Validation) en infraestructuras con acceso restringido exclusivo a los abogados y peritos asignados al caso.</li>
+                                <li data-es="<strong>Políticas de Acceso Zero-Trust:</strong> Ningún tercero, proveedor comercial o personal no autorizado tiene acceso a los expedientes de nuestros representados." data-en="<strong>Zero-Trust Access Policies:</strong> No third party, commercial provider, or unauthorized personnel has access to our clients' files."><strong>Políticas de Acceso Zero-Trust:</strong> Ningún tercero, proveedor comercial o personal no autorizado tiene acceso a los expedientes de nuestros representados.</li>
+                            </ul>
+                        </section>
+
+                        <section id="sec-6" class="scroll-section">
+                            <h2 data-es="6. Compartición de Datos y Peritaje Externo" data-en="6. Data Sharing and External Expertise">6. Compartición de Datos y Peritaje Externo</h2>
+                            <p data-es="Bajo ningún concepto vendemos o cedemos sus datos con fines comerciales. La información solo será compartida bajo las siguientes circunstancias excepcionales y siempre amparadas por el secreto profesional:" data-en="Under no circumstances do we sell or transfer your data for commercial purposes. The information will only be shared under the following exceptional circumstances and always protected by professional secrecy:">Bajo ningún concepto vendemos o cedemos sus datos con fines comerciales. La información solo será compartida bajo las siguientes circunstancias excepcionales y siempre amparadas por el secreto profesional:</p>
+                            <p data-es="<strong>a) Peritos Forenses y Analistas On-Chain:</strong> En casos de rastreo de criptomonedas o análisis de servidores, podemos compartir datos técnicos (no identitarios, siempre que sea posible) con empresas internacionales de inteligencia blockchain (ej. Chainalysis, TRM Labs) o peritos informáticos asociados, bajo estrictos Acuerdos de Procesamiento de Datos (DPA) y Acuerdos de No Divulgación (NDA)." data-en="<strong>a) Forensic Experts and On-Chain Analysts:</strong> In cases of cryptocurrency tracking or server analysis, we may share technical data (non-identifying, whenever possible) with international blockchain intelligence companies (e.g., Chainalysis, TRM Labs) or associated computer experts, under strict Data Processing Agreements (DPA) and Non-Disclosure Agreements (NDA)."><strong>a) Peritos Forenses y Analistas On-Chain:</strong> En casos de rastreo de criptomonedas o análisis de servidores, podemos compartir datos técnicos (no identitarios, siempre que sea posible) con empresas internacionales de inteligencia blockchain (ej. Chainalysis, TRM Labs) o peritos informáticos asociados, bajo estrictos Acuerdos de Procesamiento de Datos (DPA) y Acuerdos de No Divulgación (NDA).</p>
+                            <p data-es="<strong>b) Autoridades Judiciales:</strong> Exclusivamente cuando la estrategia penal lo requiera (presentación de querellas, oficios de congelamiento de fondos), entregaremos la información al Ministerio Público o Tribunales de Garantía competentes." data-en="<strong>b) Judicial Authorities:</strong> Exclusively when the criminal strategy requires it (filing lawsuits, fund freezing requests), we will deliver the information to the competent Public Ministry or Guarantee Courts."><strong>b) Autoridades Judiciales:</strong> Exclusivamente cuando la estrategia penal lo requiera (presentación de querellas, oficios de congelamiento de fondos), entregaremos la información al Ministerio Público o Tribunales de Garantía competentes.</p>
+                        </section>
+
+                        <section id="sec-7" class="scroll-section">
+                            <h2 data-es="7. Tecnologías de Rastreo y Cookies" data-en="7. Tracking Technologies and Cookies">7. Tecnologías de Rastreo y Cookies</h2>
+                            <p data-es="Garantizamos el anonimato de quienes buscan asesoría frente a una crisis. El sitio web de <strong>Cybercrimen.cl</strong> minimiza el uso de rastreadores. Solo utilizamos cookies técnicas estrictamente necesarias para el funcionamiento seguro del sitio (balanceo de carga, prevención de ataques DDoS). No empleamos cookies de remarketing ni cedemos perfiles de navegación a redes publicitarias." data-en="We guarantee the anonymity of those seeking advice in a crisis. The <strong>Cybercrimen.cl</strong> website minimizes the use of trackers. We only use strictly necessary technical cookies for the secure operation of the site (load balancing, DDoS attack prevention). We do not use remarketing cookies or transfer browsing profiles to advertising networks.">Garantizamos el anonimato de quienes buscan asesoría frente a una crisis. El sitio web de <strong>Cybercrimen.cl</strong> minimiza el uso de rastreadores. Solo utilizamos cookies técnicas estrictamente necesarias para el funcionamiento seguro del sitio (balanceo de carga, prevención de ataques DDoS). No empleamos cookies de remarketing ni cedemos perfiles de navegación a redes publicitarias.</p>
+                        </section>
+
+                        <section id="sec-8" class="scroll-section">
+                            <h2 data-es="8. Plazos de Retención (Data Retention)" data-en="8. Retention Periods (Data Retention)">8. Plazos de Retención (Data Retention)</h2>
+                            <p data-es="Si tras la evaluación confidencial no asumimos su representación legal, su información será destruida de nuestros servidores de forma irrecuperable en un plazo máximo de 30 días, salvo que solicite su eliminación inmediata. Si es nuestro cliente, los datos se mantendrán durante la vigencia del proceso penal y el tiempo necesario para cumplir con los plazos de prescripción legal correspondientes." data-en="If after the confidential evaluation we do not assume your legal representation, your information will be irretrievably destroyed from our servers within a maximum period of 30 days, unless you request its immediate deletion. If you are our client, the data will be kept during the validity of the criminal process and the necessary time to comply with the corresponding legal prescription periods.">Si tras la evaluación confidencial no asumimos su representación legal, su información será destruida de nuestros servidores de forma irrecuperable en un plazo máximo de 30 días, salvo que solicite su eliminación inmediata. Si es nuestro cliente, los datos se mantendrán durante la vigencia del proceso penal y el tiempo necesario para cumplir con los plazos de prescripción legal correspondientes.</p>
+                        </section>
+
+                        <section id="sec-9" class="scroll-section">
+                            <h2 data-es="9. Ejercicio de Derechos (ARCO)" data-en="9. Exercise of Rights (ARCO)">9. Ejercicio de Derechos (ARCO)</h2>
+                            <p data-es="Usted tiene derecho a conocer qué datos poseemos, solicitar su rectificación, cancelación, u oponerse a su tratamiento, así como exigir la portabilidad de los mismos. Para ejecutar una instrucción sobre sus datos, el titular o su representante legal debe enviar un requerimiento formal al correo <strong class='text-gold-400'>contacto@hmlegal.cl</strong>. Dada la criticidad de los casos, aplicaremos protocolos de validación de identidad antes de proceder." data-en="You have the right to know what data we hold, request its rectification, cancellation, or object to its processing, as well as demand its portability. To execute an instruction regarding your data, the owner or their legal representative must send a formal request to <strong class='text-gold-400'>contacto@hmlegal.cl</strong>. Given the criticality of the cases, we will apply identity validation protocols before proceeding.">Usted tiene derecho a conocer qué datos poseemos, solicitar su rectificación, cancelación, u oponerse a su tratamiento, así como exigir la portabilidad de los mismos. Para ejecutar una instrucción sobre sus datos, el titular o su representante legal debe enviar un requerimiento formal al correo <strong class='text-gold-400'>contacto@hmlegal.cl</strong>. Dada la criticidad de los casos, aplicaremos protocolos de validación de identidad antes de proceder.</p>
+                        </section>
+
+                        <section id="sec-10" class="scroll-section">
+                            <h2 data-es="10. Aceptación y Cambios en los Protocolos" data-en="10. Acceptance and Changes to Protocols">10. Aceptación y Cambios en los Protocolos</h2>
+                        <p data-es="El uso de nuestro formulario de evaluación confidencial implica la comprensión y aceptación de esta política. HM Legal se reserva el derecho de actualizar estos protocolos de seguridad para adaptarse a nuevas tipologías de cibercrimen o normativas chilenas e internacionales. Todo cambio será publicado con su respectiva fecha de vigencia." data-en="The use of our confidential evaluation form implies the understanding and acceptance of this policy. HM Legal reserves the right to update these security protocols to adapt to new typologies of cybercrime or Chilean and international regulations. Any change will be published with its respective effective date.">El uso de nuestro formulario de evaluación confidencial implica la comprensión y aceptación de esta política. HM Legal se reserva el derecho de actualizar estos protocolos de seguridad para adaptarse a nuevas tipologías de cibercrimen o normativas chilenas e internacionales. Todo cambio será publicado con su respectiva fecha de vigencia.</p>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 relative z-10 fade-in-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">
+                <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Logo" class="h-8 w-auto">
+            </div>
+            
+            <div class="text-slate-500 text-sm text-center md:text-left">
+                <p data-es="&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados." data-en="&copy; 2026 HM Legal | Technological Criminal Division. All rights reserved.">&copy; 2026 HM Legal | División Penal Tecnológica. Todos los derechos reservados.</p>
+                <p class="mt-1 font-mono text-xs">Avenida O’Higgins 1186, Of. 1107 | contacto@hmlegal.cl</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-slate-500">
+                <a href="https://hmlegal.cl/cybercrimen/documentos/terminos.html" class="hover:text-gold-400 transition-colors" data-es="Términos Legales" data-en="Legal Terms">Términos Legales</a>
+                <span>|</span>
+                <a href="https://hmlegal.cl/cybercrimen/home.html" class="hover:text-gold-400 transition-colors" data-es="Volver al Inicio" data-en="Back to Home">Volver al Inicio</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- 1. Lógica Bilingüe ---
+        let currentLang = 'es';
+
+        function changeLang(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-es]').forEach(el => {
+                if (el.tagName.toLowerCase() === 'input' || el.tagName.toLowerCase() === 'textarea') {
+                    if (el.placeholder) el.placeholder = el.getAttribute(`data-${lang}`);
+                } else if (el.tagName.toLowerCase() === 'option') {
+                     el.textContent = el.getAttribute(`data-${lang}`);
+                } else {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            // Actualizar estado visual de los botones
+            if(lang === 'es') {
+                document.getElementById('btn-es').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-en').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            } else {
+                document.getElementById('btn-en').className = "text-xs font-semibold text-gold-400 transition-colors";
+                document.getElementById('btn-es').className = "text-xs font-semibold text-slate-500 hover:text-slate-300 transition-colors";
+            }
+
+            // Actualizar título de la pestaña
+            document.title = lang === 'es' ? 'Política de Privacidad y Confidencialidad | Cybercrimen.cl' : 'Privacy Policy and Confidentiality | Cybercrimen.cl';
+        }
+
+        // --- 2. Intersection Observer para Animaciones (Fade-in-up) ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerFade = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach((el) => {
+                observerFade.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HM Legal | Estudio Jurídico Especializado</title>
+    <meta name="description" content="Estudio jurídico en Chile especializado en litigación de alta complejidad, derecho penal, defensa militar y derecho tecnológico.">
+    
+    <!-- SEO & Social Metadata -->
+    <meta property="og:site_name" content="HM Legal">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HM Legal | Estudio Jurídico Especializado">
+    <meta property="og:description" content="Defensa estratégica e integral para asuntos legales de alta complejidad.">
+    <meta property="og:url" content="https://hmlegal.cl/home.html">
+    <meta name="theme-color" content="#0B1320">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonts: Playfair Display (Serif/Elegante) & Inter (Sans/Moderna) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        law: {
+                            dark: '#0B1320',    /* Azul noche profundo */
+                            primary: '#152336', /* Azul marino corporativo */
+                            gold: '#C5A059',    /* Dorado elegante */
+                            goldlight: '#DFBD7E',
+                            light: '#F8FAFC',
+                            gray: '#64748B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0B1320; }
+        
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(11, 19, 32, 0.95) 0%, rgba(11, 19, 32, 0.7) 100%), url('https://hmlegal.cl/cybercrimen/imagenes/imagen1.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #C5A059, #DFBD7E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-hover {
+            transition: all 0.4s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: #C5A059;
+            box-shadow: 0 10px 30px -10px rgba(197, 160, 89, 0.2);
+        }
+
+        /* Modals & Animations */
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; transform: translateY(20px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #152336; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 4px; }
+    </style>
+</head>
+<body class="text-slate-300 font-sans antialiased selection:bg-law-gold selection:text-law-dark transition-opacity duration-300" id="main-body">
+
+    <nav class="fixed w-full z-50 bg-law-dark/95 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <a href="https://hmlegal.cl/home.html" class="flex items-center gap-4 hover:opacity-80 transition group">
+                    <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Logo" class="h-12 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/200x60/152336/C5A059?text=HM+LEGAL'">
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                    <a href="https://hmlegal.cl/home.html" class="text-white hover:text-law-gold transition" data-en="Home" data-es="Inicio">Inicio</a>
+                    <a href="#filosofia" class="text-slate-300 hover:text-law-gold transition" data-en="Philosophy" data-es="Filosofía">Filosofía</a>
+                    <a href="#areas" class="text-slate-300 hover:text-law-gold transition" data-en="Practice Areas" data-es="Áreas de Práctica">Áreas de Práctica</a>
+                    
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLanguage()" class="flex items-center gap-2 text-slate-400 hover:text-white transition px-3 py-1.5 border border-slate-700 hover:border-law-gold rounded text-xs uppercase tracking-widest bg-law-primary/50 cursor-pointer">
+                        <i class="fas fa-globe"></i> <span id="lang-text">EN</span>
+                    </button>
+
+                    <!-- CTA -->
+                    <a href="https://calendly.com/contacto-hmlegal" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-law-gold text-law-dark font-bold rounded hover:bg-law-goldlight transition duration-300 flex items-center gap-2 shadow-lg">
+                        <i class="far fa-calendar-alt"></i> <span data-en="Schedule Consultation" data-es="Agendar Consulta">Agendar Consulta</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <button class="md:hidden text-law-gold text-2xl p-2" onclick="toggleMobileMenu(this)">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-law-dark absolute w-full left-0 z-40 shadow-2xl">
+            <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-4 text-base">
+                <a href="https://hmlegal.cl/home.html" class="py-2 text-white hover:text-law-gold border-b border-slate-800" data-en="Home" data-es="Inicio">Inicio</a>
+                <a href="#filosofia" class="py-2 text-slate-300 hover:text-law-gold border-b border-slate-800" onclick="toggleMobileMenu()" data-en="Philosophy" data-es="Filosofía">Filosofía</a>
+                <a href="#areas" class="py-2 text-slate-300 hover:text-law-gold border-b border-slate-800" onclick="toggleMobileMenu()" data-en="Practice Areas" data-es="Áreas de Práctica">Áreas de Práctica</a>
+                <a href="https://calendly.com/contacto-hmlegal" target="_blank" class="py-2 font-bold text-law-gold" onclick="toggleMobileMenu()" data-en="Schedule Consultation" data-es="Agendar Consulta">Agendar Consulta</a>
+                <button onclick="toggleLanguage()" class="mt-4 py-3 border border-slate-700 rounded text-center text-slate-300 hover:text-white hover:border-law-gold transition w-full uppercase text-sm tracking-widest" data-en="Switch to Spanish" data-es="Switch to English">Switch to English</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-[90vh] flex items-center pt-24 pb-16 hero-bg border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-3xl animate-fade-in-up">
+                <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-sm border border-law-gold/30 bg-law-gold/10 text-xs font-semibold text-law-gold tracking-widest uppercase mb-8">
+                    <span class="w-1.5 h-1.5 rounded-full bg-law-gold"></span>
+                    <span data-en="Specialized Law Firm" data-es="Estudio Jurídico Especializado">Estudio Jurídico Especializado</span>
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-6">
+                    <span data-en="Excellence in" data-es="Excelencia en">Excelencia en</span> <br>
+                    <span class="gold-gradient-text" data-en="Strategic Defense." data-es="Defensa Estratégica.">Defensa Estratégica.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl" 
+                   data-en="We provide rigorous legal representation for high-complexity cases. We integrate profound juridical doctrine with modern technical understanding to protect your interests in complex scenarios." 
+                   data-es="Brindamos representación legal rigurosa para casos de alta complejidad. Integramos profunda doctrina jurídica con comprensión técnica moderna para proteger sus intereses en escenarios complejos.">
+                    Brindamos representación legal rigurosa para casos de alta complejidad. Integramos profunda doctrina jurídica con comprensión técnica moderna para proteger sus intereses en escenarios complejos.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="https://calendly.com/contacto-hmlegal" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-law-gold hover:bg-law-goldlight text-law-dark font-bold rounded transition shadow-lg flex items-center justify-center gap-3 group text-base">
+                        <span data-en="Evaluate your Case" data-es="Evaluar su Caso">Evaluar su Caso</span> <i class="fas fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </a>
+                    <a href="#areas" class="px-8 py-4 bg-law-primary/80 backdrop-blur border border-slate-700 hover:border-law-gold hover:bg-law-primary text-white font-medium rounded transition flex items-center justify-center gap-3 text-base">
+                        <span data-en="Practice Areas" data-es="Áreas de Práctica">Áreas de Práctica</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="filosofia" class="py-24 bg-law-dark">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-law-gold font-bold tracking-widest uppercase text-xs mb-3" data-en="Our Vision" data-es="Nuestra Visión">Nuestra Visión</h2>
+                    <h3 class="text-3xl md:text-4xl font-serif font-bold text-white leading-tight mb-6" data-en="The law evolves. The defense must anticipate." data-es="El derecho evoluciona. La defensa debe anticiparse.">
+                        El derecho evoluciona. La defensa debe anticiparse.
+                    </h3>
+                    
+                    <div class="space-y-4 text-slate-400 text-justify leading-relaxed">
+                        <p data-en="We live in an era where evidence is no longer just physical documents. Today it resides in cloud servers, encrypted conversations, and complex digital structures. The digital transformation changed how facts are investigated and how legal strategies are built." data-es="Vivimos en una época donde la evidencia ya no está únicamente en documentos físicos. Hoy puede encontrarse en un servidor internacional, una conversación cifrada o un registro en la nube. La transformación digital cambió la forma en que se investigan los hechos y se construyen las estrategias de defensa.">
+                            Vivimos en una época donde la evidencia ya no está únicamente en documentos físicos. Hoy puede encontrarse en un servidor internacional, una conversación cifrada o un registro en la nube. La transformación digital cambió la forma en que se investigan los hechos y se construyen las estrategias de defensa.
+                        </p>
+                        <p data-en="HM Legal was born to respond to this new reality. We believe that the 21st-century lawyer cannot simply interpret rules. They must understand the technology that sustains the evidence and the constitutional limits of modern legal investigation." data-es="HM Legal nace para responder a esa nueva realidad. Creemos que el abogado del siglo XXI no puede limitarse a interpretar normas. Debe comprender cómo funciona la tecnología que sustenta la evidencia y cuáles son los límites constitucionales de la investigación moderna.">
+                            HM Legal nace para responder a esa nueva realidad. Creemos que el abogado del siglo XXI no puede limitarse a interpretar normas. Debe comprender cómo funciona la tecnología que sustenta la evidencia y cuáles son los límites constitucionales de la investigación moderna.
+                        </p>
+                        <p class="font-medium text-white pt-4 border-t border-slate-800" data-en="Our mission: to protect individuals and institutions through technically solid and legally impeccable defense." data-es="Nuestra misión: proteger a personas e instituciones mediante una defensa técnicamente sólida y jurídicamente impecable.">
+                            Nuestra misión: proteger a personas e instituciones mediante una defensa técnicamente sólida y jurídicamente impecable.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-law-primary p-8 rounded-xl border border-slate-800">
+                        <i class="fas fa-balance-scale text-3xl text-law-gold mb-4"></i>
+                        <h4 class="text-white font-serif font-bold text-xl mb-2" data-en="Specialized Litigation" data-es="Litigación Especializada">Litigación Especializada</h4>
+                        <p class="text-sm text-slate-400" data-en="Robust strategies where law meets complexity in oral trials and appeals." data-es="Estrategias robustas donde el derecho se encuentra con la complejidad en juicios orales y recursos.">Estrategias robustas donde el derecho se encuentra con la complejidad en juicios orales y recursos.</p>
+                    </div>
+                    <div class="bg-law-primary p-8 rounded-xl border border-slate-800 mt-0 sm:mt-12">
+                        <i class="fas fa-shield-alt text-3xl text-law-gold mb-4"></i>
+                        <h4 class="text-white font-serif font-bold text-xl mb-2" data-en="Rights Protection" data-es="Protección de Derechos">Protección de Derechos</h4>
+                        <p class="text-sm text-slate-400" data-en="Unwavering defense of constitutional guarantees and procedural fairness." data-es="Defensa irrestricta de las garantías constitucionales y la equidad procesal.">Defensa irrestricta de las garantías constitucionales y la equidad procesal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="areas" class="py-24 bg-[#080d17] border-y border-slate-800 relative">
+        <!-- Subtle background emblem -->
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none">
+            <i class="fas fa-university text-[40rem]"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-law-gold font-bold tracking-widest uppercase text-xs mb-3" data-en="Practice Areas" data-es="Áreas de Práctica">Áreas de Práctica</h2>
+                <h3 class="text-3xl md:text-5xl font-serif font-bold text-white mb-6" data-en="One Firm. Four Specialized Platforms." data-es="Una firma. Cuatro plataformas especializadas.">
+                    Una firma. Cuatro plataformas especializadas.
+                </h3>
+                <p class="text-slate-400" data-en="Each division concentrates highly specialized knowledge, sharing the same professional standard and strategic direction." data-es="Cada división concentra conocimiento altamente especializado, compartiendo un mismo estándar profesional y dirección estratégica.">
+                    Cada división concentra conocimiento altamente especializado, compartiendo un mismo estándar profesional y dirección estratégica.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Área 1: Litigación Penal -->
+                <a href="https://litigacionpenal.cl" target="_blank" rel="noopener noreferrer" class="bg-law-primary border border-slate-800 rounded-xl p-8 card-hover group block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-14 h-14 rounded bg-law-dark border border-slate-700 flex items-center justify-center text-law-gold text-2xl group-hover:bg-law-gold group-hover:text-law-dark transition">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-law-gold transition"></i>
+                    </div>
+                    <h4 class="text-2xl font-serif font-bold text-white mb-2">LitigacionPenal.cl</h4>
+                    <span class="text-xs font-bold uppercase tracking-widest text-law-gold mb-4 block" data-en="Strategic Criminal Litigation" data-es="Litigación Penal Estratégica">Litigación Penal Estratégica</span>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6" data-en="Design of procedural strategies oriented to protect the freedom, assets, and reputation of our clients in complex cases." data-es="Diseño de estrategias procesales orientadas a proteger la libertad, el patrimonio y la reputación de nuestros clientes en casos complejos.">
+                        Diseño de estrategias procesales orientadas a proteger la libertad, el patrimonio y la reputación de nuestros clientes en casos complejos desde la investigación hasta la ejecución penal.
+                    </p>
+                    <span class="text-sm font-medium text-white flex items-center gap-2 group-hover:text-law-gold transition" data-en="Visit Platform" data-es="Visitar Plataforma">Visitar Plataforma <i class="fas fa-arrow-right text-xs"></i></span>
+                </a>
+
+                <!-- Área 2: Cybercrimen -->
+                <a href="https://cybercrimen.cl" target="_blank" rel="noopener noreferrer" class="bg-law-primary border border-slate-800 rounded-xl p-8 card-hover group block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-14 h-14 rounded bg-law-dark border border-slate-700 flex items-center justify-center text-law-gold text-2xl group-hover:bg-law-gold group-hover:text-law-dark transition">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-law-gold transition"></i>
+                    </div>
+                    <h4 class="text-2xl font-serif font-bold text-white mb-2">CyberCrimen.cl</h4>
+                    <span class="text-xs font-bold uppercase tracking-widest text-law-gold mb-4 block" data-en="Technological Criminal Defense" data-es="Defensa Penal Tecnológica">Defensa Penal Tecnológica</span>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6" data-en="Legal action in matters related to cybercrimes, electronic fraud, ransomware, and protection of digital assets and evidence." data-es="Actuación en materias relacionadas con delitos informáticos, fraudes electrónicos, ransomware, y protección de activos digitales y evidencia.">
+                        Actuación en materias relacionadas con delitos informáticos, fraudes electrónicos, ransomware, peritajes informáticos y protección de activos y evidencia digital.
+                    </p>
+                    <span class="text-sm font-medium text-white flex items-center gap-2 group-hover:text-law-gold transition" data-en="Visit Platform" data-es="Visitar Plataforma">Visitar Plataforma <i class="fas fa-arrow-right text-xs"></i></span>
+                </a>
+
+                <!-- Área 3: Defensa Militar -->
+                <a href="https://defensamilitar.cl" target="_blank" rel="noopener noreferrer" class="bg-law-primary border border-slate-800 rounded-xl p-8 card-hover group block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-14 h-14 rounded bg-law-dark border border-slate-700 flex items-center justify-center text-law-gold text-2xl group-hover:bg-law-gold group-hover:text-law-dark transition">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-law-gold transition"></i>
+                    </div>
+                    <h4 class="text-2xl font-serif font-bold text-white mb-2">DefensaMilitar.cl</h4>
+                    <span class="text-xs font-bold uppercase tracking-widest text-law-gold mb-4 block" data-en="Military Criminal Defense" data-es="Defensa Penal Militar">Defensa Penal Militar</span>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6" data-en="Legal defense for members of the Armed Forces and Police, understanding the institutional nature and specific procedures of military justice." data-es="Defensa jurídica a integrantes de las Fuerzas Armadas y de Orden, comprendiendo la naturaleza institucional y los procedimientos específicos de la justicia militar.">
+                        Defensa jurídica a integrantes de las Fuerzas Armadas y de Orden, comprendiendo la naturaleza institucional y los procedimientos específicos de la justicia militar y administrativa.
+                    </p>
+                    <span class="text-sm font-medium text-white flex items-center gap-2 group-hover:text-law-gold transition" data-en="Visit Platform" data-es="Visitar Plataforma">Visitar Plataforma <i class="fas fa-arrow-right text-xs"></i></span>
+                </a>
+
+                <!-- Área 4: HM Contratos -->
+                <a href="https://hmcontratos.cl" target="_blank" rel="noopener noreferrer" class="bg-law-primary border border-slate-800 rounded-xl p-8 card-hover group block">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-14 h-14 rounded bg-law-dark border border-slate-700 flex items-center justify-center text-law-gold text-2xl group-hover:bg-law-gold group-hover:text-law-dark transition">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <i class="fas fa-external-link-alt text-slate-600 group-hover:text-law-gold transition"></i>
+                    </div>
+                    <h4 class="text-2xl font-serif font-bold text-white mb-2">HMContratos.cl</h4>
+                    <span class="text-xs font-bold uppercase tracking-widest text-law-gold mb-4 block" data-en="Contractual Engineering" data-es="Ingeniería Contractual">Ingeniería Contractual</span>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6" data-en="The best defense starts years before the conflict. Design of modern legal instruments for startups and digital service providers." data-es="La mejor defensa comienza años antes del conflicto. Diseño de instrumentos jurídicos modernos para startups y prestadores de servicios digitales.">
+                        La mejor defensa comienza años antes del conflicto. Diseño de instrumentos jurídicos modernos para startups, prestadores de servicios digitales y mitigación de riesgos.
+                    </p>
+                    <span class="text-sm font-medium text-white flex items-center gap-2 group-hover:text-law-gold transition" data-en="Visit Platform" data-es="Visitar Plataforma">Visitar Plataforma <i class="fas fa-arrow-right text-xs"></i></span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-law-dark border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+            <i class="far fa-compass text-5xl text-law-gold mb-6"></i>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-white mb-6" data-en="Require Legal Representation?" data-es="¿Requiere Representación Legal?">¿Requiere Representación Legal?</h2>
+            <p class="text-slate-400 text-lg mb-10 max-w-2xl mx-auto" data-en="Our team is ready to analyze your situation under the strictest confidentiality. Schedule an initial consultation to evaluate your case." data-es="Nuestro equipo está preparado para analizar su situación bajo el más estricto secreto profesional. Agende una consulta inicial para evaluar su caso.">
+                Nuestro equipo está preparado para analizar su situación bajo el más estricto secreto profesional. Agende una consulta inicial para evaluar su caso.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="https://calendly.com/contacto-hmlegal" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 bg-law-gold text-law-dark font-bold rounded shadow-lg shadow-law-gold/20 hover:bg-white transition flex items-center justify-center gap-3">
+                    <i class="far fa-calendar-check text-xl"></i> <span data-en="Schedule Meeting (Calendly)" data-es="Agendar Reunión (Calendly)">Agendar Reunión (Calendly)</span>
+                </a>
+                <a href="mailto:contacto@hmlegal.cl" class="w-full sm:w-auto px-8 py-4 bg-law-primary border border-slate-700 text-white font-medium rounded hover:border-law-gold transition flex items-center justify-center gap-3">
+                    <i class="far fa-envelope text-law-gold"></i> contacto@hmlegal.cl
+                </a>
+            </div>
+            <p class="mt-8 text-sm text-slate-500 font-medium" data-en="Headquarters: Avenida O'Higgins 1186, oficina 1107, Concepción." data-es="Oficina Central: Avenida O'Higgins 1186, oficina 1107, Concepción.">
+                Oficina Central: Avenida O'Higgins 1186, oficina 1107, Concepción.
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-[#050910] pt-16 pb-8 border-t border-law-gold/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="https://hmlegal.cl/home.html" class="inline-block mb-6">
+                        <img src="https://hmlegal.cl/cybercrimen/imagenes/logo.png" alt="HM Legal Logo" class="h-10 w-auto opacity-80 hover:opacity-100 transition" onerror="this.onerror=null; this.src='https://placehold.co/150x40/0B1320/C5A059?text=HM+LEGAL'">
+                    </a>
+                    <p class="text-slate-500 text-sm max-w-sm mb-6 text-justify" data-en="Law firm focused on complex litigation, criminal defense, and modern legal strategies." data-es="Estudio jurídico enfocado en litigación compleja, defensa penal y estrategias legales modernas para un mundo digitalizado.">
+                        Estudio jurídico enfocado en litigación compleja, defensa penal y estrategias legales modernas para un mundo digitalizado.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-serif font-bold mb-4" data-en="Divisions" data-es="Divisiones">Divisiones</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><a href="https://litigacionpenal.cl" target="_blank" class="hover:text-law-gold transition">Litigación Penal</a></li>
+                        <li><a href="https://cybercrimen.cl" target="_blank" class="hover:text-law-gold transition">CyberCrimen</a></li>
+                        <li><a href="https://defensamilitar.cl" target="_blank" class="hover:text-law-gold transition">Defensa Militar</a></li>
+                        <li><a href="https://hmcontratos.cl" target="_blank" class="hover:text-law-gold transition">HM Contratos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-serif font-bold mb-4" data-en="Legal Information" data-es="Información Legal">Información Legal</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li><button onclick="openModal('privacyModal')" class="hover:text-law-gold transition text-left" data-en="Privacy Policy" data-es="Política de Privacidad">Política de Privacidad</button></li>
+                        <li><button onclick="openModal('termsModal')" class="hover:text-law-gold transition text-left" data-en="Terms & Conditions" data-es="Términos y Condiciones">Términos y Condiciones</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
+                <p>&copy; 2026 HM Legal. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">Todos los derechos reservados.</span></p>
+                <p class="mt-2 md:mt-0" data-en="Avenida O'Higgins 1186, Of. 1107, Concepción." data-es="Avenida O'Higgins 1186, Of. 1107, Concepción.">Avenida O'Higgins 1186, Of. 1107, Concepción.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL: Política de Privacidad -->
+    <div id="privacyModal" class="hidden fixed inset-0 z-[100] bg-law-dark/95 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-law-primary border border-slate-700 rounded-xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl transform scale-95 transition-transform duration-300" id="privacyContent">
+            <!-- Header -->
+            <div class="px-6 py-5 border-b border-slate-800 flex justify-between items-center bg-law-dark rounded-t-xl">
+                <h2 class="text-xl font-serif font-bold text-white">Política de Privacidad</h2>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-law-gold transition p-2">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 md:p-10 overflow-y-auto custom-scrollbar text-slate-300 text-sm leading-relaxed space-y-6">
+                <p class="text-slate-500 italic">Última actualización: 21 de octubre de 2025</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">1. Quiénes Somos y Alcance</h3>
+                <p><strong>HM Legal LTDA.</strong>, RUT 77.771.384-1, representada legalmente por don Horacio Morales Nancavil, abogado, domiciliados en Avenida O’Higgins N° 1186, Oficina 1107, ciudad de Concepción, Chile, correo electrónico de contacto contacto@hmlegal.cl, en adelante e indistintamente “HM Legal”.</p>
+                <p>HM Legal presta servicios legales y de representación judicial. Esta Política describe cómo tratamos los datos personales de nuestros clientes y representados bajo el más estricto secreto profesional.</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">2. Responsable del Tratamiento y Privilegio Cliente-Abogado</h3>
+                <p>El Responsable del Tratamiento es <strong>HM Legal LTDA.</strong> Toda la información recopilada en el contexto de una consulta jurídica o representación legal está amparada por el secreto profesional establecido en el ordenamiento jurídico chileno.</p>
+                
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">3. Datos que Recopilamos</h3>
+                <ul class="list-disc pl-5 space-y-2 text-slate-400">
+                    <li><strong>Datos proporcionados para agendamiento:</strong> nombre, correo electrónico y motivos generales de la consulta (vía Calendly).</li>
+                    <li><strong>Datos de representación:</strong> Información procesal, antecedentes fácticos, documentos y evidencia necesaria para la estructuración de la defensa.</li>
+                </ul>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">4. Finalidades del Tratamiento</h3>
+                <p>Utilizamos sus datos exclusivamente para el agendamiento de reuniones, evaluación de viabilidad de casos, representación en juicios, redacción de documentos legales y cumplimiento de obligaciones tributarias propias de la prestación de servicios profesionales.</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">5. Seguridad de la Información</h3>
+                <p>HM Legal implementa medidas técnicas de seguridad de alto estándar para proteger la confidencialidad de la información de sus clientes, entendiendo la sensibilidad de las materias penales y militares que tramitamos.</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">6. Derechos de los Titulares</h3>
+                <p>Los titulares pueden ejercer sus derechos enviando un correo a <strong>contacto@hmlegal.cl</strong>. La eliminación de datos de causas judiciales concluidas se realizará respetando los plazos de prescripción legal vigentes en Chile.</p>
+            </div>
+            <!-- Footer Modal -->
+            <div class="px-6 py-4 border-t border-slate-800 bg-law-dark rounded-b-xl flex justify-end">
+                <button onclick="closeModal('privacyModal')" class="px-6 py-2 bg-slate-800 text-white rounded hover:bg-slate-700 transition">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Términos y Condiciones -->
+    <div id="termsModal" class="hidden fixed inset-0 z-[100] bg-law-dark/95 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-law-primary border border-slate-700 rounded-xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl transform scale-95 transition-transform duration-300" id="termsContent">
+            <!-- Header -->
+            <div class="px-6 py-5 border-b border-slate-800 flex justify-between items-center bg-law-dark rounded-t-xl">
+                <h2 class="text-xl font-serif font-bold text-white">Términos y Condiciones de Servicio</h2>
+                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-law-gold transition p-2">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="p-6 md:p-10 overflow-y-auto custom-scrollbar text-slate-300 text-sm leading-relaxed space-y-6">
+                <p class="text-slate-500 italic">Última actualización: 21 de octubre de 2025</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">1. Identificación de las Partes</h3>
+                <p>El presente documento establece las condiciones generales para la contratación de servicios jurídicos con <strong>HM Legal LTDA.</strong>, domiciliada en Avenida O’Higgins N° 1186, Oficina 1107, Concepción, correo: contacto@hmlegal.cl.</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">2. Alcance de los Servicios</h3>
+                <p>HM Legal presta servicios legales profesionales orientados a la litigación penal, defensa militar e ingeniería contractual. La asesoría se limita a materias del Derecho Chileno y se sujeta estrictamente a las normas de ética y responsabilidad profesional del Colegio de Abogados de Chile.</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">3. Confidencialidad y Secreto Profesional</h3>
+                <p>Es el pilar de nuestra firma. HM Legal, sus abogados y personal dependiente se obligan a mantener en estricta reserva toda información obtenida con ocasión de la consulta o patrocinio, sin importar si el cliente decide o no contratar finalmente los servicios de la firma.</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">4. Obligación de Medios, no de Resultados</h3>
+                <p>De acuerdo con la naturaleza del ejercicio de la abogacía en materia de litigación, HM Legal asume una obligación de medios. La firma se compromete a desplegar sus mejores conocimientos jurídicos y técnicos en defensa del cliente, pero no puede garantizar, bajo ninguna circunstancia, un resultado específico en un proceso judicial o administrativo.</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">5. Contratación y Honorarios</h3>
+                <p>La representación legal específica de cada causa se formalizará mediante un Contrato de Prestación de Servicios Profesionales escrito, el cual detallará los honorarios, forma de pago y alcances del mandato judicial conferido.</p>
+
+                <h3 class="text-lg font-serif font-bold text-law-gold mt-6 border-b border-slate-800 pb-2">6. Ley Aplicable y Jurisdicción</h3>
+                <p>Para todos los efectos legales derivados de la relación cliente-abogado, las partes fijan domicilio en la ciudad de Concepción y se someten a la jurisdicción de sus tribunales ordinarios de justicia.</p>
+            </div>
+            <!-- Footer Modal -->
+            <div class="px-6 py-4 border-t border-slate-800 bg-law-dark rounded-b-xl flex justify-end">
+                <button onclick="closeModal('termsModal')" class="px-6 py-2 bg-slate-800 text-white rounded hover:bg-slate-700 transition">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        function toggleMobileMenu(btn) {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                if (menu.classList.contains('hidden')) {
+                    menu.classList.remove('hidden');
+                } else {
+                    menu.classList.add('hidden');
+                }
+            }
+        }
+
+        // --- Bilingual Translation Logic ---
+        let currentLang = localStorage.getItem('hm_lang') || 'es';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = currentLang;
+
+            // Update all elements with data-en / data-es attributes
+            document.querySelectorAll('[data-en],[data-es]').forEach(el => {
+                const translation = el.getAttribute('data-' + currentLang);
+                if (translation) {
+                    el.innerHTML = translation; // Using innerHTML in case icons are inside
+                }
+            });
+
+            // Update Language Toggle Button text
+            const langBtn = document.getElementById('lang-text');
+            if (langBtn) langBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
+
+            localStorage.setItem('hm_lang', currentLang);
+        }
+
+        function toggleLanguage() {
+            const body = document.getElementById('main-body');
+            body.style.opacity = '0'; // Smooth fade out
+            setTimeout(() => {
+                applyLanguage(currentLang === 'es' ? 'en' : 'es');
+                body.style.opacity = '1'; // Smooth fade in
+            }, 300);
+        }
+        
+        // --- Modal Logic (Privacy & Terms) ---
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const content = modal.querySelector('div[id$="Content"]');
+            
+            modal.classList.remove('hidden');
+            
+            // Short delay to allow CSS transitions to trigger
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+            
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const content = modal.querySelector('div[id$="Content"]');
+            
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            
+            // Wait for transition to finish before hiding
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }, 300);
+        }
+
+        // Close modals if clicked outside the content box
+        window.onclick = function(event) {
+            const privacyModal = document.getElementById('privacyModal');
+            const termsModal = document.getElementById('termsModal');
+            if (event.target == privacyModal) closeModal('privacyModal');
+            if (event.target == termsModal) closeModal('termsModal');
+        }
+
+        // Initialize language on page load
+        applyLanguage(currentLang);
+    </script>
+
+</body>
+</html>
